@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QL_TT_NGOAINGUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KhoaThi">
+          <Key>
+            <PropertyRef Name="MaKhoaThi" />
+          </Key>
+          <Property Name="MaKhoaThi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenKhoaThi" Type="nvarchar" MaxLength="60" />
+          <Property Name="NgayThi" Type="date" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PhongThi">
+          <Key>
+            <PropertyRef Name="MaPhongThi" />
+          </Key>
+          <Property Name="MaPhongThi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenPhongThi" Type="nvarchar" MaxLength="6" />
+          <Property Name="TrinhDo" Type="nvarchar" MaxLength="2" />
+          <Property Name="SoLuongThiSinh" Type="int" />
+          <Property Name="MaKhoaThi" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SoLuongPhongTam">
+          <Property Name="TrinhDo" Type="nvarchar" MaxLength="2" />
+          <Property Name="SoLuongPhong" Type="int" />
+        </EntityType>-->
+        <EntityType Name="ThiSinh">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaThiSinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenThiSinh" Type="nvarchar" MaxLength="30" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="Cmnd" Type="nvarchar" MaxLength="12" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ThiSinhCuaKhoaThi">
+          <Key>
+            <PropertyRef Name="MaKhoaThi" />
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaKhoaThi" Type="int" Nullable="false" />
+          <Property Name="MaThiSinh" Type="int" Nullable="false" />
+          <Property Name="TrinhDo" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="ThiSinhTheoPhongThi">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+            <PropertyRef Name="MaPhongThi" />
+          </Key>
+          <Property Name="MaThiSinh" Type="int" Nullable="false" />
+          <Property Name="MaPhongThi" Type="int" Nullable="false" />
+          <Property Name="SBD" Type="nvarchar" MaxLength="6" />
+          <Property Name="DiemNghe" Type="int" />
+          <Property Name="DiemNoi" Type="int" />
+          <Property Name="DiemDoc" Type="int" />
+          <Property Name="DiemViet" Type="int" />
+        </EntityType>
+        <Association Name="FK__PhongThi__MaKhoa__2E1BDC42">
+          <End Role="KhoaThi" Type="Self.KhoaThi" Multiplicity="0..1" />
+          <End Role="PhongThi" Type="Self.PhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Principal>
+            <Dependent Role="PhongThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhCu__MaKho__2F10007B">
+          <End Role="KhoaThi" Type="Self.KhoaThi" Multiplicity="1" />
+          <End Role="ThiSinhCuaKhoaThi" Type="Self.ThiSinhCuaKhoaThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Principal>
+            <Dependent Role="ThiSinhCuaKhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhCu__MaThi__300424B4">
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+          <End Role="ThiSinhCuaKhoaThi" Type="Self.ThiSinhCuaKhoaThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="ThiSinhCuaKhoaThi">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhTh__MaPho__31EC6D26">
+          <End Role="PhongThi" Type="Self.PhongThi" Multiplicity="1" />
+          <End Role="ThiSinhTheoPhongThi" Type="Self.ThiSinhTheoPhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhongThi">
+              <PropertyRef Name="MaPhongThi" />
+            </Principal>
+            <Dependent Role="ThiSinhTheoPhongThi">
+              <PropertyRef Name="MaPhongThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhTh__MaThi__30F848ED">
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+          <End Role="ThiSinhTheoPhongThi" Type="Self.ThiSinhTheoPhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="ThiSinhTheoPhongThi">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_TT_NGOAINGUModelStoreContainer">
+          <EntitySet Name="KhoaThi" EntityType="Self.KhoaThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhongThi" EntityType="Self.PhongThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThiSinh" EntityType="Self.ThiSinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThiSinhCuaKhoaThi" EntityType="Self.ThiSinhCuaKhoaThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThiSinhTheoPhongThi" EntityType="Self.ThiSinhTheoPhongThi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PhongThi__MaKhoa__2E1BDC42" Association="Self.FK__PhongThi__MaKhoa__2E1BDC42">
+            <End Role="KhoaThi" EntitySet="KhoaThi" />
+            <End Role="PhongThi" EntitySet="PhongThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhCu__MaKho__2F10007B" Association="Self.FK__ThiSinhCu__MaKho__2F10007B">
+            <End Role="KhoaThi" EntitySet="KhoaThi" />
+            <End Role="ThiSinhCuaKhoaThi" EntitySet="ThiSinhCuaKhoaThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhCu__MaThi__300424B4" Association="Self.FK__ThiSinhCu__MaThi__300424B4">
+            <End Role="ThiSinh" EntitySet="ThiSinh" />
+            <End Role="ThiSinhCuaKhoaThi" EntitySet="ThiSinhCuaKhoaThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhTh__MaPho__31EC6D26" Association="Self.FK__ThiSinhTh__MaPho__31EC6D26">
+            <End Role="PhongThi" EntitySet="PhongThi" />
+            <End Role="ThiSinhTheoPhongThi" EntitySet="ThiSinhTheoPhongThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhTh__MaThi__30F848ED" Association="Self.FK__ThiSinhTh__MaThi__30F848ED">
+            <End Role="ThiSinh" EntitySet="ThiSinh" />
+            <End Role="ThiSinhTheoPhongThi" EntitySet="ThiSinhTheoPhongThi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QL_TT_NGOAINGUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KhoaThi">
+          <Key>
+            <PropertyRef Name="MaKhoaThi" />
+          </Key>
+          <Property Name="MaKhoaThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKhoaThi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="NgayThi" Type="DateTime" Precision="0" />
+          <Property Name="TrangThai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhongThis" Relationship="Self.FK__PhongThi__MaKhoa__2E1BDC42" FromRole="KhoaThi" ToRole="PhongThi" />
+          <NavigationProperty Name="ThiSinhCuaKhoaThis" Relationship="Self.FK__ThiSinhCu__MaKho__2F10007B" FromRole="KhoaThi" ToRole="ThiSinhCuaKhoaThi" />
+        </EntityType>
+        <EntityType Name="PhongThi">
+          <Key>
+            <PropertyRef Name="MaPhongThi" />
+          </Key>
+          <Property Name="MaPhongThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenPhongThi" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="TrinhDo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuongThiSinh" Type="Int32" />
+          <Property Name="MaKhoaThi" Type="Int32" />
+          <NavigationProperty Name="KhoaThi" Relationship="Self.FK__PhongThi__MaKhoa__2E1BDC42" FromRole="PhongThi" ToRole="KhoaThi" />
+          <NavigationProperty Name="ThiSinhTheoPhongThis" Relationship="Self.FK__ThiSinhTh__MaPho__31EC6D26" FromRole="PhongThi" ToRole="ThiSinhTheoPhongThi" />
+        </EntityType>
+        <EntityType Name="ThiSinh">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaThiSinh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenThiSinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cmnd" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ThiSinhCuaKhoaThis" Relationship="Self.FK__ThiSinhCu__MaThi__300424B4" FromRole="ThiSinh" ToRole="ThiSinhCuaKhoaThi" />
+          <NavigationProperty Name="ThiSinhTheoPhongThis" Relationship="Self.FK__ThiSinhTh__MaThi__30F848ED" FromRole="ThiSinh" ToRole="ThiSinhTheoPhongThi" />
+        </EntityType>
+        <EntityType Name="ThiSinhCuaKhoaThi">
+          <Key>
+            <PropertyRef Name="MaKhoaThi" />
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaKhoaThi" Type="Int32" Nullable="false" />
+          <Property Name="MaThiSinh" Type="Int32" Nullable="false" />
+          <Property Name="TrinhDo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KhoaThi" Relationship="Self.FK__ThiSinhCu__MaKho__2F10007B" FromRole="ThiSinhCuaKhoaThi" ToRole="KhoaThi" />
+          <NavigationProperty Name="ThiSinh" Relationship="Self.FK__ThiSinhCu__MaThi__300424B4" FromRole="ThiSinhCuaKhoaThi" ToRole="ThiSinh" />
+        </EntityType>
+        <EntityType Name="ThiSinhTheoPhongThi">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+            <PropertyRef Name="MaPhongThi" />
+          </Key>
+          <Property Name="MaThiSinh" Type="Int32" Nullable="false" />
+          <Property Name="MaPhongThi" Type="Int32" Nullable="false" />
+          <Property Name="SBD" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="DiemNghe" Type="Int32" />
+          <Property Name="DiemNoi" Type="Int32" />
+          <Property Name="DiemDoc" Type="Int32" />
+          <Property Name="DiemViet" Type="Int32" />
+          <NavigationProperty Name="PhongThi" Relationship="Self.FK__ThiSinhTh__MaPho__31EC6D26" FromRole="ThiSinhTheoPhongThi" ToRole="PhongThi" />
+          <NavigationProperty Name="ThiSinh" Relationship="Self.FK__ThiSinhTh__MaThi__30F848ED" FromRole="ThiSinhTheoPhongThi" ToRole="ThiSinh" />
+        </EntityType>
+        <Association Name="FK__PhongThi__MaKhoa__2E1BDC42">
+          <End Role="KhoaThi" Type="Self.KhoaThi" Multiplicity="0..1" />
+          <End Role="PhongThi" Type="Self.PhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Principal>
+            <Dependent Role="PhongThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhCu__MaKho__2F10007B">
+          <End Role="KhoaThi" Type="Self.KhoaThi" Multiplicity="1" />
+          <End Role="ThiSinhCuaKhoaThi" Type="Self.ThiSinhCuaKhoaThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Principal>
+            <Dependent Role="ThiSinhCuaKhoaThi">
+              <PropertyRef Name="MaKhoaThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhTh__MaPho__31EC6D26">
+          <End Role="PhongThi" Type="Self.PhongThi" Multiplicity="1" />
+          <End Role="ThiSinhTheoPhongThi" Type="Self.ThiSinhTheoPhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhongThi">
+              <PropertyRef Name="MaPhongThi" />
+            </Principal>
+            <Dependent Role="ThiSinhTheoPhongThi">
+              <PropertyRef Name="MaPhongThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhCu__MaThi__300424B4">
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+          <End Role="ThiSinhCuaKhoaThi" Type="Self.ThiSinhCuaKhoaThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="ThiSinhCuaKhoaThi">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThiSinhTh__MaThi__30F848ED">
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+          <End Role="ThiSinhTheoPhongThi" Type="Self.ThiSinhTheoPhongThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="ThiSinhTheoPhongThi">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QL_TT_NGOAINGUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KhoaThis" EntityType="Self.KhoaThi" />
+          <EntitySet Name="PhongThis" EntityType="Self.PhongThi" />
+          <EntitySet Name="ThiSinhs" EntityType="Self.ThiSinh" />
+          <EntitySet Name="ThiSinhCuaKhoaThis" EntityType="Self.ThiSinhCuaKhoaThi" />
+          <EntitySet Name="ThiSinhTheoPhongThis" EntityType="Self.ThiSinhTheoPhongThi" />
+          <AssociationSet Name="FK__PhongThi__MaKhoa__2E1BDC42" Association="Self.FK__PhongThi__MaKhoa__2E1BDC42">
+            <End Role="KhoaThi" EntitySet="KhoaThis" />
+            <End Role="PhongThi" EntitySet="PhongThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhCu__MaKho__2F10007B" Association="Self.FK__ThiSinhCu__MaKho__2F10007B">
+            <End Role="KhoaThi" EntitySet="KhoaThis" />
+            <End Role="ThiSinhCuaKhoaThi" EntitySet="ThiSinhCuaKhoaThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhTh__MaPho__31EC6D26" Association="Self.FK__ThiSinhTh__MaPho__31EC6D26">
+            <End Role="PhongThi" EntitySet="PhongThis" />
+            <End Role="ThiSinhTheoPhongThi" EntitySet="ThiSinhTheoPhongThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhCu__MaThi__300424B4" Association="Self.FK__ThiSinhCu__MaThi__300424B4">
+            <End Role="ThiSinh" EntitySet="ThiSinhs" />
+            <End Role="ThiSinhCuaKhoaThi" EntitySet="ThiSinhCuaKhoaThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThiSinhTh__MaThi__30F848ED" Association="Self.FK__ThiSinhTh__MaThi__30F848ED">
+            <End Role="ThiSinh" EntitySet="ThiSinhs" />
+            <End Role="ThiSinhTheoPhongThi" EntitySet="ThiSinhTheoPhongThis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QL_TT_NGOAINGUModelStoreContainer" CdmEntityContainer="QL_TT_NGOAINGUEntities">
+          <EntitySetMapping Name="KhoaThis">
+            <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.KhoaThi">
+              <MappingFragment StoreEntitySet="KhoaThi">
+                <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+                <ScalarProperty Name="TenKhoaThi" ColumnName="TenKhoaThi" />
+                <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhongThis">
+            <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.PhongThi">
+              <MappingFragment StoreEntitySet="PhongThi">
+                <ScalarProperty Name="MaPhongThi" ColumnName="MaPhongThi" />
+                <ScalarProperty Name="TenPhongThi" ColumnName="TenPhongThi" />
+                <ScalarProperty Name="TrinhDo" ColumnName="TrinhDo" />
+                <ScalarProperty Name="SoLuongThiSinh" ColumnName="SoLuongThiSinh" />
+                <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThiSinhs">
+            <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinh">
+              <MappingFragment StoreEntitySet="ThiSinh">
+                <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+                <ScalarProperty Name="TenThiSinh" ColumnName="TenThiSinh" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="Cmnd" ColumnName="Cmnd" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThiSinhCuaKhoaThis">
+            <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinhCuaKhoaThi">
+              <MappingFragment StoreEntitySet="ThiSinhCuaKhoaThi">
+                <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+                <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+                <ScalarProperty Name="TrinhDo" ColumnName="TrinhDo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThiSinhTheoPhongThis">
+            <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinhTheoPhongThi">
+              <MappingFragment StoreEntitySet="ThiSinhTheoPhongThi">
+                <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+                <ScalarProperty Name="MaPhongThi" ColumnName="MaPhongThi" />
+                <ScalarProperty Name="SBD" ColumnName="SBD" />
+                <ScalarProperty Name="DiemNghe" ColumnName="DiemNghe" />
+                <ScalarProperty Name="DiemNoi" ColumnName="DiemNoi" />
+                <ScalarProperty Name="DiemDoc" ColumnName="DiemDoc" />
+                <ScalarProperty Name="DiemViet" ColumnName="DiemViet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
