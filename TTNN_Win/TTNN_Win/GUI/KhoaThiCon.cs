@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TTNN_Win.GUI
 {
-    public partial class KhoaThi : Form
+    public partial class KhoaThiCon : Form
     {
-        public KhoaThi()
+        public KhoaThiCon()
         {
             InitializeComponent();
         }

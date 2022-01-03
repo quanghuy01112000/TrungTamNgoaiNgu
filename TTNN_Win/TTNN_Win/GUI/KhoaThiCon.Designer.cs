@@ -1,7 +1,7 @@
 ﻿
 namespace TTNN_Win.GUI
 {
-    partial class KhoaThi
+    partial class KhoaThiCon
     {
         /// <summary>
         /// Required designer variable.
