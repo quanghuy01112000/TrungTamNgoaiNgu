@@ -15,14 +15,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Đăng Ký", "Index", "DangKy")</li>
+                    <li>@Html.ActionLink("Thông tin thí sinh", "ThongTinThiSinh", "TraCuu")</li>
+                    <li>@Html.ActionLink("Danh sách thí sinh", "DanhSachThiSinh", "TraCuu")</li>
+                    <li>@Html.ActionLink("Giấy chứng nhận", "GiayChungNhan", "TraCuu")</li>
+                    <li>@Html.ActionLink("Chi Tiết Giấy Chứng Nhận", "ChiTietGiayChungNhan", "TraCuu")</li>
+                    <li>@Html.ActionLink("Thống kê A2", "ThongKeA2", "ThongKe")</li>
+                    <li>@Html.ActionLink("Thống kê B1", "ThongKeB1", "ThongKe")</li>
                 </ul>
             </div>
         </div>
