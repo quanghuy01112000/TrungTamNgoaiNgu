@@ -38,10 +38,15 @@ namespace TTNN_Win.GUI
             thiSinh.GioiTinh = textBoxGioiTinh.Text;
             thiSinh.Cmnd = textBoxCMND.Text;
             thiSinh.SoDienThoai = textBoxSDT.Text;
-            if(busThiSinh.themThiSinh(thiSinh))
+
+            ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = new ThiSinhCuaKhoaThi();
+            thiSinhCuaKhoaThi.MaThiSinh = busThiSinh.getMaThiSinhMax() +1;
+            thiSinhCuaKhoaThi.MaKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            thiSinhCuaKhoaThi.TrinhDo = comboBoxTrinhDo.Text;
+            
+            if(busThiSinh.themThiSinh(thiSinh) && busThiSinh.themThiSinhCuaKhoathi(thiSinhCuaKhoaThi))
             {
                 this.Close();
-                QuanLyThiSinh quanLyThiSinh = new QuanLyThiSinh();
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
             }
             else

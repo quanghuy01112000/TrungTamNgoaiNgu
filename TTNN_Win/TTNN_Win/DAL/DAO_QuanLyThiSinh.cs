@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTNN_Win.BIZ;
+using System.Data.Objects.SqlClient;
 
 namespace TTNN_Win.DAL
 {
@@ -54,6 +55,15 @@ namespace TTNN_Win.DAL
             }
             return true;
         }
+        public Boolean themThiSinhTrongKhoaThi(ThiSinhCuaKhoaThi thiSinhCuaKhoaThi)
+        {
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                db.ThiSinhCuaKhoaThis.Add(thiSinhCuaKhoaThi);
+                db.SaveChanges();
+            }
+            return true;
+        }
         public Boolean xoaThiSinh(int maThiSinh)
         {
             using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
@@ -74,18 +84,27 @@ namespace TTNN_Win.DAL
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
+                //DateTime now = DateTime.Now;
+                //DateTime dateAfterAdd = now.AddDays(5);
+                //var table = from h in db.KhoaThis
+                //where h.NgayThi > dateAfterAdd
+                //select h;
                 var table = from h in db.KhoaThis
                             where !h.TrangThai.Equals("đã kết thúc")
                             select h;
-                KhoaThi khoaThi = new KhoaThi();
-                foreach (var h in table)
+                if (table != null)
                 {
-                    khoaThi.MaKhoaThi = h.MaKhoaThi;
-                    khoaThi.TenKhoaThi = h.TenKhoaThi;
-                    khoaThi.NgayThi = h.NgayThi;
-                    khoaThi.TrangThai = h.TrangThai;
+                    KhoaThi khoaThi = new KhoaThi();
+                    foreach (var h in table)
+                    {
+                        khoaThi.MaKhoaThi = h.MaKhoaThi;
+                        khoaThi.TenKhoaThi = h.TenKhoaThi;
+                        khoaThi.NgayThi = h.NgayThi;
+                        khoaThi.TrangThai = h.TrangThai;
+                    }
+                    return khoaThi;
                 }
-                return khoaThi;
+                else return null;
             }
         }
     }

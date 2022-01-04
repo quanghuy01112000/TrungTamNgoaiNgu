@@ -21,7 +21,9 @@ namespace TTNN_Win.BIZ
         }
         public KhoaThi getKhoaThiByTrangThai()
         {
-            return daoQuanLyThiSinh.getKhoaThiByTrangThai();
+            if(!daoQuanLyThiSinh.getKhoaThiByTrangThai().Equals(null)) 
+                return daoQuanLyThiSinh.getKhoaThiByTrangThai();
+            else return null;
         }
         public Boolean suaThisinh(ThiSinh thiSinh)
         {
@@ -31,6 +33,10 @@ namespace TTNN_Win.BIZ
         {
             listThiSinh.Add(thiSinh);
             return daoQuanLyThiSinh.themThiSinh(thiSinh);
+        }
+        public Boolean themThiSinhCuaKhoathi(ThiSinhCuaKhoaThi thiSinhCuaKhoaThi)
+        {
+            return daoQuanLyThiSinh.themThiSinhTrongKhoaThi(thiSinhCuaKhoaThi);
         }
         public Boolean xoaThiSinh(ThiSinh thiSinh)
         {

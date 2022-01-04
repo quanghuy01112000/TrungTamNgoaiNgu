@@ -43,7 +43,7 @@ namespace TTNN_Win.GUI
             dgvQuanLyDanhSachTS.Columns["SoDienThoai"].DataPropertyName = "SoDienThoai";
             dgvQuanLyDanhSachTS.AllowUserToOrderColumns = true;
 
-            if (busThiSinh.getKhoaThiByTrangThai().Equals(null) )
+            if (busThiSinh.getKhoaThiByTrangThai().TrangThai == null )
             {
                 this.buttonThem.Enabled = false;
             }
