@@ -76,5 +76,25 @@ namespace TTNN_Win.DAL
             }
             return tmp;
         }
+
+        public List<KhoaThi> getListKT()
+        {
+            List<KhoaThi> tmp = new List<KhoaThi>();
+            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var kt = from i in db.KhoaThis
+                         select i;
+                foreach(KhoaThi k in kt)
+                {
+                    KhoaThi tmp2 = new KhoaThi();
+                    tmp2.MaKhoaThi = k.MaKhoaThi;
+                    tmp2.TenKhoaThi=k.TenKhoaThi;
+                    tmp2.NgayThi = k.NgayThi;
+                    tmp2.TrangThai = k.TrangThai;
+                    tmp.Add(tmp2);
+                }
+            }
+            return tmp;
+        }
     }
 }

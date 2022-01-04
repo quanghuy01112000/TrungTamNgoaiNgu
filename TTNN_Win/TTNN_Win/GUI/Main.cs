@@ -39,7 +39,7 @@ namespace TTNN_Win.GUI
 
         private void btnKhoaThi_Click(object sender, EventArgs e)
         {
-            openChildForm(new KhoaThi(), sender);
+            
         }
 
         private void btnThiSinh_Click(object sender, EventArgs e)
@@ -53,6 +53,11 @@ namespace TTNN_Win.GUI
         }
 
         private void panelTitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }

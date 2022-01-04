@@ -97,12 +97,6 @@
     <Compile Include="GUI\DSTS.designer.cs">
       <DependentUpon>DSTS.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\KhoaThi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\KhoaThi.Designer.cs">
-      <DependentUpon>KhoaThi.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DSTS.resx">
       <DependentUpon>DSTS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\KhoaThi.resx">
-      <DependentUpon>KhoaThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

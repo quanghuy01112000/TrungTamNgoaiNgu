@@ -40,11 +40,8 @@ namespace TTNN_Win.GUI
             this.buttonCloseChildForm = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelDeskTop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
-            this.panelDeskTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -213,24 +210,13 @@ namespace TTNN_Win.GUI
             // 
             // panelDeskTop
             // 
-            this.panelDeskTop.Controls.Add(this.pictureBox1);
             this.panelDeskTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDeskTop.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDeskTop.Location = new System.Drawing.Point(217, 76);
             this.panelDeskTop.Margin = new System.Windows.Forms.Padding(2);
             this.panelDeskTop.Name = "panelDeskTop";
             this.panelDeskTop.Size = new System.Drawing.Size(1065, 624);
             this.panelDeskTop.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1065, 624);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -247,11 +233,10 @@ namespace TTNN_Win.GUI
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
-            this.panelDeskTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,7 +253,6 @@ namespace TTNN_Win.GUI
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Panel panelDeskTop;
         private System.Windows.Forms.Button buttonCloseChildForm;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
     }
 }

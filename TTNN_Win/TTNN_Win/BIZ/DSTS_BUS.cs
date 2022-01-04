@@ -13,6 +13,7 @@ namespace TTNN_Win.BIZ
         public static List<ThiSinh> dsTS = new List<ThiSinh>();
         public static List<PhongThi> dsPT = new List<PhongThi>();
         public static List<ThiSinhTheoPhongThi> dsTSPT = new List<ThiSinhTheoPhongThi>();
+        public static List<KhoaThi> dsKT = new List<KhoaThi>();
         DSTS_DAO dao = new DSTS_DAO();
         public DSTS_BUS()
 
@@ -25,6 +26,7 @@ namespace TTNN_Win.BIZ
             dsTS= dao.getListTS();
             dsTSPT = dao.getListTSPT();
             dsPT = dao.getListPT();
+            dsKT = dao.getListKT();
         }
     }
 }

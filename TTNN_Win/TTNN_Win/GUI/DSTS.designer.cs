@@ -35,10 +35,10 @@ namespace TTNN_Win.GUI
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSort = new System.Windows.Forms.Button();
             this.cbxPhongThi = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxKhoaThi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,28 +88,10 @@ namespace TTNN_Win.GUI
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(308, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(104, 21);
-            this.comboBox1.TabIndex = 11;
-            // 
-            // btnSort
-            // 
-            this.btnSort.Location = new System.Drawing.Point(432, 43);
-            this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(64, 20);
-            this.btnSort.TabIndex = 12;
-            this.btnSort.Text = "Sắp Xếp";
-            this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
-            // 
             // cbxPhongThi
             // 
             this.cbxPhongThi.FormattingEnabled = true;
-            this.cbxPhongThi.Location = new System.Drawing.Point(83, 44);
+            this.cbxPhongThi.Location = new System.Drawing.Point(204, 37);
             this.cbxPhongThi.Name = "cbxPhongThi";
             this.cbxPhongThi.Size = new System.Drawing.Size(104, 21);
             this.cbxPhongThi.TabIndex = 14;
@@ -119,11 +101,30 @@ namespace TTNN_Win.GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 44);
+            this.label2.Location = new System.Drawing.Point(123, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 15;
             this.label2.Text = "Phòng Thi";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 18);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Khóa";
+            // 
+            // cbxKhoaThi
+            // 
+            this.cbxKhoaThi.FormattingEnabled = true;
+            this.cbxKhoaThi.Location = new System.Drawing.Point(61, 34);
+            this.cbxKhoaThi.Name = "cbxKhoaThi";
+            this.cbxKhoaThi.Size = new System.Drawing.Size(44, 21);
+            this.cbxKhoaThi.TabIndex = 18;
+            this.cbxKhoaThi.SelectedIndexChanged += new System.EventHandler(this.cbxKhoaThi_SelectedIndexChanged);
             // 
             // DSTS
             // 
@@ -131,10 +132,10 @@ namespace TTNN_Win.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(682, 403);
+            this.Controls.Add(this.cbxKhoaThi);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxPhongThi);
-            this.Controls.Add(this.btnSort);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.lblTimKiem);
@@ -156,9 +157,9 @@ namespace TTNN_Win.GUI
         private Label lblTimKiem;
         private Button btnChiTiet;
         private Button btnThoat;
-        private ComboBox comboBox1;
-        private Button btnSort;
         private ComboBox cbxPhongThi;
         private Label label2;
+        private Label label1;
+        private ComboBox cbxKhoaThi;
     }
 }

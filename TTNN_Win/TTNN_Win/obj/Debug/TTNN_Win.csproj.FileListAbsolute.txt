@@ -20,7 +20,6 @@ D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.AssemblyReference.cache
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.SuggestedBindingRedirects.cache
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.ChiTIetTS.resources
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.DSTS.resources
-D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.KhoaThi.resources
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.Main.resources
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.Properties.Resources.resources
 D:\proj\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.GenerateResource.cache
