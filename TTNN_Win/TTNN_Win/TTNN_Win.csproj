@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\DSTS_BUS.cs" />
     <Compile Include="BIZ\KhoaThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="BIZ\ThiSinhTheoPhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DSTS_DAO.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,9 +153,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="BIZ\QL_TT_NGOAINGU.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

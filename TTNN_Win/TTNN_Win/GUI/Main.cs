@@ -46,5 +46,15 @@ namespace TTNN_Win.GUI
         {
             openChildForm(new GUI.DSTS(), sender);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DSTS(), sender);
+        }
+
+        private void panelTitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
