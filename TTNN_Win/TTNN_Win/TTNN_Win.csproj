@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\BIZ_NhapDiem.cs" />
     <Compile Include="BIZ\KhoaThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="BIZ\ThiSinhTheoPhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAL_NhapDiem.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +109,12 @@
     <Compile Include="GUI\Main.designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NhapDiem.Designer.cs">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\ChiTIetTS.resx">
@@ -120,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NhapDiem.resx">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,9 +162,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="BIZ\QL_TT_NGOAINGU.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

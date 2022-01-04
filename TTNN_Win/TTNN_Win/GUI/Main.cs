@@ -46,5 +46,10 @@ namespace TTNN_Win.GUI
         {
             openChildForm(new GUI.DSTS(), sender);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new GUI.NhapDiem(), sender);
+        }
     }
 }
