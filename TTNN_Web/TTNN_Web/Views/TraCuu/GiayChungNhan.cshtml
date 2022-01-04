@@ -1,8 +1,59 @@
 ﻿
 @{
     ViewBag.Title = "GiayChungNhan";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
 }
 
-<h2>GiayChungNhan</h2>
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message page-title text-center">
+                    <h3>Giấy Chứng Nhận</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="javascript:void(0)">Trung tâm ngoại ngữ</a></li>
+                        <li class="active">Giấy chứng nhận</li>
+                    </ul>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="boxed boxedp4">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title text-center">
+                        <h3>Tra cứu giấy chứng nhận</h3>
+                        <p>Hãy nhập số báo danh thí sinh cần tra cứu.</p>
+                    </div><!-- end title -->
+
+                    <form class="big-contact-form" role="searchInfo">
+                        <input type="text" class="form-control" placeholder="Số báo danh..">
+                        <button type="submit" class="btn btn-primary">Tra cứu</button>
+                    </form>
+                </div><!-- end col -->
+            </div>
+
+            <div class="row contactv2 text-center">
+                <!-- table section -->
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="small-box">
+                        <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
+                        <h4>Trình độ A2</h4>
+                        <small>Số báo danh: 0013</small>
+                        <small>Phòng thi:  01</small>
+                        <small>Ngày thi thi:  01/11/2021</small>
+                        <small>Kết quả: <strong>Đậu</strong></small>
+                        <p><a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")" target="_blank">Giấy chứng nhận</a></p>
+                    </div><!-- end small-box -->
+                </div>
+            </div><!-- end contactv2 -->
+            <!-- end row -->
+        </div><!-- end container -->
+    </div>
+</section>
 
