@@ -21,6 +21,14 @@ namespace TTNN_Win.GUI
 
         private void KhoaThiMain_Load(object sender, EventArgs e)
         {
+
+            loaddata();
+            kiemtrakhoathi();
+           
+
+        }
+        public void loaddata()
+        {
             dgvDanhSachKT.AutoGenerateColumns = false;
             khoathiBIZ.getDSKhoaThi();
             dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
@@ -29,10 +37,6 @@ namespace TTNN_Win.GUI
             dgvDanhSachKT.Columns["NgayThi"].DataPropertyName = "NgayThi";
             dgvDanhSachKT.Columns[2].DefaultCellStyle.Format = "dd-MM-yyyy";
             dgvDanhSachKT.Columns["TrangThai"].DataPropertyName = "TrangThai";
-
-            kiemtrakhoathi();
-           
-
         }
         private void kiemtrakhoathi()
         {
@@ -53,13 +57,17 @@ namespace TTNN_Win.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int currentmonth = Int32.Parse(DateTime.Now.Month.ToString());
-            int month = Int32.Parse(dtpNgayThi.Value.Month.ToString());
+            int monthNow = Int32.Parse(DateTime.Now.Month.ToString());
+            int monthDTP = Int32.Parse(dtpNgayThi.Value.Month.ToString());
 
-            int currenyear = Int32.Parse(DateTime.Now.Year.ToString());
-            int year = Int32.Parse(dtpNgayThi.Value.Year.ToString());
+            int yearNow = Int32.Parse(DateTime.Now.Year.ToString());
+            int yearDTP = Int32.Parse(dtpNgayThi.Value.Year.ToString());
+
+            int dayNow = Int32.Parse(DateTime.Now.Day.ToString());
+            int dayDTP = Int32.Parse(dtpNgayThi.Value.Day.ToString());
 
             int maxMonth = Int32.Parse(khoathiBIZ.getNgayCuoi().Month.ToString());
+            int maxYear = Int32.Parse(khoathiBIZ.getNgayCuoi().Year.ToString());
 
             if (txtTenKhoaThi.Text.Equals(""))
             {
@@ -67,31 +75,13 @@ namespace TTNN_Win.GUI
             }
             else
             {
-                if(year > currenyear)
+                if(yearDTP > maxYear)
                 {
-                    if(month > maxMonth)
+                    if(yearDTP >= yearNow)
                     {
-                        KhoaThi khoaThi = new KhoaThi();
-                        khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
-                        khoaThi.NgayThi = dtpNgayThi.Value;
-                        khoaThi.TrangThai = "chưa thi";
-                        khoathiBIZ.themKhoaThi(khoaThi);
-                        dgvDanhSachKT.DataSource = null;
-                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                        MessageBox.Show("Thêm khóa thi thành công ", "Thông báo", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Đã có khóa thi tồn tại trong tháng này ", "Cảnh báo", MessageBoxButtons.OK);
-                    }
-                }
-                else
-                {
-                    if (year == currenyear)
-                    {
-                        if (month >= currentmonth)
+                        if (monthDTP >= monthNow)
                         {
-                            if (month > maxMonth)
+                            if(dayDTP >= dayNow)
                             {
                                 KhoaThi khoaThi = new KhoaThi();
                                 khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
@@ -100,21 +90,65 @@ namespace TTNN_Win.GUI
                                 khoathiBIZ.themKhoaThi(khoaThi);
                                 dgvDanhSachKT.DataSource = null;
                                 dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                                MessageBox.Show("Thêm khóa thi thành công ", "Thông báo", MessageBoxButtons.OK);
                             }
                             else
                             {
-                                MessageBox.Show("Đã có khóa thi tồn tại trong tháng này ", "Cảnh báo", MessageBoxButtons.OK);
+                                MessageBox.Show("Ngày của khóa thi phải lớn hơn hoặc bằng ngày hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Khóa thi phải lớn hơn hoặc bằng tháng hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                            MessageBox.Show("Tháng của khóa thi phải lớn hơn hoặc bằng tháng hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Khóa thi phải lớn hơn hoặc bằng tháng hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Năm của khóa thi phải lớn hơn hoặc bằng năm hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    if (yearDTP == maxYear)
+                    {
+                        if(yearDTP >= yearNow)
+                        {
+                            if (monthDTP >= monthNow)
+                            {
+                                if (monthDTP > maxMonth)
+                                {
+                                    if (dayDTP >= dayNow)
+                                    {
+                                        KhoaThi khoaThi = new KhoaThi();
+                                        khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
+                                        khoaThi.NgayThi = dtpNgayThi.Value;
+                                        khoaThi.TrangThai = "chưa thi";
+                                        khoathiBIZ.themKhoaThi(khoaThi);
+                                        dgvDanhSachKT.DataSource = null;
+                                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Ngày của khóa thi phải lớn hơn hoặc bằng ngày hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Đã có khóa thi tồn tại trong tháng này " + khoathiBIZ.getNgayCuoi().Month.ToString(), "Cảnh báo", MessageBoxButtons.OK);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tháng khóa thi phải lớn hơn hoặc bằng tháng hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Năm của khóa thi phải lớn hơn hoặc bằng năm hiện tại ", "Cảnh báo", MessageBoxButtons.OK);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Năm của khóa thi phải lớn hơn hoặc bằng khóa thi trước ", "Cảnh báo", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -144,15 +178,16 @@ namespace TTNN_Win.GUI
                 {
                     if(currentday > day)
                     {
-                        KhoaThi khoathi = new KhoaThi();
+
+                        KhoaThi khoathi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi; 
                         khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                         khoathi.TenKhoaThi = row.Cells["TenKhoaThi"].Value.ToString();
                         khoathi.NgayThi = dtpNgayThi.Value;
                         khoathi.TrangThai = "đã kết thúc";
                         khoathiBIZ.suaKhoaThi(khoathi);
                         kiemtrakhoathi();
-                        dgvDanhSachKT.DataSource = null;
-                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                        dgvDanhSachKT.Refresh();
+                        dgvDanhSachKT.Update();
                         MessageBox.Show("Update trạng thái thành công ", "Cảnh báo", MessageBoxButtons.OK);
                     }
                     else
@@ -205,16 +240,16 @@ namespace TTNN_Win.GUI
                     if (dbmonth == month)
                     {
                         //DateTime ngaythi = Convert.ToDateTime(datet);
-                        KhoaThi khoathi = new KhoaThi();
+                        KhoaThi khoathi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
                         khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                         khoathi.TenKhoaThi = txtTenKhoaThi.Text;
                         khoathi.NgayThi = dtpNgayThi.Value;
                         khoathi.TrangThai = row.Cells["TrangThai"].Value.ToString();
                         khoathiBIZ.suaKhoaThi(khoathi);
                         kiemtrakhoathi();
-                        dgvDanhSachKT.DataSource = null;
-                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                        MessageBox.Show("Sửa thành công ", "Cảnh báo", MessageBoxButtons.OK);
+                        dgvDanhSachKT.Refresh();
+                        dgvDanhSachKT.Update();
+                        MessageBox.Show("Sửa thành công ", "Thông báo", MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -244,12 +279,12 @@ namespace TTNN_Win.GUI
                 }
                 else
                 {
-                    KhoaThi khoathi = new KhoaThi();
+                    KhoaThi khoathi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
                     khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                     khoathiBIZ.xoaKhoaThi(khoathi);
                     dgvDanhSachKT.DataSource = null;
                     dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                    MessageBox.Show("Xóa thành công ", "Cảnh báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
                 }
             }
             else

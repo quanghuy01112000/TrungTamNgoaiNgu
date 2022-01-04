@@ -75,6 +75,7 @@
     <Compile Include="BIZ\PhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="BIZ\PhongThiBIZ.cs" />
     <Compile Include="BIZ\QL_TT_NGOAINGU.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
