@@ -11,3 +11,22 @@ D:\github\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.ChiTIetTS.re
 D:\github\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.DSTS.resources
 D:\github\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.KhoaThi.resources
 D:\github\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.Main.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\bin\Debug\TTNN_Win.exe.config
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\bin\Debug\TTNN_Win.exe
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\bin\Debug\TTNN_Win.pdb
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\bin\Debug\EntityFramework.dll
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\bin\Debug\EntityFramework.xml
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.AssemblyReference.cache
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.SuggestedBindingRedirects.cache
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.ChiTIetTS.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.DSTS.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.KhoaThi.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.Main.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.Properties.Resources.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.GenerateResource.cache
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.CoreCompileInputs.cache
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.CopyComplete
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.exe
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.pdb
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.QuanLyThiSinh.resources
+C:\Users\doanv\OneDrive - doanv\Documents\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.ThemThiSinh.resources

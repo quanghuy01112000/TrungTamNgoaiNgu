@@ -46,5 +46,10 @@ namespace TTNN_Win.GUI
         {
             openChildForm(new GUI.DSTS(), sender);
         }
+
+        private void buttonQuanLyThiSinh_Click(object sender, EventArgs e)
+        {
+            openChildForm(new GUI.QuanLyThiSinh(),sender);
+        }
     }
 }

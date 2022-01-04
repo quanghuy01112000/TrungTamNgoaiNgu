@@ -30,6 +30,7 @@ namespace TTNN_Win.GUI
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonQuanLyThiSinh = new System.Windows.Forms.Button();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnThiSinh = new System.Windows.Forms.Button();
             this.btnPhongThi = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@ namespace TTNN_Win.GUI
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.buttonQuanLyThiSinh);
             this.panelMenu.Controls.Add(this.btnTraCuu);
             this.panelMenu.Controls.Add(this.btnThiSinh);
             this.panelMenu.Controls.Add(this.btnPhongThi);
@@ -61,6 +63,26 @@ namespace TTNN_Win.GUI
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(271, 875);
             this.panelMenu.TabIndex = 0;
+            // 
+            // buttonQuanLyThiSinh
+            // 
+            this.buttonQuanLyThiSinh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonQuanLyThiSinh.FlatAppearance.BorderSize = 0;
+            this.buttonQuanLyThiSinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuanLyThiSinh.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonQuanLyThiSinh.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuanLyThiSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuanLyThiSinh.Location = new System.Drawing.Point(0, 367);
+            this.buttonQuanLyThiSinh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonQuanLyThiSinh.Name = "buttonQuanLyThiSinh";
+            this.buttonQuanLyThiSinh.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.buttonQuanLyThiSinh.Size = new System.Drawing.Size(271, 68);
+            this.buttonQuanLyThiSinh.TabIndex = 4;
+            this.buttonQuanLyThiSinh.Text = "    Quản lý thí sinh";
+            this.buttonQuanLyThiSinh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuanLyThiSinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonQuanLyThiSinh.UseVisualStyleBackColor = true;
+            this.buttonQuanLyThiSinh.Click += new System.EventHandler(this.buttonQuanLyThiSinh_Click);
             // 
             // btnTraCuu
             // 
@@ -217,7 +239,7 @@ namespace TTNN_Win.GUI
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Font = new System.Drawing.Font("Magneto", 9F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -244,5 +266,6 @@ namespace TTNN_Win.GUI
         private System.Windows.Forms.Panel panelDeskTop;
         private System.Windows.Forms.Button buttonCloseChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonQuanLyThiSinh;
     }
 }

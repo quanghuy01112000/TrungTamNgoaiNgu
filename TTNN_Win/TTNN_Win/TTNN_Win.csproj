@@ -53,9 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\BUS_QuanLyThiSinh.cs" />
     <Compile Include="BIZ\KhoaThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="BIZ\KhoaThiBiz.cs" />
     <Compile Include="BIZ\PhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
@@ -83,6 +85,8 @@
     <Compile Include="BIZ\ThiSinhTheoPhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAO_QuanLyThiSinh.cs" />
+    <Compile Include="DAL\KhoaThiDAL.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +111,18 @@
     <Compile Include="GUI\Main.designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.Designer.cs">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.Designer.cs">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\ChiTIetTS.resx">
@@ -120,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyThiSinh.resx">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemThiSinh.resx">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,9 +173,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="BIZ\QL_TT_NGOAINGU.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
