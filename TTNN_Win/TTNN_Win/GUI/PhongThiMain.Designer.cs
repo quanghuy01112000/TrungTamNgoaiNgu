@@ -1,7 +1,7 @@
 ﻿
 namespace TTNN_Win.GUI
 {
-    partial class KhoaThiMain
+    partial class PhongThiMain
     {
         /// <summary>
         /// Required designer variable.
@@ -34,61 +34,46 @@ namespace TTNN_Win.GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnKTKhoaThi = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.dtpNgayThi = new System.Windows.Forms.DateTimePicker();
             this.txtTenKhoaThi = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvDanhSachKT = new System.Windows.Forms.DataGridView();
             this.MaKhoaThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKhoaThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKT)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 184);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách khóa thi";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.btnKTKhoaThi);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.dtpNgayThi);
             this.panel1.Controls.Add(this.txtTenKhoaThi);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(28, 12);
+            this.panel1.Location = new System.Drawing.Point(29, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 151);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnKTKhoaThi
-            // 
-            this.btnKTKhoaThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKTKhoaThi.Location = new System.Drawing.Point(651, 79);
-            this.btnKTKhoaThi.Name = "btnKTKhoaThi";
-            this.btnKTKhoaThi.Size = new System.Drawing.Size(304, 42);
-            this.btnKTKhoaThi.TabIndex = 10;
-            this.btnKTKhoaThi.Text = "Kết thúc khóa thi";
-            this.btnKTKhoaThi.UseVisualStyleBackColor = true;
-            this.btnKTKhoaThi.Click += new System.EventHandler(this.btnKTKhoaThi_Click);
+            this.panel1.Size = new System.Drawing.Size(971, 192);
+            this.panel1.TabIndex = 5;
             // 
             // btnXoa
             // 
@@ -99,7 +84,6 @@ namespace TTNN_Win.GUI
             this.btnXoa.TabIndex = 9;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -110,7 +94,6 @@ namespace TTNN_Win.GUI
             this.btnSua.TabIndex = 8;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -121,46 +104,35 @@ namespace TTNN_Win.GUI
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // dtpNgayThi
-            // 
-            this.dtpNgayThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayThi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayThi.Location = new System.Drawing.Point(170, 86);
-            this.dtpNgayThi.Name = "dtpNgayThi";
-            this.dtpNgayThi.Size = new System.Drawing.Size(192, 35);
-            this.dtpNgayThi.TabIndex = 6;
-            this.dtpNgayThi.ValueChanged += new System.EventHandler(this.dtpNgayThi_ValueChanged);
             // 
             // txtTenKhoaThi
             // 
             this.txtTenKhoaThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKhoaThi.Location = new System.Drawing.Point(170, 26);
+            this.txtTenKhoaThi.Location = new System.Drawing.Point(170, 20);
             this.txtTenKhoaThi.Name = "txtTenKhoaThi";
             this.txtTenKhoaThi.ReadOnly = true;
             this.txtTenKhoaThi.Size = new System.Drawing.Size(458, 35);
             this.txtTenKhoaThi.TabIndex = 5;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 29);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Ngày Thi";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 26);
+            this.label2.Location = new System.Drawing.Point(3, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 29);
+            this.label2.Size = new System.Drawing.Size(161, 29);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Tên khóa thi";
+            this.label2.Text = "Tên phòng thi";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 218);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Danh sách phòng thi";
             // 
             // dgvDanhSachKT
             // 
@@ -190,7 +162,7 @@ namespace TTNN_Win.GUI
             this.TenKhoaThi,
             this.NgayThi,
             this.TrangThai});
-            this.dgvDanhSachKT.Location = new System.Drawing.Point(28, 216);
+            this.dgvDanhSachKT.Location = new System.Drawing.Point(29, 250);
             this.dgvDanhSachKT.Name = "dgvDanhSachKT";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -215,9 +187,8 @@ namespace TTNN_Win.GUI
             this.dgvDanhSachKT.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.dgvDanhSachKT.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvDanhSachKT.RowTemplate.Height = 28;
-            this.dgvDanhSachKT.Size = new System.Drawing.Size(971, 392);
-            this.dgvDanhSachKT.TabIndex = 0;
-            this.dgvDanhSachKT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachKT_CellClick);
+            this.dgvDanhSachKT.Size = new System.Drawing.Size(971, 358);
+            this.dgvDanhSachKT.TabIndex = 3;
             // 
             // MaKhoaThi
             // 
@@ -250,7 +221,66 @@ namespace TTNN_Win.GUI
             this.TrangThai.Name = "TrangThai";
             this.TrangThai.ReadOnly = true;
             // 
-            // KhoaThiMain
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(561, 80);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(67, 35);
+            this.textBox1.TabIndex = 10;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "A2",
+            "B1"});
+            this.comboBox1.Location = new System.Drawing.Point(170, 78);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 37);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 29);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Trình độ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(340, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 29);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Số lượng thí sinh";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 29);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tên khóa thi";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(170, 139);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(458, 35);
+            this.textBox2.TabIndex = 15;
+            // 
+            // PhongThiMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -258,9 +288,8 @@ namespace TTNN_Win.GUI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDanhSachKT);
-            this.Name = "KhoaThiMain";
-            this.Text = "KhoaThiMain";
-            this.Load += new System.EventHandler(this.KhoaThiMain_Load);
+            this.Name = "PhongThiMain";
+            this.Text = "PhongThiMain";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKT)).EndInit();
@@ -270,20 +299,24 @@ namespace TTNN_Win.GUI
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.DateTimePicker dtpNgayThi;
-        private System.Windows.Forms.TextBox txtTenKhoaThi;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnKTKhoaThi;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.TextBox txtTenKhoaThi;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDanhSachKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoaThi;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhoaThi;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayThi;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -28,3 +28,4 @@ C:\Users\Bi\Desktop\Thi_HK1\XDMHPL\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\
 C:\Users\Bi\Desktop\Thi_HK1\XDMHPL\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.csproj.CopyComplete
 C:\Users\Bi\Desktop\Thi_HK1\XDMHPL\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.exe
 C:\Users\Bi\Desktop\Thi_HK1\XDMHPL\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.pdb
+C:\Users\Bi\Desktop\Thi_HK1\XDMHPL\TrungTamNgoaiNgu\TTNN_Win\TTNN_Win\obj\Debug\TTNN_Win.GUI.PhongThiMain.resources

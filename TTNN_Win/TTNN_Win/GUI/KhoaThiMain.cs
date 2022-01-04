@@ -146,6 +146,8 @@ namespace TTNN_Win.GUI
                     {
                         KhoaThi khoathi = new KhoaThi();
                         khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
+                        khoathi.TenKhoaThi = row.Cells["TenKhoaThi"].Value.ToString();
+                        khoathi.NgayThi = dtpNgayThi.Value;
                         khoathi.TrangThai = "đã kết thúc";
                         khoathiBIZ.suaKhoaThi(khoathi);
                         kiemtrakhoathi();
@@ -184,33 +186,44 @@ namespace TTNN_Win.GUI
             if (this.dgvDanhSachKT.SelectedRows.Count == 1)
             {
                 DataGridViewRow row = dgvDanhSachKT.SelectedRows[0];
-                txtTenKhoaThi.Text = row.Cells["TenKhoaThi"].Value.ToString();
-                dtpNgayThi.Text = row.Cells["NgayThi"].Value.ToString();
+
+
                 int month = Int32.Parse(dtpNgayThi.Value.Month.ToString());
+
                 string dbdaymonth = (row.Cells["NgayThi"].Value.ToString()).Remove(5);
+
                 string[] strS = dbdaymonth.Split('/');
                 int dbmonth=0;
                 for (int i=0;i<strS.Length;i++)
                 {
                     dbmonth = Int32.Parse(strS[1]);
-                }    
-                if (dbmonth == month)
-                {
-                    string datet = row.Cells["NgayThi"].Value.ToString();
-                    DateTime ngaythi = Convert.ToDateTime(datet);
-                    KhoaThi khoathi = new KhoaThi();
-                    khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
-                    khoathi.TenKhoaThi = txtTenKhoaThi.Text;
-                    khoathi.NgayThi = ngaythi;
-                    khoathiBIZ.suaKhoaThi(khoathi);
-                    kiemtrakhoathi();
-                    dgvDanhSachKT.DataSource = null;
-                    dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                    MessageBox.Show("Sửa thành công ", "Cảnh báo", MessageBoxButtons.OK);
+                }
+
+                string trangthai = row.Cells["TrangThai"].Value.ToString();
+                if (trangthai.Equals("chưa thi"))
+                    {
+                    if (dbmonth == month)
+                    {
+                        //DateTime ngaythi = Convert.ToDateTime(datet);
+                        KhoaThi khoathi = new KhoaThi();
+                        khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
+                        khoathi.TenKhoaThi = txtTenKhoaThi.Text;
+                        khoathi.NgayThi = dtpNgayThi.Value;
+                        khoathi.TrangThai = row.Cells["TrangThai"].Value.ToString();
+                        khoathiBIZ.suaKhoaThi(khoathi);
+                        kiemtrakhoathi();
+                        dgvDanhSachKT.DataSource = null;
+                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                        MessageBox.Show("Sửa thành công ", "Cảnh báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không được sửa tháng ", "Cảnh báo", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                     MessageBox.Show("Không được sửa tháng ", "Cảnh báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không thể sửa khóa thi đã kết thúc ", "Cảnh báo", MessageBoxButtons.OK);
                 }
             }
             else
