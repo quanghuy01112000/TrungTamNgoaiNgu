@@ -149,6 +149,8 @@ namespace TTNN_Win.GUI
                         khoathi.TrangThai = "đã kết thúc";
                         khoathiBIZ.suaKhoaThi(khoathi);
                         kiemtrakhoathi();
+                        dgvDanhSachKT.DataSource = null;
+                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
                         MessageBox.Show("Update trạng thái thành công ", "Cảnh báo", MessageBoxButtons.OK);
                     }
                     else
@@ -202,6 +204,8 @@ namespace TTNN_Win.GUI
                     khoathi.NgayThi = ngaythi;
                     khoathiBIZ.suaKhoaThi(khoathi);
                     kiemtrakhoathi();
+                    dgvDanhSachKT.DataSource = null;
+                    dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
                     MessageBox.Show("Sửa thành công ", "Cảnh báo", MessageBoxButtons.OK);
                 }
                 else
@@ -230,6 +234,8 @@ namespace TTNN_Win.GUI
                     KhoaThi khoathi = new KhoaThi();
                     khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                     khoathiBIZ.xoaKhoaThi(khoathi);
+                    dgvDanhSachKT.DataSource = null;
+                    dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
                     MessageBox.Show("Xóa thành công ", "Cảnh báo", MessageBoxButtons.OK);
                 }
             }
