@@ -16,15 +16,16 @@ namespace TTNN_Win.DAL
             {
                 var table = from t in db.KhoaThis
                             select t;
-                foreach (var i in table)
-                {
-                    KhoaThi khoathi = new KhoaThi();
-                    khoathi.MaKhoaThi = i.MaKhoaThi;
-                    khoathi.TenKhoaThi = i.TenKhoaThi;
-                    khoathi.NgayThi = i.NgayThi;
-                    khoathi.TrangThai = i.TrangThai;
-                    dsKhoaThi.Add(khoathi);
-                }
+                //quên bỏ phần này
+                //foreach (var i in table)
+                //{
+                //    KhoaThi khoathi = new KhoaThi();
+                //    khoathi.MaKhoaThi = i.MaKhoaThi;
+                //    khoathi.TenKhoaThi = i.TenKhoaThi;
+                //    khoathi.NgayThi = i.NgayThi;
+                //    khoathi.TrangThai = i.TrangThai;
+                //    dsKhoaThi.Add(khoathi);
+                //}
                 return table.ToList();
             }
         }
@@ -70,7 +71,8 @@ namespace TTNN_Win.DAL
                 {
                     khoathiDb.TenKhoaThi = khoathi.TenKhoaThi;
                     khoathiDb.NgayThi = khoathi.NgayThi;
-                    khoathiDb.TrangThai = khoathi.TrangThai;
+                    //sửa trạng thái do nút kết thúc khóa thi làm
+                    //khoathiDb.TrangThai = khoathi.TrangThai;
                     db.SaveChanges();
                 }
             }
@@ -87,6 +89,7 @@ namespace TTNN_Win.DAL
 
             }
         }
+        //chổ này get khóa thi cuối sẽ dễ hiểu hơn 
         public String getTrangThaiCuoi()
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())

@@ -44,12 +44,12 @@ namespace TTNN_Win.GUI
 
         private void btnThiSinh_Click(object sender, EventArgs e)
         {
-            openChildForm(new GUI.DSTS(), sender);
+            openChildForm(new GUI.QuanLyThiSinh(), sender);
         }
 
         private void btnPhongThi_Click(object sender, EventArgs e)
         {
-            openChildForm(new GUI.PhongThiMain(), sender);
+            openChildForm(new GUI.DSTS(), sender);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,6 +69,11 @@ namespace TTNN_Win.GUI
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PhongThiMain(), sender);
         }
     }
 }

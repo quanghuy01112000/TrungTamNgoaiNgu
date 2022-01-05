@@ -26,6 +26,7 @@ namespace TTNN_Win.BIZ
 
         public Boolean suaKhoaThi(KhoaThi khoaThi)
         {
+            //sửa trong list bỏ vô đây luôn cũng dc
             return khoathiDAL.suaKhoaThi(khoaThi);
         }
 

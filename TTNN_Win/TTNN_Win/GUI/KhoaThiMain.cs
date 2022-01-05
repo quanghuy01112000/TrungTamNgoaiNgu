@@ -292,5 +292,10 @@ namespace TTNN_Win.GUI
                 MessageBox.Show("Chọn một khóa thi để xóa ", "Cảnh báo", MessageBoxButtons.OK);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Text = button1.Text == "Thêm" ? "kết thúc" : "Thêm";
+        }
     }
 }
