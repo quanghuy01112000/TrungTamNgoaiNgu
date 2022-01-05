@@ -12,6 +12,7 @@ namespace TTNN_Win.BIZ
         public static List<ThiSinh> listThiSinh = null;
         public static List<KhoaThi> listKhoaThi = null;
         DAO_QuanLyThiSinh daoQuanLyThiSinh = new DAO_QuanLyThiSinh();
+        public static List<string> listGioiTinh = new List<string>(new string[] { "Nam", "Nu" });
 
         public static List<string> listTrinhDo = new List<string>(new string[] { "A2", "B1" });
         public void getDanhSachThiSinh()

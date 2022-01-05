@@ -37,12 +37,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTenThiSinh = new System.Windows.Forms.TextBox();
-            this.textBoxGioiTinh = new System.Windows.Forms.TextBox();
             this.textBoxCMND = new System.Windows.Forms.TextBox();
             this.textBoxSDT = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelThemThiSinh = new System.Windows.Forms.TableLayoutPanel();
             this.labelTrinhDo = new System.Windows.Forms.Label();
             this.comboBoxTrinhDo = new System.Windows.Forms.ComboBox();
+            this.comboBoxGioiTinh = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelThemThiSinh.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,15 +139,6 @@
             this.textBoxTenThiSinh.Size = new System.Drawing.Size(157, 22);
             this.textBoxTenThiSinh.TabIndex = 7;
             // 
-            // textBoxGioiTinh
-            // 
-            this.textBoxGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGioiTinh.Location = new System.Drawing.Point(100, 194);
-            this.textBoxGioiTinh.Name = "textBoxGioiTinh";
-            this.textBoxGioiTinh.Size = new System.Drawing.Size(157, 22);
-            this.textBoxGioiTinh.TabIndex = 9;
-            // 
             // textBoxCMND
             // 
             this.textBoxCMND.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -176,7 +167,6 @@
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.labelTrinhDo, 0, 5);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.textBoxSDT, 1, 4);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.textBoxCMND, 1, 3);
-            this.tableLayoutPanelThemThiSinh.Controls.Add(this.textBoxGioiTinh, 1, 2);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.textBoxTenThiSinh, 1, 0);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.label4, 0, 1);
@@ -185,6 +175,7 @@
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.label7, 0, 4);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.dateTimePickerNgaySinh, 1, 1);
             this.tableLayoutPanelThemThiSinh.Controls.Add(this.comboBoxTrinhDo, 1, 5);
+            this.tableLayoutPanelThemThiSinh.Controls.Add(this.comboBoxGioiTinh, 1, 2);
             this.tableLayoutPanelThemThiSinh.Location = new System.Drawing.Point(55, 12);
             this.tableLayoutPanelThemThiSinh.Name = "tableLayoutPanelThemThiSinh";
             this.tableLayoutPanelThemThiSinh.RowCount = 6;
@@ -218,6 +209,16 @@
             this.comboBoxTrinhDo.Size = new System.Drawing.Size(157, 24);
             this.comboBoxTrinhDo.TabIndex = 15;
             // 
+            // comboBoxGioiTinh
+            // 
+            this.comboBoxGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGioiTinh.FormattingEnabled = true;
+            this.comboBoxGioiTinh.Location = new System.Drawing.Point(100, 193);
+            this.comboBoxGioiTinh.Name = "comboBoxGioiTinh";
+            this.comboBoxGioiTinh.Size = new System.Drawing.Size(157, 24);
+            this.comboBoxGioiTinh.TabIndex = 16;
+            // 
             // ThemThiSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -246,11 +247,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxTenThiSinh;
-        private System.Windows.Forms.TextBox textBoxGioiTinh;
         private System.Windows.Forms.TextBox textBoxCMND;
         private System.Windows.Forms.TextBox textBoxSDT;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelThemThiSinh;
         private System.Windows.Forms.Label labelTrinhDo;
         private System.Windows.Forms.ComboBox comboBoxTrinhDo;
+        private System.Windows.Forms.ComboBox comboBoxGioiTinh;
     }
 }

@@ -39,7 +39,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxSDT = new System.Windows.Forms.TextBox();
             this.textBoxCMND = new System.Windows.Forms.TextBox();
-            this.textBoxGioiTinh = new System.Windows.Forms.TextBox();
             this.textBoxTenThiSinh = new System.Windows.Forms.TextBox();
             this.lbMaThiSinh = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxGioiTinh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLyDanhSachTS)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +151,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel1.Controls.Add(this.textBoxSDT, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBoxCMND, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxGioiTinh, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBoxTenThiSinh, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbMaThiSinh, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
@@ -161,6 +160,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBoxMaThiSinh, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePickerNgaySinh, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxGioiTinh, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(649, 70);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -193,16 +193,6 @@
             this.textBoxCMND.Name = "textBoxCMND";
             this.textBoxCMND.Size = new System.Drawing.Size(143, 22);
             this.textBoxCMND.TabIndex = 10;
-            // 
-            // textBoxGioiTinh
-            // 
-            this.textBoxGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGioiTinh.Location = new System.Drawing.Point(96, 230);
-            this.textBoxGioiTinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxGioiTinh.Name = "textBoxGioiTinh";
-            this.textBoxGioiTinh.Size = new System.Drawing.Size(145, 22);
-            this.textBoxGioiTinh.TabIndex = 9;
             // 
             // textBoxTenThiSinh
             // 
@@ -369,6 +359,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // comboBoxGioiTinh
+            // 
+            this.comboBoxGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGioiTinh.FormattingEnabled = true;
+            this.comboBoxGioiTinh.Location = new System.Drawing.Point(96, 229);
+            this.comboBoxGioiTinh.Name = "comboBoxGioiTinh";
+            this.comboBoxGioiTinh.Size = new System.Drawing.Size(143, 24);
+            this.comboBoxGioiTinh.TabIndex = 13;
+            // 
             // QuanLyThiSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -421,8 +421,8 @@
         private System.Windows.Forms.Button buttonThem;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxGioiTinh;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgaySinh;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxGioiTinh;
     }
 }

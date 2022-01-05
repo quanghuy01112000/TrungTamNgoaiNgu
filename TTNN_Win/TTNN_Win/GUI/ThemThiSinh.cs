@@ -19,23 +19,26 @@ namespace TTNN_Win.GUI
         public ThemThiSinh()
         {
             InitializeComponent();
+            comboBoxGioiTinh.SelectedIndex = 0;
+            comboBoxTrinhDo.SelectedIndex = 0;
         }
         private void ThemThiSinh_Load(object sender, EventArgs e)
         {
             comboBoxTrinhDo.DataSource = ThiSinh.listTrinhDo;
+            comboBoxGioiTinh.DataSource = ThiSinh.listGioiTinh;
         }
 
         private void buttonThemThiSinh_Click(object sender, EventArgs e)
         {
             if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null
-                || textBoxGioiTinh.Text == "" || textBoxCMND.Text == "" || textBoxSDT.Text == "")
+                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "" || comboBoxTrinhDo.Text == null)
             {
                 MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
             }
             ThiSinh thiSinh = new ThiSinh();
             thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
             thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
-            thiSinh.GioiTinh = textBoxGioiTinh.Text;
+            thiSinh.GioiTinh = comboBoxGioiTinh.Text;
             thiSinh.Cmnd = textBoxCMND.Text;
             thiSinh.SoDienThoai = textBoxSDT.Text;
 

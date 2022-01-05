@@ -47,7 +47,8 @@ namespace TTNN_Win.GUI
             {
                 this.buttonThem.Enabled = false;
             }
-            
+
+            comboBoxGioiTinh.DataSource = ThiSinh.listGioiTinh;
         }
         
         private void dgvQuanLyDanhSachTS_SelectionChanged(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace TTNN_Win.GUI
                 textBoxMaThiSinh.Text = thiSinh.MaThiSinh.ToString();
                 textBoxTenThiSinh.Text = thiSinh.TenThiSinh.ToString();
                 dateTimePickerNgaySinh.Value = thiSinh.NgaySinh.Value;
-                textBoxGioiTinh.Text = thiSinh.GioiTinh.ToString();
+                comboBoxGioiTinh.Text = thiSinh.GioiTinh;
                 textBoxCMND.Text = thiSinh.Cmnd.ToString();
                 textBoxSDT.Text = thiSinh.SoDienThoai.ToString();
             } catch(IndexOutOfRangeException ex) { Console.WriteLine(ex); }
@@ -69,14 +70,14 @@ namespace TTNN_Win.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null 
-                || textBoxGioiTinh.Text == "" || textBoxCMND.Text == "" || textBoxSDT.Text == "")
+                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "")
             {
                 MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
             }
             ThiSinh thiSinh = dgvQuanLyDanhSachTS.CurrentRow.DataBoundItem as ThiSinh;
             thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
             thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
-            thiSinh.GioiTinh = textBoxGioiTinh.Text;
+            thiSinh.GioiTinh = comboBoxGioiTinh.Text;
             thiSinh.Cmnd = textBoxCMND.Text;
             thiSinh.SoDienThoai = textBoxSDT.Text;
             dgvQuanLyDanhSachTS.Update();
