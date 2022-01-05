@@ -8,6 +8,8 @@
     <Property Name="TenKhoaThi" Type="nvarchar" MaxLength="60" />
     <Property Name="NgayThi" Type="date" />
     <Property Name="TrangThai" Type="nvarchar" MaxLength="15" />
+    <Property Name="PhongB1ToiDa" Type="int" />
+    <Property Name="PhongA2ToiDa" Type="int" />
   </EntityType>
   <EntityType Name="PhongThi">
     <Key>
@@ -19,12 +21,6 @@
     <Property Name="SoLuongThiSinh" Type="int" />
     <Property Name="MaKhoaThi" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SoLuongPhongTam">
-          <Property Name="TrinhDo" Type="nvarchar" MaxLength="2" />
-          <Property Name="SoLuongPhong" Type="int" />
-        </EntityType>-->
   <EntityType Name="ThiSinh">
     <Key>
       <PropertyRef Name="MaThiSinh" />

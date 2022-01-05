@@ -10,6 +10,8 @@
     <Property Name="TrangThai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PhongThis" Relationship="Self.FK__PhongThi__MaKhoa__2E1BDC42" FromRole="KhoaThi" ToRole="PhongThi" />
     <NavigationProperty Name="ThiSinhCuaKhoaThis" Relationship="Self.FK__ThiSinhCu__MaKho__2F10007B" FromRole="KhoaThi" ToRole="ThiSinhCuaKhoaThi" />
+    <Property Name="PhongB1ToiDa" Type="Int32" />
+    <Property Name="PhongA2ToiDa" Type="Int32" />
   </EntityType>
   <EntityType Name="PhongThi">
     <Key>

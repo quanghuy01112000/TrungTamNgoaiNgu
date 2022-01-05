@@ -11,8 +11,7 @@ namespace TTNN_Win.BIZ
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class KhoaThi
     {
         public KhoaThi()
@@ -25,9 +24,10 @@ namespace TTNN_Win.BIZ
         public string TenKhoaThi { get; set; }
         public Nullable<System.DateTime> NgayThi { get; set; }
         public string TrangThai { get; set; }
-        [Browsable(false)]
+        public Nullable<int> PhongB1ToiDa { get; set; }
+        public Nullable<int> PhongA2ToiDa { get; set; }
+    
         public virtual ICollection<PhongThi> PhongThis { get; set; }
-        [Browsable(false)]
         public virtual ICollection<ThiSinhCuaKhoaThi> ThiSinhCuaKhoaThis { get; set; }
     }
 }

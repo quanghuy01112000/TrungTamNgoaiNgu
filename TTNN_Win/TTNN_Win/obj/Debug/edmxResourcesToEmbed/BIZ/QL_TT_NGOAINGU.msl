@@ -4,6 +4,8 @@
     <EntitySetMapping Name="KhoaThis">
       <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.KhoaThi">
         <MappingFragment StoreEntitySet="KhoaThi">
+          <ScalarProperty Name="PhongA2ToiDa" ColumnName="PhongA2ToiDa" />
+          <ScalarProperty Name="PhongB1ToiDa" ColumnName="PhongB1ToiDa" />
           <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
           <ScalarProperty Name="TenKhoaThi" ColumnName="TenKhoaThi" />
           <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
