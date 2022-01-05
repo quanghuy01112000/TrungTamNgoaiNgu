@@ -16,7 +16,7 @@ namespace TTNN_Win.DAL
             {
                 var table = from t in db.KhoaThis
                             select t;
-                foreach(var i in table)
+                foreach (var i in table)
                 {
                     KhoaThi khoathi = new KhoaThi();
                     khoathi.MaKhoaThi = i.MaKhoaThi;
@@ -28,10 +28,10 @@ namespace TTNN_Win.DAL
                 return table.ToList();
             }
         }
-        
+
         public Boolean themKhoaThi(KhoaThi khoathi)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 db.KhoaThis.Add(khoathi);
                 db.SaveChanges();
@@ -44,7 +44,7 @@ namespace TTNN_Win.DAL
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 KhoaThi khoaThi = db.KhoaThis.Find(makhoathi);
-                if(khoaThi.ThiSinhCuaKhoaThis.Count > 0)
+                if (khoaThi.ThiSinhCuaKhoaThis.Count > 0)
                 {
                     return false;
                 }
@@ -59,7 +59,7 @@ namespace TTNN_Win.DAL
 
         public Boolean suaKhoaThi(KhoaThi khoathi)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 KhoaThi khoathiDb = db.KhoaThis.Find(khoathi.MaKhoaThi);
                 if (khoathiDb.ThiSinhCuaKhoaThis.Count > 0)
@@ -78,7 +78,7 @@ namespace TTNN_Win.DAL
         }
         public DateTime getNgayCuoi()
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 var table = from t in db.KhoaThis
                             orderby t.MaKhoaThi descending
