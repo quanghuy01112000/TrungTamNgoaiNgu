@@ -75,10 +75,10 @@ namespace TTNN_Win.GUI
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(0, 367);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(271, 57);
+            this.button1.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(271, 68);
             this.button1.TabIndex = 4;
             this.button1.Text = "    Nhập điểm";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
