@@ -36,6 +36,7 @@ namespace TTNN_Win.DAL
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
+
                 ThiSinh thiSinhDB = db.ThiSinhs.Find(thiSinh.MaThiSinh);
                 thiSinhDB.TenThiSinh = thiSinh.TenThiSinh;
                 thiSinhDB.NgaySinh = thiSinh.NgaySinh;
@@ -73,11 +74,14 @@ namespace TTNN_Win.DAL
             using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 ThiSinh thiSinh = db.ThiSinhs.Find(maThiSinh);
-                if (thiSinh.ThiSinhCuaKhoaThis.Count() > 0 || thiSinh.ThiSinhTheoPhongThis.Count() > 0)
+                ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = db.ThiSinhCuaKhoaThis.SingleOrDefault(m => m.MaThiSinh == maThiSinh);
+
+                if (thiSinh.ThiSinhTheoPhongThis.Count() > 0 || thiSinhCuaKhoaThi.KhoaThi.TrangThai.Equals("đã kết thúc"))
                     return false;
                 else
                 {
                     db.ThiSinhs.Remove(thiSinh);
+                    db.ThiSinhCuaKhoaThis.Remove(thiSinhCuaKhoaThi);
                     db.SaveChanges();
                 }
             }
