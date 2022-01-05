@@ -63,6 +63,10 @@ namespace TTNN_Win.GUI
         private void Main_Load(object sender, EventArgs e)
         {
 
+		}
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new GUI.NhapDiem(), sender);
         }
     }
 }

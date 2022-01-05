@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutReg.cshtml";
+}
+
+<section class="parallax event-section" data-stellar-background-ratio="0.5" style="background-image:url('@Url.Content("~/images/rg-bg.jpg")');">
+    <div class="registration-main">
+    <form class="form-horizontal registration-form" role="form">
+        <h2><i class="mdi mdi-notebook"></i> ĐĂNG KÝ THI </h2>
+        <div class="row form-group">
+            <label for="fullName" class="col-sm-2 control-label"><i class="mdi mdi-account"></i></label>
+            <div class="col-sm-10">
+                <input type="text" id="fullName" placeholder="Tên thí sinh" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-sm-2"><i class="mdi mdi-gender-male-female"></i></label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <input type="radio" name="gender" id="femaleRadio" value="Female" checked>
+                            <label for="femaleRadio" style="color: black;">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <input type="radio" name="gender" id="maleRadio" value="Male">
+                            <label for="maleRadio" style="color: black;">
+                                Male
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <input type="radio" name="gender" id="otherRadio" value="Other">
+                            <label for="otherRadio" style="color: black;">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="row form-group">
+            <label for="birthDate" class="col-sm-2 control-label"><i class="mdi mdi-calendar-range"></i></label>
+            <div class="col-sm-10">
+                <input id="birthDate" class="form-control js-datepicker" type="text" placeholder="Ngày sinh" name="birthday">
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="cmnd" class="col-sm-2 control-label"><i class="mdi mdi-account-card-details"></i></label>
+            <div class="col-sm-10">
+                <input type="text" id="cmnd" placeholder="CMND" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="sdt" class="col-sm-2 control-label"><i class="mdi mdi-phone"></i></label>
+            <div class="col-sm-10">
+                <input type="text" id="sdt" placeholder="Số điện thoại" class="form-control" name="sdt">
+            </div>
+        </div>
+
+
+        <div class="row form-group">
+            <label for="ch-subjects" class="col-sm-2 control-label"><i class="mdi mdi-format-list-bulleted"></i> </label>
+            <div class="col-sm-10">
+                <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="gender">
+                        <option disabled="disabled" selected="selected">Chọn trình độ thi</option>
+                        <option>A2</option>
+                        <option>B1</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <span class="help-block">*Required fields</span>
+            </div>
+        </div>
+        <div class="row form-group text-center">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary btn-hover">Register</button>
+            </div>
+        </div>
+    </form> <!-- /form -->
+    </div>
+
+
+
+</section><!-- end section -->
