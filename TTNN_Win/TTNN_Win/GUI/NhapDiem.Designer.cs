@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace TTNN_Win.GUI
 {
     partial class NhapDiem
@@ -30,11 +33,11 @@ namespace TTNN_Win.GUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbKhoa = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbPhong = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.cbPhong = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.dgvTS = new System.Windows.Forms.DataGridView();
             this.MaThiSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhongThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +47,7 @@ namespace TTNN_Win.GUI
             this.DiemNoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemViet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLuuDiem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTS)).BeginInit();
             this.SuspendLayout();
@@ -61,22 +65,23 @@ namespace TTNN_Win.GUI
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // cbKhoa
+            // btnTim
             // 
-            this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.Location = new System.Drawing.Point(73, 19);
-            this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(194, 24);
-            this.cbKhoa.TabIndex = 0;
+            this.btnTim.Location = new System.Drawing.Point(695, 22);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 4;
+            this.btnTim.Text = "Tìm kiếm";
+            this.btnTim.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // cbPhong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Khoa :";
+            this.cbPhong.FormattingEnabled = true;
+            this.cbPhong.Location = new System.Drawing.Point(378, 19);
+            this.cbPhong.Name = "cbPhong";
+            this.cbPhong.Size = new System.Drawing.Size(149, 24);
+            this.cbPhong.TabIndex = 3;
+            this.cbPhong.SelectedIndexChanged += new System.EventHandler(this.cbPhong_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -87,22 +92,23 @@ namespace TTNN_Win.GUI
             this.label2.TabIndex = 2;
             this.label2.Text = "Phòng :";
             // 
-            // cbPhong
+            // label1
             // 
-            this.cbPhong.FormattingEnabled = true;
-            this.cbPhong.Location = new System.Drawing.Point(378, 19);
-            this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(149, 24);
-            this.cbPhong.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Khoa :";
             // 
-            // btnTim
+            // cbKhoa
             // 
-            this.btnTim.Location = new System.Drawing.Point(695, 22);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
-            this.btnTim.TabIndex = 4;
-            this.btnTim.Text = "Tìm kiếm";
-            this.btnTim.UseVisualStyleBackColor = true;
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.Location = new System.Drawing.Point(73, 19);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(194, 24);
+            this.cbKhoa.TabIndex = 0;
+            this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
             // 
             // dgvTS
             // 
@@ -123,20 +129,19 @@ namespace TTNN_Win.GUI
             this.dgvTS.Location = new System.Drawing.Point(39, 131);
             this.dgvTS.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTS.Name = "dgvTS";
-            this.dgvTS.ReadOnly = true;
             this.dgvTS.RowHeadersWidth = 51;
             this.dgvTS.RowTemplate.Height = 24;
             this.dgvTS.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTS.Size = new System.Drawing.Size(840, 336);
             this.dgvTS.TabIndex = 5;
+            this.dgvTS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTS_CellClick);
             // 
             // MaThiSinh
             // 
             this.MaThiSinh.HeaderText = "Mã Thí Sinh";
             this.MaThiSinh.MinimumWidth = 6;
             this.MaThiSinh.Name = "MaThiSinh";
-            this.MaThiSinh.ReadOnly = true;
             this.MaThiSinh.Visible = false;
             // 
             // MaPhongThi
@@ -144,7 +149,6 @@ namespace TTNN_Win.GUI
             this.MaPhongThi.HeaderText = "Mã Phòng Thi";
             this.MaPhongThi.MinimumWidth = 6;
             this.MaPhongThi.Name = "MaPhongThi";
-            this.MaPhongThi.ReadOnly = true;
             this.MaPhongThi.Visible = false;
             // 
             // SBD
@@ -153,58 +157,66 @@ namespace TTNN_Win.GUI
             this.SBD.HeaderText = "Số báo danh";
             this.SBD.MinimumWidth = 6;
             this.SBD.Name = "SBD";
-            this.SBD.ReadOnly = true;
             // 
             // TenThiSinh
             // 
             this.TenThiSinh.HeaderText = "Tên thí sinh";
             this.TenThiSinh.MinimumWidth = 6;
             this.TenThiSinh.Name = "TenThiSinh";
-            this.TenThiSinh.ReadOnly = true;
             // 
             // DiemNghe
             // 
             this.DiemNghe.HeaderText = "Điểm nghe";
             this.DiemNghe.MinimumWidth = 6;
             this.DiemNghe.Name = "DiemNghe";
-            this.DiemNghe.ReadOnly = true;
             // 
             // DiemNoi
             // 
             this.DiemNoi.HeaderText = "Điểm nói";
             this.DiemNoi.MinimumWidth = 6;
             this.DiemNoi.Name = "DiemNoi";
-            this.DiemNoi.ReadOnly = true;
             // 
             // DiemDoc
             // 
             this.DiemDoc.HeaderText = "Điểm đọc";
             this.DiemDoc.MinimumWidth = 6;
             this.DiemDoc.Name = "DiemDoc";
-            this.DiemDoc.ReadOnly = true;
             // 
             // DiemViet
             // 
             this.DiemViet.HeaderText = "Điểm Viết";
             this.DiemViet.MinimumWidth = 6;
             this.DiemViet.Name = "DiemViet";
-            this.DiemViet.ReadOnly = true;
+            // 
+            // btnLuuDiem
+            // 
+            this.btnLuuDiem.Location = new System.Drawing.Point(692, 96);
+            this.btnLuuDiem.Name = "btnLuuDiem";
+            this.btnLuuDiem.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuDiem.TabIndex = 6;
+            this.btnLuuDiem.Text = "Lưu điểm";
+            this.btnLuuDiem.UseVisualStyleBackColor = true;
+            this.btnLuuDiem.Click += new System.EventHandler(this.btnLuuDiem_Click);
             // 
             // NhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 496);
+            this.Controls.Add(this.btnLuuDiem);
             this.Controls.Add(this.dgvTS);
             this.Controls.Add(this.groupBox1);
             this.Name = "NhapDiem";
             this.Text = "Nhập Điểm";
+            this.Load += new System.EventHandler(this.NhapDiem_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTS)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        
 
         #endregion
 
@@ -223,5 +235,6 @@ namespace TTNN_Win.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemNoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiemViet;
+        private System.Windows.Forms.Button btnLuuDiem;
     }
 }
