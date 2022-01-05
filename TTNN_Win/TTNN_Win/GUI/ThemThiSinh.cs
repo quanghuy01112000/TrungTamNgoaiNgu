@@ -19,13 +19,13 @@ namespace TTNN_Win.GUI
         public ThemThiSinh()
         {
             InitializeComponent();
-            comboBoxGioiTinh.SelectedIndex = 0;
-            comboBoxTrinhDo.SelectedIndex = 0;
         }
         private void ThemThiSinh_Load(object sender, EventArgs e)
         {
             comboBoxTrinhDo.DataSource = ThiSinh.listTrinhDo;
             comboBoxGioiTinh.DataSource = ThiSinh.listGioiTinh;
+            comboBoxGioiTinh.SelectedIndex = 0;
+            comboBoxTrinhDo.SelectedIndex = 0;
         }
 
         private void buttonThemThiSinh_Click(object sender, EventArgs e)

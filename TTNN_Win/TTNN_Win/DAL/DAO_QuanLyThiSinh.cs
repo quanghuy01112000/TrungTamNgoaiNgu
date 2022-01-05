@@ -10,6 +10,7 @@ namespace TTNN_Win.DAL
 {
     internal class DAO_QuanLyThiSinh
     {
+        private int id = 1;
         public List<ThiSinh> getDanhSachThiSinh()
         {
             List<ThiSinh> dsThiSinh = new List<ThiSinh>();
@@ -52,6 +53,8 @@ namespace TTNN_Win.DAL
             {
                 db.ThiSinhs.Add(thiSinh);
                 db.SaveChanges();
+
+                id = thiSinh.MaThiSinh;
             }
             return true;
         }
@@ -59,6 +62,7 @@ namespace TTNN_Win.DAL
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
+                thiSinhCuaKhoaThi.MaThiSinh = id;
                 db.ThiSinhCuaKhoaThis.Add(thiSinhCuaKhoaThi);
                 db.SaveChanges();
             }

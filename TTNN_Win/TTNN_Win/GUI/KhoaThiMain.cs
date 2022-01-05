@@ -48,7 +48,7 @@ namespace TTNN_Win.GUI
             }
             if (trangthai.Equals("đã kết thúc"))
             {
-                btnThem.Visible = true;
+                btnThem.Enabled = true;
             }
         }
 
