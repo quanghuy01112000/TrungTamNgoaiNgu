@@ -21,11 +21,8 @@ namespace TTNN_Win.GUI
 
         private void KhoaThiMain_Load(object sender, EventArgs e)
         {
-
             loaddata();
             kiemtrakhoathi();
-           
-
         }
         public void loaddata()
         {
@@ -47,9 +44,9 @@ namespace TTNN_Win.GUI
 
             if (maxMonth == currentmonth)
             {
-                btnThem.Visible = false;
+                btnThem.Enabled = false;
             }
-            if (trangthai.Equals("đã kết thúc") && maxMonth < currentmonth)
+            if (trangthai.Equals("đã kết thúc"))
             {
                 btnThem.Visible = true;
             }
@@ -90,6 +87,8 @@ namespace TTNN_Win.GUI
                                 khoathiBIZ.themKhoaThi(khoaThi);
                                 dgvDanhSachKT.DataSource = null;
                                 dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                                kiemtrakhoathi();
+                                MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
                             }
                             else
                             {
@@ -125,6 +124,8 @@ namespace TTNN_Win.GUI
                                         khoathiBIZ.themKhoaThi(khoaThi);
                                         dgvDanhSachKT.DataSource = null;
                                         dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                                        kiemtrakhoathi();
+                                        MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
                                     }
                                     else
                                     {
@@ -178,13 +179,12 @@ namespace TTNN_Win.GUI
                 {
                     if(currentday > day)
                     {
-
                         KhoaThi khoathi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi; 
                         khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                         khoathi.TenKhoaThi = row.Cells["TenKhoaThi"].Value.ToString();
                         khoathi.NgayThi = dtpNgayThi.Value;
                         khoathi.TrangThai = "đã kết thúc";
-                        khoathiBIZ.suaKhoaThi(khoathi);
+                        khoathiBIZ.suaTrangThaiKhoaThi(khoathi);
                         kiemtrakhoathi();
                         dgvDanhSachKT.Refresh();
                         dgvDanhSachKT.Update();
@@ -245,11 +245,17 @@ namespace TTNN_Win.GUI
                         khoathi.TenKhoaThi = txtTenKhoaThi.Text;
                         khoathi.NgayThi = dtpNgayThi.Value;
                         khoathi.TrangThai = row.Cells["TrangThai"].Value.ToString();
-                        khoathiBIZ.suaKhoaThi(khoathi);
-                        kiemtrakhoathi();
-                        dgvDanhSachKT.Refresh();
-                        dgvDanhSachKT.Update();
-                        MessageBox.Show("Sửa thành công ", "Thông báo", MessageBoxButtons.OK);
+                        if (khoathiBIZ.suaKhoaThi(khoathi))
+                        {
+                            kiemtrakhoathi();
+                            dgvDanhSachKT.Refresh();
+                            dgvDanhSachKT.Update();
+                            MessageBox.Show("Sửa thành công ", "Thông báo", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa thất bại vì có thi sinh đăng ký khóa thi ", "Cảnh báo", MessageBoxButtons.OK);
+                        }
                     }
                     else
                     {
@@ -281,10 +287,17 @@ namespace TTNN_Win.GUI
                 {
                     KhoaThi khoathi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
                     khoathi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
-                    khoathiBIZ.xoaKhoaThi(khoathi);
-                    dgvDanhSachKT.DataSource = null;
-                    dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                    MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
+                    if (khoathiBIZ.xoaKhoaThi(khoathi))
+                    {
+                        dgvDanhSachKT.DataSource = null;
+                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                        kiemtrakhoathi();
+                        MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại do có thí sinh đăng ký khóa thi này ", "Thông báo", MessageBoxButtons.OK);
+                    }
                 }
             }
             else

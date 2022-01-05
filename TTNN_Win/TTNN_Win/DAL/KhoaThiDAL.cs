@@ -72,9 +72,24 @@ namespace TTNN_Win.DAL
                     khoathiDb.TenKhoaThi = khoathi.TenKhoaThi;
                     khoathiDb.NgayThi = khoathi.NgayThi;
                     //sửa trạng thái do nút kết thúc khóa thi làm
-                    //khoathiDb.TrangThai = khoathi.TrangThai;
+                    khoathiDb.TrangThai = khoathi.TrangThai;
                     db.SaveChanges();
                 }
+            }
+            return true;
+        }
+        public Boolean suaTrangThaiKhoaThi(KhoaThi khoathi)
+        {
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                KhoaThi khoathiDb = db.KhoaThis.Find(khoathi.MaKhoaThi);
+                
+                   // khoathiDb.TenKhoaThi = khoathi.TenKhoaThi;
+                   // khoathiDb.NgayThi = khoathi.NgayThi;
+                    //sửa trạng thái do nút kết thúc khóa thi làm
+                    khoathiDb.TrangThai = khoathi.TrangThai;
+                    db.SaveChanges();
+                
             }
             return true;
         }

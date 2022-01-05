@@ -42,6 +42,10 @@ namespace TTNN_Win.BIZ
                 return false;
             }
         }
+        public Boolean suaTrangThaiKhoaThi(KhoaThi khoathi)
+        {
+            return khoathiDAL.suaTrangThaiKhoaThi(khoathi);
+        }
         public DateTime getNgayCuoi()
         {
             return khoathiDAL.getNgayCuoi();
