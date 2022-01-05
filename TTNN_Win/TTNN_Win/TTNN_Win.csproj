@@ -68,10 +68,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\BIZ_NhapDiem.cs" />
+    <Compile Include="BIZ\BUS_QuanLyThiSinh.cs" />
+    <Compile Include="BIZ\DSTS_BUS.cs" />
     <Compile Include="BIZ\KhoaThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
-    <Compile Include="BIZ\KhoaThiBIZ.cs" />
+    <Compile Include="BIZ\KhoaThiBiz.cs" />
     <Compile Include="BIZ\PhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
@@ -100,6 +103,9 @@
     <Compile Include="BIZ\ThiSinhTheoPhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAL_NhapDiem.cs" />
+    <Compile Include="DAL\DAO_QuanLyThiSinh.cs" />
+    <Compile Include="DAL\DSTS_DAO.cs" />
     <Compile Include="DAL\KhoaThiDAL.cs" />
     <Compile Include="DAL\PhongThiDAL.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
@@ -132,11 +138,29 @@
     <Compile Include="GUI\Main.designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NhapDiem.Designer.cs">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\PhongThiMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\PhongThiMain.Designer.cs">
       <DependentUpon>PhongThiMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.Designer.cs">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.Designer.cs">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,8 +179,17 @@
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NhapDiem.resx">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\PhongThiMain.resx">
       <DependentUpon>PhongThiMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyThiSinh.resx">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemThiSinh.resx">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

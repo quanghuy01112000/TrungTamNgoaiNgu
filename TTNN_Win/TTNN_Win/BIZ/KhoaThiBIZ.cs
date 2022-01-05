@@ -17,7 +17,7 @@ namespace TTNN_Win.BIZ
             listKhoaThi = khoathiDAL.getDanhSachKhoaThi();
             listKhoaThi = listKhoaThi.OrderBy(t => t.MaKhoaThi).ToList();
         }
-        
+
         public Boolean themKhoaThi(KhoaThi khoathi)
         {
             listKhoaThi.Add(khoathi);

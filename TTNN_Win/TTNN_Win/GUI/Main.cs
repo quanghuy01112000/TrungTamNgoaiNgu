@@ -50,9 +50,10 @@ namespace TTNN_Win.GUI
         private void btnPhongThi_Click(object sender, EventArgs e)
         {
             openChildForm(new GUI.PhongThiMain(), sender);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new DSTS(), sender);
+            openChildForm(new GUI.NhapDiem(), sender);
         }
 
         private void panelTitle_Paint(object sender, PaintEventArgs e)
@@ -64,9 +65,10 @@ namespace TTNN_Win.GUI
         {
 
 		}
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnTraCuu_Click(object sender, EventArgs e)
         {
-            openChildForm(new GUI.NhapDiem(), sender);
+
         }
     }
 }
