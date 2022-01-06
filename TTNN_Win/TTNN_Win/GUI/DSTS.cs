@@ -241,7 +241,7 @@ namespace TTNN_Win.GUI
                     ThiSinhTheoPhongThi thiSinhTheoPhongThi = new ThiSinhTheoPhongThi();
                     thiSinhTheoPhongThi.MaThiSinh = listThiSinhTheoTrinhDoA2[countListThiSinhA2];
                     thiSinhTheoPhongThi.MaPhongThi = phongThiA2.MaPhongThi;
-                    thiSinhTheoPhongThi.SBD = "A1" + countSBDA2.ToString("D3");
+                    thiSinhTheoPhongThi.SBD = "A2" + countSBDA2.ToString("D3");
                     busPhongThi.themThiSinhVaoPhongThi(thiSinhTheoPhongThi);
                     countSBDA2++;
                     countListThiSinhA2++;
