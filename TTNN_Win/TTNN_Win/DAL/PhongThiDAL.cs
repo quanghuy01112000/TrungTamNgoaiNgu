@@ -70,7 +70,6 @@ namespace TTNN_Win.DAL
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 count = db.ThiSinhCuaKhoaThis.Where(p => p.TrinhDo == "B1" && p.MaKhoaThi == maKhoaThi).Count();
-
             }
             return count;
         }

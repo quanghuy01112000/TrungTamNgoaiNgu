@@ -34,7 +34,16 @@ namespace TTNN_Win.GUI
 
         private void DSTS_Load(object sender, EventArgs e)
         {
-
+            busPhongThi.getDSPhongThi();
+            int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            if (PhongThi.listPhongThi.Where(p => p.MaKhoaThi == maKhoaThi).Count() > 0)
+            {
+                buttonXepPhongThi.Enabled = false;
+            }
+            if (busThiSinh.getKhoaThiByTrangThai().TrangThai == null)
+            {
+                buttonXepPhongThi.Enabled = false;
+            }
         }
 
         private void load()
@@ -56,11 +65,6 @@ namespace TTNN_Win.GUI
                         select i;
             dgvTS.DataSource = table.ToList();
 
-
-            if (busThiSinh.getKhoaThiByTrangThai().TrangThai == null)
-            {
-                this.buttonXepPhongThi.Enabled = false;
-            }
 
         }
 
@@ -280,7 +284,8 @@ namespace TTNN_Win.GUI
                 }
 
             }
-
+            buttonXepPhongThi.Enabled = false;
+            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
         }
     }
 }
