@@ -13,5 +13,10 @@ namespace TTNN_Web.Controllers
         {
             return View();
         }
+
+        public ActionResult DangKy()
+        {
+            return View();
+        }
     }
 }
