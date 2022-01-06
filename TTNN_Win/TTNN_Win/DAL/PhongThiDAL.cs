@@ -90,6 +90,7 @@ namespace TTNN_Win.DAL
             }
             return true;
         }
+
         public Boolean suaPhongThi(PhongThi phongthi)
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
@@ -157,7 +158,6 @@ namespace TTNN_Win.DAL
                 return table.FirstOrDefault().TrangThai.ToString();
             }
         }
-
 
     }
 }

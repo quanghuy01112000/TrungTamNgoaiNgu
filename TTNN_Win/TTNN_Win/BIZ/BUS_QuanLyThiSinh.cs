@@ -82,5 +82,9 @@ namespace TTNN_Win.BIZ
         {
             return daoQuanLyThiSinh.getMaThiSinhByTrinhDoB1();
         }
+        //public List<int> getDanhSachSinhVienChuaVaoPhongThi()
+        //{
+        //    return daoQuanLyThiSinh.getDanhSachSinhVienChuaVaoPhongThi();
+        //}
     }
 }

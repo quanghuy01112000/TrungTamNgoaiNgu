@@ -218,7 +218,7 @@ namespace TTNN_Win.GUI
             int countTenPhongThiA2 = 1;
             int countSBDA2 = 1;
             int countListThiSinhA2 = 0;
-            while (soLuongThiSinhCuaA2 > 0)
+            while (soLuongThiSinhCuaA2 >= 30)
             {
                 PhongThi phongThiA2 = new PhongThi();
                 phongThiA2.TenPhongThi = "A2P" + countTenPhongThiA2.ToString("D2");
@@ -227,7 +227,7 @@ namespace TTNN_Win.GUI
                 {
                     phongThiA2.SoLuongThiSinh = 35;
                 }
-                else
+                else if (30 <= soLuongThiSinhCuaA2 && soLuongThiSinhCuaA2 <= 35)
                 {
                     phongThiA2.SoLuongThiSinh = soLuongThiSinhCuaA2;
                 }
@@ -253,7 +253,7 @@ namespace TTNN_Win.GUI
             int countTenPhongThiB1 = 1;
             int countSBDB1 = 1;
             int countListThiSinhB1 = 0;
-            while (soLuongThiSinhCuaB1 > 0)
+            while (soLuongThiSinhCuaB1 >= 30)
             {
 
                 PhongThi phongThiB1 = new PhongThi();
@@ -263,7 +263,7 @@ namespace TTNN_Win.GUI
                 {
                     phongThiB1.SoLuongThiSinh = 35;
                 }
-                else
+                else if (30 <= soLuongThiSinhCuaB1 && soLuongThiSinhCuaB1 <= 35)
                 {
                     phongThiB1.SoLuongThiSinh = soLuongThiSinhCuaB1;
                 }
@@ -284,6 +284,7 @@ namespace TTNN_Win.GUI
                 }
 
             }
+
             buttonXepPhongThi.Enabled = false;
             MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
         }

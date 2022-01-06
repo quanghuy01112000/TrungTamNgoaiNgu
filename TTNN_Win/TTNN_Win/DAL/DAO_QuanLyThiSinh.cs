@@ -131,6 +131,25 @@ namespace TTNN_Win.DAL
             }
             return listMaThiSinh.ToList();
         }
+        //public List<int> getDanhSachSinhVienChuaVaoPhongThi()
+        //{
+        //    ThiSinh busThiSinh = new ThiSinh();
+        //    PhongThi busPhongThi = new PhongThi();
+        //    List<Int32> listMaThiSinh = new List<Int32>();
+        //    int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+
+        //    using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+        //    {
+        //        var thiSinhTrongPhongThi = db.ThiSinhTheoPhongThis.Select(p => p.MaThiSinh).ToList();
+        //        var table = db.ThiSinhCuaKhoaThis.Where(p => !thiSinhTrongPhongThi.Contains(p.MaThiSinh)).ToList();
+
+        //        foreach (var h in table)
+        //        {
+        //            listMaThiSinh.Add(int.Parse(h.ToString()));
+        //        }
+        //    }
+        //    return listMaThiSinh.ToList();
+        //}
         public List<Int32> getMaThiSinhByTrinhDoB1()
         {
             ThiSinh busThiSinh = new ThiSinh();
