@@ -11,6 +11,7 @@ namespace TTNN_Win.BIZ
     {
         public static List<PhongThi> listPhongThi = null;
         PhongThiDAL phongthiDAL = new PhongThiDAL();
+        public static List<ThiSinhTheoPhongThi> listThiSinhTheoPhongThi = null;
         public void getDSPhongThi()
         {
             listPhongThi = phongthiDAL.getDanhSachPhongThi();
@@ -20,6 +21,16 @@ namespace TTNN_Win.BIZ
         {
             listPhongThi.Add(phongthi);
             return phongthiDAL.themPhongThi(phongthi);
+        }
+        public Boolean taoPhongThiTuDong(PhongThi phongThi)
+        {
+            //listPhongThi.Add(phongThi);
+            return phongthiDAL.taoPhongThiTuDong(phongThi);
+        }
+        public Boolean themThiSinhVaoPhongThi(ThiSinhTheoPhongThi thiSinhTheoPhongThi)
+        {
+            //listThiSinhTheoPhongThi.Add(thiSinhTheoPhongThi);
+            return phongthiDAL.themThiSinhVaoPhongThi(thiSinhTheoPhongThi);
         }
         public Boolean xoaPhongThi(PhongThi phongthi)
         {
@@ -53,5 +64,14 @@ namespace TTNN_Win.BIZ
         {
             return phongthiDAL.getTrangThaiCuoi();
         }
+        public int getSoLuongThiSinhA2()
+        {
+            return phongthiDAL.getSoLuongThiSinhA2();
+        }
+        public int getSoLuongThiSinhB1()
+        {
+            return phongthiDAL.getSoLuongThiSinhB1();
+        }
+
     }
 }

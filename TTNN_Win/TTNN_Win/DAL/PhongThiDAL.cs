@@ -21,19 +21,64 @@ namespace TTNN_Win.DAL
         }
         public Boolean themPhongThi(PhongThi phongthi)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
+
                 db.PhongThis.Add(phongthi);
                 db.SaveChanges();
             }
             return true;
         }
+        public Boolean taoPhongThiTuDong(PhongThi phongThi)
+        {
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                db.PhongThis.Add(phongThi);
+                db.SaveChanges();
+            }
+            return true;
+        }
+
+        public Boolean themThiSinhVaoPhongThi(ThiSinhTheoPhongThi thiSinhTheoPhongThi)
+        {
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                db.ThiSinhTheoPhongThis.Add(thiSinhTheoPhongThi);
+                db.SaveChanges();
+            }
+            return true;
+        }
+        public int getSoLuongThiSinhA2()
+        {
+            ThiSinh busThiSinh = new ThiSinh();
+            int count;
+            int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                count = db.ThiSinhCuaKhoaThis.Where(p => p.TrinhDo == "A2" && p.MaKhoaThi == maKhoaThi).Count();
+
+            }
+            return count;
+        }
+
+
+        public int getSoLuongThiSinhB1()
+        {
+            ThiSinh busThiSinh = new ThiSinh();
+            int count;
+            int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                count = db.ThiSinhCuaKhoaThis.Where(p => p.TrinhDo == "B1" && p.MaKhoaThi == maKhoaThi).Count();
+            }
+            return count;
+        }
         public Boolean xoaPhongThi(int maphongthi)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 PhongThi phongthhi = db.PhongThis.Find(maphongthi);
-                if(phongthhi.ThiSinhTheoPhongThis.Count > 0)
+                if (phongthhi.ThiSinhTheoPhongThis.Count > 0)
                 {
                     return false;
                 }
@@ -45,12 +90,13 @@ namespace TTNN_Win.DAL
             }
             return true;
         }
+
         public Boolean suaPhongThi(PhongThi phongthi)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 PhongThi phongthiDB = db.PhongThis.Find(phongthi.MaPhongThi);
-                if(phongthiDB.ThiSinhTheoPhongThis.Count >0)
+                if (phongthiDB.ThiSinhTheoPhongThis.Count > 0)
                 {
                     return false;
                 }
@@ -112,6 +158,6 @@ namespace TTNN_Win.DAL
                 return table.FirstOrDefault().TrangThai.ToString();
             }
         }
-      
+
     }
 }

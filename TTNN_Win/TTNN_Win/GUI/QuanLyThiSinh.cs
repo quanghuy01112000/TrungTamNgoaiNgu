@@ -27,8 +27,16 @@ namespace TTNN_Win.GUI
 
 
         }
-        
-        
+
+        public static bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
 
         private void QuanLyThiSinh_Load(object sender, EventArgs e)
         {
@@ -69,20 +77,25 @@ namespace TTNN_Win.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null 
-                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "")
+            if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null
+                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == ""
+                || IsAllDigits(textBoxCMND.Text) == false || IsAllDigits(textBoxSDT.Text) == false)
+
             {
                 MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
             }
-            ThiSinh thiSinh = dgvQuanLyDanhSachTS.CurrentRow.DataBoundItem as ThiSinh;
-            thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
-            thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
-            thiSinh.GioiTinh = comboBoxGioiTinh.Text;
-            thiSinh.Cmnd = textBoxCMND.Text;
-            thiSinh.SoDienThoai = textBoxSDT.Text;
-            dgvQuanLyDanhSachTS.Update();
-            dgvQuanLyDanhSachTS.Refresh();
-            busThiSinh.suaThisinh(thiSinh);
+            else
+            {
+                ThiSinh thiSinh = dgvQuanLyDanhSachTS.CurrentRow.DataBoundItem as ThiSinh;
+                thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
+                thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
+                thiSinh.GioiTinh = comboBoxGioiTinh.Text;
+                thiSinh.Cmnd = textBoxCMND.Text;
+                thiSinh.SoDienThoai = textBoxSDT.Text;
+                dgvQuanLyDanhSachTS.Update();
+                dgvQuanLyDanhSachTS.Refresh();
+                busThiSinh.suaThisinh(thiSinh);
+            }
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
