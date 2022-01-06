@@ -1,8 +1,15 @@
 ﻿@model TTNN_Web.Models.ThiSinh
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "AddThiSinh";
     Layout = "~/Views/Shared/_LayoutReg.cshtml";
 }
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
 
 <section class="parallax event-section" data-stellar-background-ratio="0.5" style="background-image:url('@Url.Content("~/images/rg-bg.jpg")');">
     <div class="registration-main">
@@ -16,7 +23,8 @@
             <div class="row form-group">
                 <label for="fullName" class="col-sm-2 control-label"><i class="mdi mdi-account"></i></label>
                 <div class="col-sm-10">
-                    @Html.TextBox("TenThiSinh",null, new { @class = "form-control", placeholder = "Tên thí sinh" })
+                    @Html.ValidationMessageFor(x => x.TenThiSinh, "", new { @class = "error" })
+                    @Html.TextBox("TenThiSinh", null, new { @class = "form-control", placeholder = "Tên thí sinh" })
                     @*<input type="text" id="fullName" placeholder="Tên thí sinh" class="form-control" autofocus>*@
                 </div>
             </div>
@@ -49,21 +57,23 @@
             <div class="row form-group">
                 <label for="birthDate" class="col-sm-2 control-label"><i class="mdi mdi-calendar-range"></i></label>
                 <div class="col-sm-10">
-                    @Html.TextBox("NgaySinh",null, new { placeholder = "Ngày sinh", @class = "form-control" })
+                    @Html.TextBox("NgaySinh", null, new { placeholder = "Ngày sinh", @class = "form-control" })
                     @*<input id="birthDate" class="form-control js-datepicker" type="text" placeholder="Ngày sinh" name="birthday">*@
                 </div>
             </div>
             <div class="row form-group">
                 <label for="cmnd" class="col-sm-2 control-label"><i class="mdi mdi-account-card-details"></i></label>
                 <div class="col-sm-10">
-                    @Html.TextBox("CMND",null, new { @class = "form-control", placeholder = "CMND" })
+                    @Html.ValidationMessageFor(x => x.Cmnd, "", new { @class = "error" })
+                    @Html.TextBox("CMND", null, new { @class = "form-control", placeholder = "CMND" })
                     @*<input type="text" id="cmnd" placeholder="CMND" class="form-control" autofocus>*@
                 </div>
             </div>
             <div class="row form-group">
                 <label for="sdt" class="col-sm-2 control-label"><i class="mdi mdi-phone"></i></label>
                 <div class="col-sm-10">
-                    @Html.TextBox("SDT",null, new { @class = "form-control", placeholder = "Số điện thoại" })
+                    @Html.ValidationMessageFor(x => x.SoDienThoai, "", new { @class = "error" })
+                    @Html.TextBox("SDT", null, new { @class = "form-control", placeholder = "Số điện thoại" })
                     @*<input type="text" id="sdt" placeholder="Số điện thoại" class="form-control" name="sdt">*@
                 </div>
             </div>
@@ -80,11 +90,11 @@
                                 },
                         new { @class = "select-dropdown" })
                         @*<select name="gender">
-                            <option disabled="disabled" selected="selected">Chọn trình độ thi</option>
-                            <option>A2</option>
-                            <option>B1</option>
-                        </select>
-                        <div class="select-dropdown"></div>*@
+                                <option disabled="disabled" selected="selected">Chọn trình độ thi</option>
+                                <option>A2</option>
+                                <option>B1</option>
+                            </select>
+                            <div class="select-dropdown"></div>*@
                     </div>
                 </div>
             </div>
@@ -101,12 +111,4 @@
             <!--</div>--> <!-- /form -->
         }
     </div>
-
-
-
-</section><!-- end section -->
-
-@Scripts.Render("~/Scripts/datepicker.js")
-@Scripts.Render("~/Scripts/daterangepicker.js")
-
 
