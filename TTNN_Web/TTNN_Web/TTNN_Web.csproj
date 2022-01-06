@@ -319,6 +319,8 @@
     <Content Include="Views\ThongKe\ThongKeA2.cshtml" />
     <Content Include="Views\ThongKe\ThongKeB1.cshtml" />
     <Content Include="Views\Shared\_LayoutTraCuu.cshtml" />
+    <Content Include="Views\TraCuu\KetQuaThiSinh.cshtml" />
+    <Content Include="Views\TraCuu\ThongTinChiTietThiSinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

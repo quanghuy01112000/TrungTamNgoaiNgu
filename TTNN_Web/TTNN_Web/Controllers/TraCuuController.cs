@@ -24,6 +24,16 @@ namespace TTNN_Web.Controllers
             return View();
         }
 
+        public ActionResult KetQuaThiSinh()
+        {
+            return View();
+        }
+
+        public ActionResult ThongTinChiTietThiSinh()
+        {
+            return View();
+        }
+
         public ActionResult ChiTietGiayChungNhan()
         {
             return View();
