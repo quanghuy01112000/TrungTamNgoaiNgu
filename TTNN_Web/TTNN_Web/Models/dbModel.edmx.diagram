@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81ccca426d994004b8c42bd9d7b0315f" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_TT_NGOAINGUModel.KhoaThi" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TT_NGOAINGUModel.PhongThi" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TT_NGOAINGUModel.ThiSinh" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TT_NGOAINGUModel.ThiSinhCuaKhoaThi" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TT_NGOAINGUModel.ThiSinhTheoPhongThi" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="QL_TT_NGOAINGUModel.FK__PhongThi__MaKhoa__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_TT_NGOAINGUModel.FK__ThiSinhCu__MaKho__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_TT_NGOAINGUModel.FK__ThiSinhTh__MaPho__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_TT_NGOAINGUModel.FK__ThiSinhCu__MaThi__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_TT_NGOAINGUModel.FK__ThiSinhTh__MaThi__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
