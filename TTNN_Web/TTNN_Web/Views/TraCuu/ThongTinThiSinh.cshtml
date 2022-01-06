@@ -1,6 +1,6 @@
-﻿
+﻿@model  IEnumerable <TTNN_Web.Models.TraCuuViewModel>
 @{
-    ViewBag.Title = "ThongTinThiSinh";
+    ViewBag.Title = "Tra cứu thông tin thí sinh ";
     Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
 }
 
@@ -30,66 +30,37 @@
                         <h3>Thông tin tra cứu</h3>
                         <p>Thí sinh phải nhập cả tên và số điện thoại thí sinh để tra cứu.</p>
                     </div><!-- end title -->
+                    <!-- end title    <form class="big-contact-form" role="searchInfo">  -->
+                    @using (Html.BeginForm("ThongTinThiSinh", "TraCuu", FormMethod.Get))
+                    {
+                        @Html.TextBox("TenThiSinh", "", new { @class = "form-control", @placeholder = "Nhập tên của thí sinh.." })
 
-                    <form class="big-contact-form" role="searchInfo">
-                        <input type="text" class="form-control" placeholder="Nhập tên của thí sinh..">
-                        <input type="text" class="form-control" placeholder="Số điện thoại thí sinh..">
+                        @Html.TextBox("SoDienThoai", "", new { @class = "form-control", @placeholder = "Nhập số điện thoại của thí sinh.." })
+
                         <button type="submit" class="btn btn-primary">Tra cứu</button>
-                    </form>
+                    }
+                    <!-- end title     </form>  -->
                 </div><!-- end col -->
             </div>
-
-            <div class="row contactv2 text-center">
-                <div class="col-md-4">
-                    <div class="small-box">
-                        <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
-                        <h4>Trình độ A2</h4>
-                        <small>Số báo danh: 0003</small>
-                        <small>Phòng thi:  01</small>
-                        <small>Ngày thi thi:  01/10/2021</small>
-                        <small>Kết quả: <strong>Rớt</strong></small>
-
-                    </div><!-- end small-box -->
-                </div><!-- end col -->
-
-                <div class="col-md-4">
-                    <div class="small-box">
-                        <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
-                        <h4>Trình độ B1</h4>
-                        <small>Số báo danh: 0003</small>
-                        <small>Phòng thi:  01</small>
-                        <small>Ngày thi thi:  01/11/2021</small>
-                        <small>Kết quả: <strong>Rớt</strong></small>
-
-                    </div><!-- end small-box -->
-                </div><!-- end col -->
-
-                <div class="col-md-4">
-                    <div class="small-box">
-                        <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
-                        <h4>Trình độ A2</h4>
-                        <small>Số báo danh: 0013</small>
-                        <small>Phòng thi:  01</small>
-                        <small>Ngày thi thi:  01/11/2021</small>
-                        <small>Kết quả: <strong>Đậu</strong></small>
-                        <p><a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")">Giấy chứng nhận</a></p>
-                    </div><!-- end small-box -->
-                </div><!-- end col -->
-
-                <div class="col-md-4">
-                    <div class="small-box">
-                        <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
-                        <h4>Trình độ B2</h4>
-                        <small>Số báo danh: 0014</small>
-                        <small>Phòng thi:  01</small>
-                        <small>Ngày thi thi:  01/12/2021</small>
-                        <small>Kết quả: <strong>Đậu</strong></small>
-                        <p><a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")">Giấy chứng nhận</a></p>
-                    </div><!-- end small-box -->
-                </div><!-- end col -->
-
-            </div><!-- end contactv2 -->
-            <!-- end row -->
+            @if (Model!=null) { 
+                foreach (var item in Model)
+                {
+                    <div class="row contactv2 text-center">
+                        <div class="col-md-4">
+                            <div class="small-box">
+                                <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
+                                <small>Số báo danh: @Html.DisplayFor(modelItem => item.SBD)</small>
+                                <small>Phòng thi:  @Html.DisplayFor(modelItem => item.TenPhongThi)</small>
+                                <small>Điểm nghe : @Html.DisplayFor(modelItem => item.DiemNghe)</small>
+                                <small>Điểm Nói : @Html.DisplayFor(modelItem => item.DiemNoi)</small>
+                                <small>Điểm Viết : @Html.DisplayFor(modelItem => item.DiemViet)</small>
+                                <small>Điểm Đọc : @Html.DisplayFor(modelItem => item.DiemDoc)</small>
+                            </div><!-- end small-box -->
+                        </div><!-- end col -->
+                    </div><!-- end contactv2 -->
+                    <!-- end row -->
+                }
+            }
         </div><!-- end container -->
     </div>
 </section>

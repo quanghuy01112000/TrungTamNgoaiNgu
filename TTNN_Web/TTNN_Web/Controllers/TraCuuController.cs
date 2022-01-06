@@ -11,8 +11,16 @@ namespace TTNN_Web.Controllers
     public class TraCuuController : Controller
     {
         // GET: TraCuu
-        public ActionResult ThongTinThiSinh()
+        public ActionResult ThongTinThiSinh(string TenThiSinh,string SoDienThoai)
         {
+            List<TraCuuViewModel> lstThongTin = new List<TraCuuViewModel>();
+            TraCuuModel vi = new TraCuuModel();
+            if (!String.IsNullOrEmpty(TenThiSinh) && !String.IsNullOrEmpty(SoDienThoai))
+            {
+                int id = vi.GetIdThiSinh(TenThiSinh, SoDienThoai);
+                lstThongTin = vi.getThongtinbyId(id);
+                return View(lstThongTin);
+            }
             return View();
         }
 
@@ -26,16 +34,6 @@ namespace TTNN_Web.Controllers
         }
 
         public ActionResult GiayChungNhan()
-        {
-            return View();
-        }
-
-        public ActionResult KetQuaThiSinh()
-        {
-            return View();
-        }
-
-        public ActionResult ThongTinChiTietThiSinh()
         {
             return View();
         }
