@@ -14,11 +14,11 @@ namespace TTNN_Win.DAL
         public List<ThiSinh> getDanhSachThiSinh()
         {
             List<ThiSinh> dsThiSinh = new List<ThiSinh>();
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 var table = from t in db.ThiSinhs
                             select t;
-                foreach(var i in table)
+                foreach (var i in table)
                 {
                     ThiSinh thiSinh = new ThiSinh();
                     thiSinh.MaThiSinh = i.MaThiSinh;
@@ -45,7 +45,7 @@ namespace TTNN_Win.DAL
                 thiSinhDB.SoDienThoai = thiSinh.SoDienThoai;
                 db.SaveChanges();
 
-            }  
+            }
             return true;
         }
         public Boolean themThiSinh(ThiSinh thiSinh)
@@ -71,7 +71,7 @@ namespace TTNN_Win.DAL
         }
         public Boolean xoaThiSinh(int maThiSinh)
         {
-            using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 ThiSinh thiSinh = db.ThiSinhs.Find(maThiSinh);
                 ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = db.ThiSinhCuaKhoaThis.SingleOrDefault(m => m.MaThiSinh == maThiSinh);
@@ -114,6 +114,38 @@ namespace TTNN_Win.DAL
                 }
                 else return null;
             }
+        }
+        public List<Int32> getMaThiSinhByTrinhDoA2()
+        {
+            ThiSinh busThiSinh = new ThiSinh();
+            List<Int32> listMaThiSinh = new List<Int32>();
+            int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var table = db.ThiSinhCuaKhoaThis.Where(p => p.MaKhoaThi == maKhoaThi && p.TrinhDo == "A2").Select(p => p.MaThiSinh).ToList();
+
+                foreach (int h in table)
+                {
+                    listMaThiSinh.Add(int.Parse(h.ToString()));
+                }
+            }
+            return listMaThiSinh.ToList();
+        }
+        public List<Int32> getMaThiSinhByTrinhDoB1()
+        {
+            ThiSinh busThiSinh = new ThiSinh();
+            List<Int32> listMaThiSinh = new List<Int32>();
+            int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var table = db.ThiSinhCuaKhoaThis.Where(p => p.MaKhoaThi == maKhoaThi && p.TrinhDo == "B1").Select(p => p.MaThiSinh).ToList();
+
+                foreach (int h in table)
+                {
+                    listMaThiSinh.Add(int.Parse(h.ToString()));
+                }
+            }
+            return listMaThiSinh.ToList();
         }
     }
 }

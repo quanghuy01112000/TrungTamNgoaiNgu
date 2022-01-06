@@ -20,6 +20,15 @@ namespace TTNN_Win.GUI
         {
             InitializeComponent();
         }
+        public static bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
         private void ThemThiSinh_Load(object sender, EventArgs e)
         {
             comboBoxTrinhDo.DataSource = ThiSinh.listTrinhDo;
@@ -31,30 +40,34 @@ namespace TTNN_Win.GUI
         private void buttonThemThiSinh_Click(object sender, EventArgs e)
         {
             if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null
-                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "" || comboBoxTrinhDo.Text == null)
+                || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "" || comboBoxTrinhDo.Text == null
+                || IsAllDigits(textBoxCMND.Text) == false || IsAllDigits(textBoxSDT.Text) == false)
             {
                 MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
             }
-            ThiSinh thiSinh = new ThiSinh();
-            thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
-            thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
-            thiSinh.GioiTinh = comboBoxGioiTinh.Text;
-            thiSinh.Cmnd = textBoxCMND.Text;
-            thiSinh.SoDienThoai = textBoxSDT.Text;
-
-            ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = new ThiSinhCuaKhoaThi();
-            thiSinhCuaKhoaThi.MaThiSinh = busThiSinh.getMaThiSinhMax() +1;
-            thiSinhCuaKhoaThi.MaKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
-            thiSinhCuaKhoaThi.TrinhDo = comboBoxTrinhDo.Text;
-            
-            if(busThiSinh.themThiSinh(thiSinh) && busThiSinh.themThiSinhCuaKhoathi(thiSinhCuaKhoaThi))
-            {
-                this.Close();
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
-            }
             else
             {
-                MessageBox.Show("Thêm thất bại!", "Cảnh báo", MessageBoxButtons.OK);
+                ThiSinh thiSinh = new ThiSinh();
+                thiSinh.TenThiSinh = textBoxTenThiSinh.Text;
+                thiSinh.NgaySinh = dateTimePickerNgaySinh.Value.Date;
+                thiSinh.GioiTinh = comboBoxGioiTinh.Text;
+                thiSinh.Cmnd = textBoxCMND.Text;
+                thiSinh.SoDienThoai = textBoxSDT.Text;
+
+                ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = new ThiSinhCuaKhoaThi();
+                thiSinhCuaKhoaThi.MaThiSinh = busThiSinh.getMaThiSinhMax() + 1;
+                thiSinhCuaKhoaThi.MaKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
+                thiSinhCuaKhoaThi.TrinhDo = comboBoxTrinhDo.Text;
+
+                if (busThiSinh.themThiSinh(thiSinh) && busThiSinh.themThiSinhCuaKhoathi(thiSinhCuaKhoaThi))
+                {
+                    this.Close();
+                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại!", "Cảnh báo", MessageBoxButtons.OK);
+                }
             }
         }
 

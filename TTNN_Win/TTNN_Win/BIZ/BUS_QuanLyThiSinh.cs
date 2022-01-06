@@ -22,7 +22,7 @@ namespace TTNN_Win.BIZ
         }
         public KhoaThi getKhoaThiByTrangThai()
         {
-            if(!daoQuanLyThiSinh.getKhoaThiByTrangThai().Equals(null)) 
+            if (!daoQuanLyThiSinh.getKhoaThiByTrangThai().Equals(null))
                 return daoQuanLyThiSinh.getKhoaThiByTrangThai();
             else return null;
         }
@@ -73,6 +73,14 @@ namespace TTNN_Win.BIZ
                 return listGetDanhSachThiSinh.FirstOrDefault().MaThiSinh;
             }
             else return -1;
+        }
+        public List<Int32> getMaThiSinhByTrinhDoA2()
+        {
+            return daoQuanLyThiSinh.getMaThiSinhByTrinhDoA2();
+        }
+        public List<Int32> getMaThiSinhByTrinhDoB1()
+        {
+            return daoQuanLyThiSinh.getMaThiSinhByTrinhDoB1();
         }
     }
 }
