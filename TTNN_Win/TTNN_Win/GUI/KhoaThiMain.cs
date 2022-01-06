@@ -381,5 +381,12 @@ namespace TTNN_Win.GUI
                 MessageBox.Show("Chọn một khóa thi để sửa ", "Cảnh báo", MessageBoxButtons.OK);
             }
         }
+
+        private void dgvDanhSachKT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            KhoaThi khoat = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
+            txtSlA2.Text = khoat.PhongA2ToiDa.ToString();
+            txtSlB1.Text = khoat.PhongB1ToiDa.ToString();
+        }
     }
 }
