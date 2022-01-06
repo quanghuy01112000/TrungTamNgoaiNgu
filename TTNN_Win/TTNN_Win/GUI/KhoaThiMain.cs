@@ -34,6 +34,8 @@ namespace TTNN_Win.GUI
             dgvDanhSachKT.Columns["NgayThi"].DataPropertyName = "NgayThi";
             dgvDanhSachKT.Columns[2].DefaultCellStyle.Format = "dd-MM-yyyy";
             dgvDanhSachKT.Columns["TrangThai"].DataPropertyName = "TrangThai";
+            dgvDanhSachKT.Columns["PhongA2ToiDa"].DataPropertyName = "PhongA2ToiDa";
+            dgvDanhSachKT.Columns["PhongB1ToiDa"].DataPropertyName = "PhongB1ToiDa";
         }
         private void kiemtrakhoathi()
         {
@@ -51,7 +53,15 @@ namespace TTNN_Win.GUI
                 btnThem.Enabled = true;
             }
         }
-
+        public static bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             int monthNow = Int32.Parse(DateTime.Now.Month.ToString());
@@ -80,15 +90,31 @@ namespace TTNN_Win.GUI
                         {
                             if(dayDTP >= dayNow)
                             {
-                                KhoaThi khoaThi = new KhoaThi();
-                                khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
-                                khoaThi.NgayThi = dtpNgayThi.Value;
-                                khoaThi.TrangThai = "chưa thi";
-                                khoathiBIZ.themKhoaThi(khoaThi);
-                                dgvDanhSachKT.DataSource = null;
-                                dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                                kiemtrakhoathi();
-                                MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
+                                if(txtSlA2.Text.Equals("") || txtSlA2.Equals(""))
+                                {
+                                    MessageBox.Show("Số lượng không được rỗng ", "Cảnh báo", MessageBoxButtons.OK);
+                                }
+                                else
+                                {
+                                    if (IsAllDigits(txtSlA2.Text)==false || IsAllDigits(txtSlB1.Text)==false || Int32.Parse(txtSlA2.Text) < 0 || Int32.Parse(txtSlB1.Text) < 0)
+                                    {
+                                        MessageBox.Show("Số lượng phòng không được chứa chữ và lớn hơn 0 ", "Cảnh báo", MessageBoxButtons.OK);
+                                    }
+                                    else
+                                    {
+                                        KhoaThi khoaThi = new KhoaThi();
+                                        khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
+                                        khoaThi.NgayThi = dtpNgayThi.Value;
+                                        khoaThi.TrangThai = "chưa thi";
+                                        khoaThi.PhongA2ToiDa = Int32.Parse(txtSlA2.Text);
+                                        khoaThi.PhongB1ToiDa = Int32.Parse(txtSlB1.Text);
+                                        khoathiBIZ.themKhoaThi(khoaThi);
+                                        dgvDanhSachKT.DataSource = null;
+                                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                                        kiemtrakhoathi();
+                                        MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
+                                    }
+                                }
                             }
                             else
                             {
@@ -117,15 +143,31 @@ namespace TTNN_Win.GUI
                                 {
                                     if (dayDTP >= dayNow)
                                     {
-                                        KhoaThi khoaThi = new KhoaThi();
-                                        khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
-                                        khoaThi.NgayThi = dtpNgayThi.Value;
-                                        khoaThi.TrangThai = "chưa thi";
-                                        khoathiBIZ.themKhoaThi(khoaThi);
-                                        dgvDanhSachKT.DataSource = null;
-                                        dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
-                                        kiemtrakhoathi();
-                                        MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
+                                        if (txtSlA2.Text.Equals("") || txtSlA2.Equals(""))
+                                        {
+                                            MessageBox.Show("Số lượng không được rỗng ", "Cảnh báo", MessageBoxButtons.OK);
+                                        }
+                                        else
+                                        {
+                                            if (IsAllDigits(txtSlA2.Text)==false || IsAllDigits(txtSlB1.Text)==false || Int32.Parse(txtSlA2.Text) < 0 || Int32.Parse(txtSlB1.Text) < 0)
+                                            {
+                                                MessageBox.Show("Số lượng phòng không được chứa chữ và lớn hơn 0 ", "Cảnh báo", MessageBoxButtons.OK);
+                                            }
+                                            else
+                                            {
+                                                KhoaThi khoaThi = new KhoaThi();
+                                                khoaThi.TenKhoaThi = txtTenKhoaThi.Text;
+                                                khoaThi.NgayThi = dtpNgayThi.Value;
+                                                khoaThi.TrangThai = "chưa thi";
+                                                khoaThi.PhongA2ToiDa = Int32.Parse(txtSlA2.Text);
+                                                khoaThi.PhongB1ToiDa = Int32.Parse(txtSlB1.Text);
+                                                khoathiBIZ.themKhoaThi(khoaThi);
+                                                dgvDanhSachKT.DataSource = null;
+                                                dgvDanhSachKT.DataSource = KhoaThi.listKhoaThi;
+                                                kiemtrakhoathi();
+                                                MessageBox.Show("Thêm thành công ", "Thông báo", MessageBoxButtons.OK);
+                                            }
+                                        }
                                     }
                                     else
                                     {
@@ -203,16 +245,6 @@ namespace TTNN_Win.GUI
             else
             {
                 MessageBox.Show("Chọn một khóa thi để kết thúc khóa thi ", "Cảnh báo", MessageBoxButtons.OK);
-            }
-        }
-
-        private void dgvDanhSachKT_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dgvDanhSachKT.Rows[e.RowIndex];
-                txtTenKhoaThi.Text = row.Cells["TenKhoaThi"].Value.ToString();
-                dtpNgayThi.Text = row.Cells["NgayThi"].Value.ToString();
             }
         }
 
@@ -306,9 +338,48 @@ namespace TTNN_Win.GUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSuaSoLuong_Click(object sender, EventArgs e)
         {
-            button1.Text = button1.Text == "Thêm" ? "kết thúc" : "Thêm";
+
+            if (this.dgvDanhSachKT.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = dgvDanhSachKT.SelectedRows[0];
+                string trangthai = row.Cells["TrangThai"].Value.ToString();
+
+                if(trangthai.Equals("chưa thi"))
+                {
+                    if (IsAllDigits(txtSlA2.Text) == false || IsAllDigits(txtSlB1.Text) == false || Int32.Parse(txtSlA2.Text) < 0 || Int32.Parse(txtSlB1.Text) < 0)
+                    {
+                        MessageBox.Show("Số lượng phòng không được chứa chữ và lớn hơn 0 ", "Cảnh báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        KhoaThi khoaThi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
+                        khoaThi.PhongA2ToiDa = Int32.Parse(txtSlA2.Text);
+                        khoaThi.PhongB1ToiDa = Int32.Parse(txtSlB1.Text);
+                        if (khoathiBIZ.suaKhoaThi(khoaThi))
+                        {
+                            dgvDanhSachKT.Refresh();
+                            dgvDanhSachKT.Update();
+                            kiemtrakhoathi();
+                            MessageBox.Show("Sửa thành công ", "Thông báo", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sửa thất bại do đã có phòng thi ", "Thông báo", MessageBoxButtons.OK);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thê sửa số lượng phòng của khóa thi đã thi ", "Cảnh báo", MessageBoxButtons.OK);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Chọn một khóa thi để sửa ", "Cảnh báo", MessageBoxButtons.OK);
+            }
         }
     }
 }

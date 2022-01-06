@@ -14,18 +14,9 @@ namespace TTNN_Win.DAL
             List<KhoaThi> dsKhoaThi = new List<KhoaThi>();
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
+               
                 var table = from t in db.KhoaThis
                             select t;
-                //quên bỏ phần này
-                //foreach (var i in table)
-                //{
-                //    KhoaThi khoathi = new KhoaThi();
-                //    khoathi.MaKhoaThi = i.MaKhoaThi;
-                //    khoathi.TenKhoaThi = i.TenKhoaThi;
-                //    khoathi.NgayThi = i.NgayThi;
-                //    khoathi.TrangThai = i.TrangThai;
-                //    dsKhoaThi.Add(khoathi);
-                //}
                 return table.ToList();
             }
         }
@@ -39,7 +30,24 @@ namespace TTNN_Win.DAL
             }
             return true;
         }
-
+        public Boolean suaSoLuongPhongThi(KhoaThi khoathi)
+        {
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                KhoaThi khoathiDb = db.KhoaThis.Find(khoathi.MaKhoaThi);
+                if (khoathiDb.PhongThis.Count > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    khoathiDb.PhongA2ToiDa = khoathi.PhongA2ToiDa;
+                    khoathiDb.PhongB1ToiDa = khoathi.PhongB1ToiDa;
+                    db.SaveChanges();
+                }
+            }
+            return true;
+        }
         public Boolean xoaKhoaThi(int makhoathi)
         {
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())

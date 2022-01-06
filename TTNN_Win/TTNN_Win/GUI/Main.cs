@@ -68,7 +68,7 @@ namespace TTNN_Win.GUI
 
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new TraCuuMain(), sender);
         }
 
         private void button2_Click(object sender, EventArgs e)

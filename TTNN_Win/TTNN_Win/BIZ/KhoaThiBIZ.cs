@@ -50,9 +50,13 @@ namespace TTNN_Win.BIZ
         {
             return khoathiDAL.getNgayCuoi();
         }
-        public String getTrangThaiCuoi()
+        public string getTrangThaiCuoi()
         {
             return khoathiDAL.getTrangThaiCuoi();
+        }
+        public Boolean suaSoLuongPhongThi(KhoaThi khoathi)
+        {
+            return khoathiDAL.suaSoLuongPhongThi(khoathi);
         }
     }
 }
