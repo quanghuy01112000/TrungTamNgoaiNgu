@@ -41,7 +41,8 @@ namespace TTNN_Win.GUI
         {
             if (textBoxTenThiSinh.Text == "" || dateTimePickerNgaySinh.Value == null
                 || comboBoxGioiTinh.Text == null || textBoxCMND.Text == "" || textBoxSDT.Text == "" || comboBoxTrinhDo.Text == null
-                || IsAllDigits(textBoxCMND.Text) == false || IsAllDigits(textBoxSDT.Text) == false)
+                || IsAllDigits(textBoxCMND.Text) == false || IsAllDigits(textBoxSDT.Text) == false
+                || textBoxCMND.Text == textBoxSDT.Text)
             {
                 MessageBox.Show("Nhập vào sai!", "Cảnh báo", MessageBoxButtons.OK);
             }
@@ -76,6 +77,6 @@ namespace TTNN_Win.GUI
             this.Close();
         }
 
-        
+
     }
 }
