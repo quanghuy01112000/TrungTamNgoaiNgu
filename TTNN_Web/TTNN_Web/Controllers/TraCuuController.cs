@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TTNN_Web.Models;
+
 
 namespace TTNN_Web.Controllers
 {
@@ -16,7 +18,11 @@ namespace TTNN_Web.Controllers
 
         public ActionResult DanhSachThiSinh()
         {
-            return View();
+            using (dbEntities db = new dbEntities())
+            {
+                return View(db.ThiSinhTheoPhongThis.ToList());
+            }
+                
         }
 
         public ActionResult GiayChungNhan()
@@ -28,5 +34,25 @@ namespace TTNN_Web.Controllers
         {
             return View();
         }
+
+        public ActionResult KetQuaThiSinh()
+        {
+            return View();
+        }
+        public ActionResult ThongTinChiTietThiSinh()
+        {
+            return View();
+        }
+
+
+
+
+        //=========================================================================
+        
+
+
+
+
+        //=========================================================================
     }
 }

@@ -62,8 +62,13 @@ namespace TTNN_Win.GUI
         private void loadListPT()
         {
             lstPT = new List<PhongThi>();
-            foreach(PhongThi p in DSTS_BUS.dsPT) { 
-                if (p.MaKhoaThi == maKT) lstPT.Add(p);
+            cbxPhongThi.Items.Clear();
+            foreach(PhongThi p in DSTS_BUS.dsPT) {
+                if (p.MaKhoaThi == maKT)
+                {
+                    lstPT.Add(p);
+                    cbxPhongThi.Items.Add(p.TenPhongThi);
+                }
             }
             
         }
