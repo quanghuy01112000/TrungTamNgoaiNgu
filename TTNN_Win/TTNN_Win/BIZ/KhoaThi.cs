@@ -24,6 +24,8 @@ namespace TTNN_Win.BIZ
         public string TenKhoaThi { get; set; }
         public Nullable<System.DateTime> NgayThi { get; set; }
         public string TrangThai { get; set; }
+        public Nullable<int> PhongB1ToiDa { get; set; }
+        public Nullable<int> PhongA2ToiDa { get; set; }
     
         public virtual ICollection<PhongThi> PhongThis { get; set; }
         public virtual ICollection<ThiSinhCuaKhoaThi> ThiSinhCuaKhoaThis { get; set; }

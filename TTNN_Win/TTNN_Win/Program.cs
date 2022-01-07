@@ -14,7 +14,7 @@ namespace TTNN_Win
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+          Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GUI.Main());
         }

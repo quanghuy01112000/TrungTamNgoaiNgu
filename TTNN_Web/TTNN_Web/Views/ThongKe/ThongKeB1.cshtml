@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "ThongKeB1";
+    Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
+}
+
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message page-title text-center">
+                    <h3>Thống kê B1</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="javascript:void(0)">Trung tâm ngoại ngữ</a></li>
+                        <li class="active">Thống kê B1</li>
+                    </ul>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="boxed boxedp4">
+            <div class="row contactv2 text-center">
+                <div class="col-lg-4 col-md-4">
+                    <div class="stat-count">
+                        <h4 style="color:aqua">  @ViewBag.countTSB1</h4>
+                        <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> Thí sinh hoàn thành</h3>
+                        <p>Số thí sinh đã hoàn thành bài thi và có giấy chứng nhận. </p>
+                    </div><!-- stat-count -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="stat-count">
+                        <h4 style="color:aqua"> @ViewBag.countKTB1 </h4>
+                        <h3><i class="flaticon-online-course"></i>Số khóa thi đã diễn ra</h3>
+                        <p>Khóa học được diễn ra mỗi tháng. </p>
+                    </div><!-- stat-count -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="stat-count">
+                        <h4 style="color:aqua"> @ViewBag.countPTB1  </h4>
+                        <h3><i class="flaticon-coffee-cup"></i> Số phòng thi</h3>
+                        <p>Tổng số phòng thi ở trình độ B1 </p>
+                    </div><!-- stat-count -->
+                </div><!-- end col -->
+                <!-- end row -->
+            </div><!-- end container -->
+        </div>
+    </div>
+</section>
+

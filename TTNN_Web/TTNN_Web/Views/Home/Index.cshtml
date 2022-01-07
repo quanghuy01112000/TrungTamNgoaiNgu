@@ -2,30 +2,63 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<section id="home" class="video-section js-height-full">
+    <div class="overlay"></div>
+    <div class="home-text-wrapper relative container">
+        <div class="home-message">
+            <p>Hệ Thống Đăng ký Thi Ngoại Ngữ</p>
+            <small>Kỳ thi được tổ chức định kỳ hằng tháng.Lần thi tiếp theo diễn ra vào ngày 06-11-2021, <br /> hãy đăng ký ngay hoặc xem kết quả thi.</small>
+            <div class="btn-wrapper">
+                <div class="text-center">
+                    <a href="@Url.Action("Index", "DangKy")" class="btn btn-primary wow slideInLeft">Đăng Ký</a> &nbsp;&nbsp;&nbsp;<a href="@Url.Action("ThongTinThiSinh", "TraCuu")" class="btn btn-default wow slideInRight">Xem Kết Quả</a>
+                </div>
+            </div><!-- end row -->
+        </div>
+    </div>
+</section>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<section class="section db">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">1000</h4>
+                    <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> Thí sinh hoàn thành</h3>
+                    <p>Số thí sinh đã hoàn thành bài thi và có giấy chứng nhận. </p>
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">30</h4>
+                    <h3><i class="flaticon-online-course"></i> Khóa học hoàn thành</h3>
+                    <p>Khóa học được diễn ra mỗi tháng. </p>
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">8901</h4>
+                    <h3><i class="flaticon-coffee-cup"></i> Số lượt truy cập</h3>
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+<section class="section bgcolor1">
+    <div class="container">
+        <a href="@Html.ActionLink("Đăng Ký", "Index", "DangKy")">
+            <div class="row callout">
+                <div class="col-md-4 text-center">
+                    <h3><sup>VND</sup>99.000</h3>
+                    <h4>Đăng ký khóa thi tháng này!</h4>
+                </div><!-- end col -->
+
+                <div class="col-md-8">
+                    <p class="lead">Thời gian đăng ký có hạn! Thông tin thí sinh sẽ được thêm vào danh sách thi tức thì. </p>
+                </div>
+            </div><!-- end row -->
+        </a>
+    </div><!-- end container -->
+</section>
