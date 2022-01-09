@@ -128,7 +128,7 @@ namespace TTNN_Web.Controllers
                 model = new ExpandoObject();
                 model.TenThiSinh = ts;
                 model.TrinhDo = td;
-                model.NgayThi = k;
+                model.NgayThi = k.ToString();
 
                 return View();
             }

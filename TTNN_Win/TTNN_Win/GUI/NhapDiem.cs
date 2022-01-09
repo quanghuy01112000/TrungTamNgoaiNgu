@@ -35,6 +35,7 @@ namespace TTNN_Win.GUI
             dgvTS.Columns["MaThiSinh"].DataPropertyName = "MaThiSinh";
             dgvTS.Columns["MaPhongThi"].DataPropertyName = "MaPhongThi";
             dgvTS.Columns["SBD"].DataPropertyName = "SBD";
+            dgvTS.Columns["TenThiSinh"].Visible = false;
             dgvTS.Columns["DiemNghe"].DataPropertyName = "DiemNghe";
             dgvTS.Columns["DiemNoi"].DataPropertyName = "DiemNoi";
             dgvTS.Columns["DiemDoc"].DataPropertyName = "DiemDoc";
@@ -66,6 +67,11 @@ namespace TTNN_Win.GUI
             lstTSPT = bus.getThiSinh(lstPhongThi[cbPhong.SelectedIndex].MaPhongThi);
             dgvTS.DataSource = null;
             dgvTS.DataSource = lstTSPT;
+            cbPhong.Items.Clear();
+            foreach (var p in lstPhongThi)
+            {
+                cbPhong.Items.Add(p.TenPhongThi);
+            }
         }
 
         private void btnLuuDiem_Click(object sender, EventArgs e)

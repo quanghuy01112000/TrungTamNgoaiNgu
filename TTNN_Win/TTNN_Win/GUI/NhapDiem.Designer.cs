@@ -59,60 +59,61 @@ namespace TTNN_Win.GUI
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbKhoa);
-            this.groupBox1.Location = new System.Drawing.Point(44, 29);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(29, 19);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(945, 84);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupBox1.Size = new System.Drawing.Size(630, 55);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(782, 28);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTim.Location = new System.Drawing.Point(521, 18);
+            this.btnTim.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(84, 29);
+            this.btnTim.Size = new System.Drawing.Size(56, 19);
             this.btnTim.TabIndex = 4;
             this.btnTim.Text = "Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
-//            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // cbPhong
             // 
             this.cbPhong.FormattingEnabled = true;
-            this.cbPhong.Location = new System.Drawing.Point(425, 24);
-            this.cbPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbPhong.Location = new System.Drawing.Point(283, 16);
+            this.cbPhong.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(167, 28);
+            this.cbPhong.Size = new System.Drawing.Size(113, 21);
             this.cbPhong.TabIndex = 3;
             this.cbPhong.SelectedIndexChanged += new System.EventHandler(this.cbPhong_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(354, 28);
+            this.label2.Location = new System.Drawing.Point(236, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phòng :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 28);
+            this.label1.Location = new System.Drawing.Point(13, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Khoa :";
             // 
             // cbKhoa
             // 
             this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.Location = new System.Drawing.Point(82, 24);
-            this.cbKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbKhoa.Location = new System.Drawing.Point(55, 16);
+            this.cbKhoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbKhoa.Name = "cbKhoa";
-            this.cbKhoa.Size = new System.Drawing.Size(218, 28);
+            this.cbKhoa.Size = new System.Drawing.Size(147, 21);
             this.cbKhoa.TabIndex = 0;
             this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.cbKhoa_SelectedIndexChanged);
             // 
@@ -132,14 +133,14 @@ namespace TTNN_Win.GUI
             this.DiemNoi,
             this.DiemDoc,
             this.DiemViet});
-            this.dgvTS.Location = new System.Drawing.Point(44, 164);
-            this.dgvTS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvTS.Location = new System.Drawing.Point(29, 107);
+            this.dgvTS.MultiSelect = false;
             this.dgvTS.Name = "dgvTS";
             this.dgvTS.RowHeadersWidth = 51;
             this.dgvTS.RowTemplate.Height = 24;
             this.dgvTS.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTS.Size = new System.Drawing.Size(945, 420);
+            this.dgvTS.Size = new System.Drawing.Size(630, 273);
             this.dgvTS.TabIndex = 5;
             this.dgvTS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTS_CellClick);
             // 
@@ -196,10 +197,10 @@ namespace TTNN_Win.GUI
             // 
             // btnLuuDiem
             // 
-            this.btnLuuDiem.Location = new System.Drawing.Point(778, 120);
-            this.btnLuuDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLuuDiem.Location = new System.Drawing.Point(519, 78);
+            this.btnLuuDiem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLuuDiem.Name = "btnLuuDiem";
-            this.btnLuuDiem.Size = new System.Drawing.Size(84, 29);
+            this.btnLuuDiem.Size = new System.Drawing.Size(56, 19);
             this.btnLuuDiem.TabIndex = 6;
             this.btnLuuDiem.Text = "Lưu điểm";
             this.btnLuuDiem.UseVisualStyleBackColor = true;
@@ -207,13 +208,13 @@ namespace TTNN_Win.GUI
             // 
             // NhapDiem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 620);
+            this.ClientSize = new System.Drawing.Size(683, 403);
             this.Controls.Add(this.btnLuuDiem);
             this.Controls.Add(this.dgvTS);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "NhapDiem";
             this.Text = "Nhập Điểm";
             this.Load += new System.EventHandler(this.NhapDiem_Load);
