@@ -68,15 +68,7 @@ namespace TTNN_Win.GUI
 
         }
 
-        private void loadListPT()
-        {
-            lstPT = new List<PhongThi>();
-            foreach (PhongThi p in DSTS_BUS.dsPT)
-            {
-                if (p.MaKhoaThi == maKT) lstPT.Add(p);
-            }
-
-        }
+        
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
@@ -90,12 +82,7 @@ namespace TTNN_Win.GUI
 
         }
 
-        private void cbxPhongThi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            maPT = getMaPT(cbxPhongThi.SelectedIndex);
-
-            reload();
-        }
+        
 
         private void reload()
         {
@@ -107,7 +94,28 @@ namespace TTNN_Win.GUI
             dgvTS.DataSource = table.ToList();
 
         }
-	public static bool IsEmpty<T>(List<T> list)
+        private void loadListPT()
+        {
+            lstPT = new List<PhongThi>();
+            cbxPhongThi.Items.Clear();
+            foreach (PhongThi p in DSTS_BUS.dsPT)
+            {
+                if (p.MaKhoaThi == maKT)
+                {
+                    lstPT.Add(p);
+                    cbxPhongThi.Items.Add(p.TenPhongThi);
+                }
+            }
+
+
+        }
+        private void cbxPhongThi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maPT = getMaPT(cbxPhongThi.Text);
+
+            reload();
+        }
+        public static bool IsEmpty<T>(List<T> list)
         {
             if (list == null)
             {
@@ -133,9 +141,16 @@ namespace TTNN_Win.GUI
             }
         }
 
-        private int getMaPT(int index)
+        private int getMaPT(String text)
         {
-            return lstPT[index].MaPhongThi;
+            foreach (PhongThi i in lstPT)
+            {
+                if (i.TenPhongThi.Equals(text))
+                {
+                    return i.MaPhongThi;
+                }
+            }
+            return maPT;
         }
 
         private ThiSinh getTS()
