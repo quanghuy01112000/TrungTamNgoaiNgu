@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTNN_Win.BIZ;
+using TTNN_Win.DTO;
 
 namespace TTNN_Win.DAL
 {
@@ -35,6 +36,24 @@ namespace TTNN_Win.DAL
             }
             return tmp;
         }
+        
+        public List<String> getDSTenTS(int maPhongThi)
+        {
+            List<String> tmp = new List<String>();
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var pt = from tk in db.ThiSinhTheoPhongThis
+                         join ts in db.ThiSinhs on tk.MaThiSinh equals ts.MaThiSinh
+                         where tk.MaPhongThi == maPhongThi
+                         select ts.TenThiSinh;
+
+                foreach (String p in pt)
+                {
+                    tmp.Add(p);
+                }
+                return tmp;
+            }
+        }
 
         public List<PhongThi> getListPT(int maKhoaThi)
         {
@@ -57,6 +76,34 @@ namespace TTNN_Win.DAL
                 return tmp;
             }
             
+        }
+
+        public List<DTOThiSinh> getListTSPTFull(int maPhongThiFull)
+        {
+            List<DTOThiSinh> tmp = new List<DTOThiSinh>();
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var ts = from i in db.ThiSinhTheoPhongThis
+                         join k in db.ThiSinhs on i.MaThiSinh equals k.MaThiSinh
+                         where i.MaPhongThi == maPhongThiFull
+                         select new { i.MaThiSinh, i.MaPhongThi, i.SBD, k.TenThiSinh, i.DiemDoc, i.DiemNghe, i.DiemNoi, i.DiemViet };
+                
+                foreach (var t in ts)
+                {
+                    DTOThiSinh tmp2 = new DTOThiSinh();
+                    tmp2.MaThiSinh = t.MaThiSinh;
+                    tmp2.MaPhongThi = t.MaPhongThi;
+                    tmp2.SBD = t.SBD;
+                    tmp2.Ten = t.TenThiSinh;
+                    tmp2.DiemDoc = (int)t.DiemDoc;
+                    tmp2.DiemNghe = (int)t.DiemNghe;
+                    tmp2.DiemNoi = (int)t.DiemNoi;
+                    tmp2.DiemViet = (int)t.DiemViet;
+                    tmp.Add(tmp2);
+                }
+            }
+            return tmp;
+
         }
 
         public List<KhoaThi> getListKT()

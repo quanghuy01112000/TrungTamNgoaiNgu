@@ -110,6 +110,7 @@
     <Compile Include="DAL\KhoaThiDAL.cs" />
     <Compile Include="DAL\PhongThiDAL.cs" />
     <Compile Include="DAL\TraCuuDAL.cs" />
+    <Compile Include="DTO\DTOThiSinh.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
       <SubType>Form</SubType>
     </Compile>
