@@ -113,15 +113,50 @@ namespace TTNN_Web.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult GiayChungNhan()
+        [HttpGet]
+        public ActionResult GiayChungNhan(int? maThiSinh)
         {
-            return View();
-        }
+            using (dbEntities db = new dbEntities())
+            {
+                var ts = (from i in db.ThiSinhs
+                         where i.MaThiSinh == maThiSinh
+                         select i.TenThiSinh).FirstOrDefault();
+                var td = (from i in db.PhongThis
+                          join j in db.ThiSinhTheoPhongThis on i.MaPhongThi equals j.MaPhongThi
+                          where j.MaThiSinh == maThiSinh
+                          select i.TrinhDo).FirstOrDefault();
+                var k = (from i in db.KhoaThis
+                         where i.MaKhoaThi == KhoaHienTai
+                         select i.NgayThi).FirstOrDefault();
+                model = new ExpandoObject();
+                model.TenThiSinh = ts;
+                model.TrinhDo = td;
+                model.NgayThi = k;
 
-        public ActionResult ChiTietGiayChungNhan()
+                return View();
+            }
+        }
+        [HttpGet]
+        public ActionResult ChiTietGiayChungNhan(int? id)
         {
-            return View();
+            using (dbEntities db = new dbEntities())
+            {
+                var ts = (from i in db.ThiSinhs
+                          where i.MaThiSinh == id
+                          select i.TenThiSinh).FirstOrDefault();
+                var td = (from i in db.ThiSinhCuaKhoaThis
+                         select i.TrinhDo).FirstOrDefault();
+                          
+                var k = (from i in db.KhoaThis
+                         where i.MaKhoaThi == KhoaHienTai
+                         select i.NgayThi).FirstOrDefault();
+                model = new ExpandoObject();
+                model.TenThiSinh = ts;
+                model.TrinhDo = td;
+                model.NgayThi = k.ToString();
+
+                return View(model);
+            }
         }
 
         public ActionResult KetQuaThiSinh()
