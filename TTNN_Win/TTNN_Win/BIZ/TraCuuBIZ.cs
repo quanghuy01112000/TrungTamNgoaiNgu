@@ -20,6 +20,7 @@ namespace TTNN_Win.BIZ
         }
         public void getDSThiSinhTheoPhongThi(int mathisinh)
         {
+
             thiSinhTheoPhongThis = tracuuDAL.getThongtinbyId(mathisinh);
             thiSinhTheoPhongThis = thiSinhTheoPhongThis.OrderBy(t => t.MaThiSinh).ToList();
         }

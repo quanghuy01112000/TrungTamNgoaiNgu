@@ -15,9 +15,12 @@ namespace TTNN_Win.DAL
             using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
                 var table = from t in db.ThiSinhs
-                            where t.TenThiSinh.ToLower().Contains(ten) || t.SoDienThoai.Contains(sdt)
+                            where t.TenThiSinh.ToLower().Equals(ten) && t.SoDienThoai.Equals(sdt)
                             select t;
+                if (table.Any())
                 return table.FirstOrDefault().MaThiSinh;
+                return 0;
+     
             }
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TTNN_Web.Models
 {
-    class TraCuuModel
+    class TraCuu
     {
         public static List<TraCuuViewModel> thiSinhTheoPhongThis = null;
         public int GetIdThiSinh(string ten, string sdt)
@@ -14,7 +14,7 @@ namespace TTNN_Web.Models
             using (dbEntities db = new dbEntities())
             {
                 var table = from t in db.ThiSinhs
-                            where t.TenThiSinh.ToLower().Equals(ten) || t.SoDienThoai.Equals(sdt)
+                            where t.TenThiSinh.ToLower().Equals(ten) && t.SoDienThoai.Equals(sdt)
                             select t;
                 if (table.Any())
                 return table.FirstOrDefault().MaThiSinh;

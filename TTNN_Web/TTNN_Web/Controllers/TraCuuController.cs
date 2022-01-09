@@ -19,7 +19,7 @@ namespace TTNN_Web.Controllers
         public ActionResult ThongTinThiSinh(string TenThiSinh, string SoDienThoai)
         {
             List<TraCuuViewModel> lstThongTin = new List<TraCuuViewModel>();
-            TraCuuModel vi = new TraCuuModel();
+            TraCuu vi = new TraCuu();
             if (!String.IsNullOrEmpty(TenThiSinh) && !String.IsNullOrEmpty(SoDienThoai))
             {
                 int id = vi.GetIdThiSinh(TenThiSinh, SoDienThoai);
@@ -29,10 +29,7 @@ namespace TTNN_Web.Controllers
             return View();
         }
 
-        public ActionResult ThongTinThiSinh()
-        {
-            return View();
-        }
+       
         [HttpGet]
         public ActionResult DanhSachThiSinh()
         {

@@ -44,21 +44,18 @@ namespace TTNN_Win.GUI
             }
             else
             {
-                if(IsAllDigits(txtSdt.Text)== false || IsAllLetters(txtTen.Text))
-                {
-                    MessageBox.Show("Số điện thoại chỉ được chứa số và tên chỉ được chứa chữ ", "Cảnh báo", MessageBoxButtons.OK);
-                }
-                else
-                {
+                
+                
                     int id = tracuuBIZ.GetIdThiSinh(txtTen.Text, txtSdt.Text);
                     dgvThongTin.AutoGenerateColumns = false;
-                    tracuuBIZ.getDSThiSinhTheoPhongThi(id);
-                    if(ThiSinhTheoPhongThi.thiSinhTheoPhongThis == null)
+                    
+                    if(id == 0)
                     {
                         MessageBox.Show("Không tìm thấy kết quả ", "Cảnh báo", MessageBoxButtons.OK);
                     }
                     else
                     {
+                        tracuuBIZ.getDSThiSinhTheoPhongThi(id);
                         dgvThongTin.DataSource = ThiSinhTheoPhongThi.thiSinhTheoPhongThis;
                         dgvThongTin.Columns["SBD"].DataPropertyName = "SBD";
                         dgvThongTin.Columns["TenPhongThi"].DataPropertyName = "TenPhongThi";
@@ -67,7 +64,7 @@ namespace TTNN_Win.GUI
                         dgvThongTin.Columns["DiemDoc"].DataPropertyName = "DiemDoc";
                         dgvThongTin.Columns["DiemViet"].DataPropertyName = "DiemViet";
                     }
-                }
+                
             }
         }
     }

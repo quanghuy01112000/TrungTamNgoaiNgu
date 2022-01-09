@@ -40,6 +40,7 @@ namespace TTNN_Win.GUI
         private void btnKhoaThi_Click(object sender, EventArgs e)
         {
             openChildForm(new KhoaThiMain(), sender);
+            labelTitle.Text="Khóa thi";
         }
 
         private void btnThiSinh_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace TTNN_Win.GUI
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
             openChildForm(new TraCuuMain(), sender);
+            labelTitle.Text = "Tra cứu";
         }
 
         private void button2_Click(object sender, EventArgs e)

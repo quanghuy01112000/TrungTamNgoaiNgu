@@ -30,6 +30,7 @@ namespace TTNN_Win.GUI
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnThiSinh = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@ namespace TTNN_Win.GUI
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelDeskTop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.panelDeskTop.SuspendLayout();
@@ -61,10 +61,29 @@ namespace TTNN_Win.GUI
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(271, 875);
+            this.panelMenu.Size = new System.Drawing.Size(325, 1050);
             this.panelMenu.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 524);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(325, 68);
+            this.button2.TabIndex = 5;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -74,11 +93,11 @@ namespace TTNN_Win.GUI
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Gainsboro;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 367);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Location = new System.Drawing.Point(0, 442);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(271, 68);
+            this.button1.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(325, 82);
             this.button1.TabIndex = 4;
             this.button1.Text = "    Nhập điểm";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,11 +113,11 @@ namespace TTNN_Win.GUI
             this.btnTraCuu.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnTraCuu.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnTraCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTraCuu.Location = new System.Drawing.Point(0, 299);
-            this.btnTraCuu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnTraCuu.Location = new System.Drawing.Point(0, 360);
+            this.btnTraCuu.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTraCuu.Name = "btnTraCuu";
-            this.btnTraCuu.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btnTraCuu.Size = new System.Drawing.Size(271, 68);
+            this.btnTraCuu.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnTraCuu.Size = new System.Drawing.Size(325, 82);
             this.btnTraCuu.TabIndex = 3;
             this.btnTraCuu.Text = "    Tra Cứu";
             this.btnTraCuu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,11 +133,11 @@ namespace TTNN_Win.GUI
             this.btnThiSinh.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnThiSinh.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnThiSinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThiSinh.Location = new System.Drawing.Point(0, 231);
-            this.btnThiSinh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnThiSinh.Location = new System.Drawing.Point(0, 278);
+            this.btnThiSinh.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnThiSinh.Name = "btnThiSinh";
-            this.btnThiSinh.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btnThiSinh.Size = new System.Drawing.Size(271, 68);
+            this.btnThiSinh.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnThiSinh.Size = new System.Drawing.Size(325, 82);
             this.btnThiSinh.TabIndex = 2;
             this.btnThiSinh.Text = "    Thi sinh";
             this.btnThiSinh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,11 +153,11 @@ namespace TTNN_Win.GUI
             this.btnPhongThi.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnPhongThi.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnPhongThi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPhongThi.Location = new System.Drawing.Point(0, 163);
-            this.btnPhongThi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnPhongThi.Location = new System.Drawing.Point(0, 196);
+            this.btnPhongThi.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnPhongThi.Name = "btnPhongThi";
-            this.btnPhongThi.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btnPhongThi.Size = new System.Drawing.Size(271, 68);
+            this.btnPhongThi.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnPhongThi.Size = new System.Drawing.Size(325, 82);
             this.btnPhongThi.TabIndex = 1;
             this.btnPhongThi.Text = "    Phòng thi";
             this.btnPhongThi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,11 +173,11 @@ namespace TTNN_Win.GUI
             this.btnKhoaThi.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnKhoaThi.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnKhoaThi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhoaThi.Location = new System.Drawing.Point(0, 95);
-            this.btnKhoaThi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnKhoaThi.Location = new System.Drawing.Point(0, 114);
+            this.btnKhoaThi.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnKhoaThi.Name = "btnKhoaThi";
-            this.btnKhoaThi.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btnKhoaThi.Size = new System.Drawing.Size(271, 68);
+            this.btnKhoaThi.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnKhoaThi.Size = new System.Drawing.Size(325, 82);
             this.btnKhoaThi.TabIndex = 0;
             this.btnKhoaThi.Text = "    Khóa thi";
             this.btnKhoaThi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,10 +191,10 @@ namespace TTNN_Win.GUI
             this.panelLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.panelLogo.Size = new System.Drawing.Size(271, 95);
+            this.panelLogo.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.panelLogo.Size = new System.Drawing.Size(325, 114);
             this.panelLogo.TabIndex = 0;
             // 
             // panelTitle
@@ -184,10 +203,10 @@ namespace TTNN_Win.GUI
             this.panelTitle.Controls.Add(this.buttonCloseChildForm);
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(271, 0);
-            this.panelTitle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelTitle.Location = new System.Drawing.Point(325, 0);
+            this.panelTitle.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1332, 95);
+            this.panelTitle.Size = new System.Drawing.Size(1599, 114);
             this.panelTitle.TabIndex = 1;
             // 
             // buttonCloseChildForm
@@ -196,8 +215,9 @@ namespace TTNN_Win.GUI
             this.buttonCloseChildForm.FlatAppearance.BorderSize = 0;
             this.buttonCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseChildForm.Location = new System.Drawing.Point(0, 0);
+            this.buttonCloseChildForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCloseChildForm.Name = "buttonCloseChildForm";
-            this.buttonCloseChildForm.Size = new System.Drawing.Size(73, 95);
+            this.buttonCloseChildForm.Size = new System.Drawing.Size(88, 114);
             this.buttonCloseChildForm.TabIndex = 3;
             this.buttonCloseChildForm.UseVisualStyleBackColor = true;
             // 
@@ -207,10 +227,10 @@ namespace TTNN_Win.GUI
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(537, 14);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitle.Location = new System.Drawing.Point(644, 17);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(104, 41);
+            this.labelTitle.Size = new System.Drawing.Size(123, 48);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "HOME";
             // 
@@ -218,9 +238,10 @@ namespace TTNN_Win.GUI
             // 
             this.panelDeskTop.Controls.Add(this.pictureBox1);
             this.panelDeskTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDeskTop.Location = new System.Drawing.Point(271, 95);
+            this.panelDeskTop.Location = new System.Drawing.Point(325, 114);
+            this.panelDeskTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDeskTop.Name = "panelDeskTop";
-            this.panelDeskTop.Size = new System.Drawing.Size(1332, 780);
+            this.panelDeskTop.Size = new System.Drawing.Size(1599, 936);
             this.panelDeskTop.TabIndex = 2;
             // 
             // pictureBox1
@@ -228,43 +249,24 @@ namespace TTNN_Win.GUI
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1332, 780);
+            this.pictureBox1.Size = new System.Drawing.Size(1599, 936);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 424);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(271, 57);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "    Phòng thi Nghĩa làm ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1603, 875);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
             this.Controls.Add(this.panelDeskTop);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
