@@ -138,6 +138,12 @@ namespace TTNN_Web.Controllers
         {
             using (dbEntities db = new dbEntities())
             {
+                var kh = from i in db.KhoaThis
+                        select i.MaKhoaThi;
+                foreach (int i in kh)
+                {
+                    if (i > KhoaHienTai) KhoaHienTai = i;
+                }
                 var ts = (from i in db.ThiSinhs
                           where i.MaThiSinh == id
                           select i.TenThiSinh).FirstOrDefault();
@@ -150,7 +156,8 @@ namespace TTNN_Web.Controllers
                 model = new ExpandoObject();
                 model.TenThiSinh = ts;
                 model.TrinhDo = td;
-                model.NgayThi = k.ToString();
+                String NgayThi = k.ToString();
+                model.NgayThi = NgayThi;
 
                 return View(model);
             }
@@ -160,9 +167,38 @@ namespace TTNN_Web.Controllers
         {
             return View();
         }
-        public ActionResult ThongTinChiTietThiSinh()
+        [HttpGet]
+        public ActionResult ThongTinChiTietThiSinh(int? id)
         {
-            return View();
+            using (dbEntities db = new dbEntities())
+            {
+                var kh = from i in db.KhoaThis
+                         select i.MaKhoaThi;
+                foreach (int i in kh)
+                {
+                    if (i > KhoaHienTai) KhoaHienTai = i;
+                }
+
+                var tspt = (from i in db.ThiSinhTheoPhongThis
+                            where i.MaThiSinh == id
+                            select i).FirstOrDefault();
+                var p = (from i in db.PhongThis
+                         where tspt.MaPhongThi == i.MaPhongThi
+                         select i).FirstOrDefault();
+                var k = (from i in db.KhoaThis
+                         where i.MaKhoaThi == KhoaHienTai
+                         select i.NgayThi).FirstOrDefault().ToString();
+                model = new ExpandoObject();
+                model.SBD = tspt.SBD;
+                model.PhongThi = p.TenPhongThi;
+                model.NgayThi = k;
+                model.DiemNghe = tspt.DiemNghe;
+                model.DiemNoi = tspt.DiemNoi;
+                model.DiemViet = tspt.DiemViet;
+                model.DiemDoc = tspt.DiemDoc;
+
+                return View(model);
+            }
         }
 
 
