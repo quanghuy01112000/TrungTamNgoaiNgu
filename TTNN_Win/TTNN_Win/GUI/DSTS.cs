@@ -92,6 +92,15 @@ namespace TTNN_Win.GUI
                         where i.MaPhongThi == maPT
                         select i;
             dgvTS.DataSource = table.ToList();
+            dgvTS.Columns[0].HeaderText = "Mã Thí Sinh";
+            dgvTS.Columns[1].HeaderText = "Mã Phòng Thi";
+            dgvTS.Columns[2].HeaderText = "Số Báo Danh";
+            dgvTS.Columns[3].HeaderText = "Điểm Nghe";
+            dgvTS.Columns[4].HeaderText = "Điểm Nói";
+            dgvTS.Columns[5].HeaderText = "Điểm đọc";
+            dgvTS.Columns[6].HeaderText = "Điểm Viết";
+            dgvTS.Columns[7].Visible = false;
+            dgvTS.Columns[8].Visible = false;
 
         }
         private void loadListPT()
