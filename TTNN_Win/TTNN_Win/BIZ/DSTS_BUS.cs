@@ -28,5 +28,23 @@ namespace TTNN_Win.BIZ
             dsPT = dao.getListPT();
             dsKT = dao.getListKT();
         }
+
+        public List<ThiSinhTheoPhongThi> timKiemThiSinhTheoPhongThi(String txt)
+        {
+            var table = from i in dsTSPT
+                        where i.SBD.Contains(txt) || i.MaThiSinh.ToString().Contains(txt) || i.MaPhongThi.ToString().Contains(txt)
+                                                  || i.DiemDoc.ToString().Contains(txt) || i.DiemViet.ToString().Contains(txt) || i.DiemNoi.ToString().Contains(txt) || i.DiemViet.ToString().Contains(txt)
+                        select i;
+
+            return table.ToList();
+        }
+
+        public List<ThiSinhTheoPhongThi> getDanhSachThiSinhCuaPhongThi(int maPhongThi)
+        {
+            var table = from i in dsTSPT
+                        where i.MaPhongThi == maPhongThi
+                        select i;
+            return table.ToList();
+        }
     }
 }

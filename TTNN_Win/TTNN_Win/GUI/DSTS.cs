@@ -60,10 +60,10 @@ namespace TTNN_Win.GUI
             }
             cbxKhoaThi.SelectedIndex = 0;
             cbxPhongThi.SelectedIndex = 0;
-            var table = from i in DSTS_BUS.dsTSPT
-                        where i.MaPhongThi == maPT
-                        select i;
-            dgvTS.DataSource = table.ToList();
+            //var table = from i in DSTS_BUS.dsTSPT
+            //            where i.MaPhongThi == maPT
+            //            select i;
+            dgvTS.DataSource = bus.getDanhSachThiSinhCuaPhongThi(maPT);
 
 
         }
@@ -88,10 +88,10 @@ namespace TTNN_Win.GUI
         {
 
             dgvTS.DataSource = null;
-            var table = from i in DSTS_BUS.dsTSPT
-                        where i.MaPhongThi == maPT
-                        select i;
-            dgvTS.DataSource = table.ToList();
+            //var table = from i in DSTS_BUS.dsTSPT
+            //            where i.MaPhongThi == maPT
+            //            select i;
+            dgvTS.DataSource = bus.getDanhSachThiSinhCuaPhongThi(maPT);
             dgvTS.Columns[0].HeaderText = "Mã Thí Sinh";
             dgvTS.Columns[1].HeaderText = "Mã Phòng Thi";
             dgvTS.Columns[2].HeaderText = "Số Báo Danh";
@@ -101,6 +101,7 @@ namespace TTNN_Win.GUI
             dgvTS.Columns[6].HeaderText = "Điểm Viết";
             dgvTS.Columns[7].Visible = false;
             dgvTS.Columns[8].Visible = false;
+            dgvTS.Columns[9].Visible = false;
 
         }
         private void loadListPT()
@@ -238,13 +239,13 @@ namespace TTNN_Win.GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             String txt = txtTimKiem.Text;
-            var table = from i in DSTS_BUS.dsTSPT
-                        where i.SBD.Contains(txt) || i.MaThiSinh.ToString().Contains(txt) || i.MaPhongThi.ToString().Contains(txt)
-                                                  || i.DiemDoc.ToString().Contains(txt) || i.DiemViet.ToString().Contains(txt) || i.DiemNoi.ToString().Contains(txt) || i.DiemViet.ToString().Contains(txt)
-                        select i;
-
+            
             dgvTS.DataSource = null;
-            dgvTS.DataSource = table.ToList();
+           
+            dgvTS.DataSource = bus.timKiemThiSinhTheoPhongThi(txt);
+            dgvTS.Columns[7].Visible = false;
+            dgvTS.Columns[8].Visible = false;
+            dgvTS.Columns[9].Visible = false;
         }
 
         ThiSinh busThiSinh = new ThiSinh();
@@ -252,12 +253,19 @@ namespace TTNN_Win.GUI
         PhongThi busPhongThi = new PhongThi();
         private void buttonXepPhongThi_Click(object sender, EventArgs e)
         {
+            String resultMes = "";
             int maKhoaThi = busThiSinh.getKhoaThiByTrangThai().MaKhoaThi;
             int soLuongThiSinhCuaA2 = busPhongThi.getSoLuongThiSinhA2();
             List<Int32> listThiSinhTheoTrinhDoA2 = busThiSinh.getMaThiSinhByTrinhDoA2();
             int countTenPhongThiA2 = 1;
             int countSBDA2 = 1;
             int countListThiSinhA2 = 0;
+            
+            if(soLuongThiSinhCuaA2 < 30)
+            {
+                resultMes += "Số Lượng thí sinh thi A2 không đủ để tạo thành 1 phòng thi!\n";
+            }
+
             while (soLuongThiSinhCuaA2 >= 30)
             {
                 PhongThi phongThiA2 = new PhongThi();
@@ -288,11 +296,18 @@ namespace TTNN_Win.GUI
                 }
 
             }
+
             int soLuongThiSinhCuaB1 = busPhongThi.getSoLuongThiSinhB1();
             List<Int32> listThiSinhTheoTrinhDoB1 = busThiSinh.getMaThiSinhByTrinhDoB1();
             int countTenPhongThiB1 = 1;
             int countSBDB1 = 1;
             int countListThiSinhB1 = 0;
+
+            if(soLuongThiSinhCuaB1 < 30)
+            {
+                resultMes += "Số Lượng thí sinh thi B1 không đủ để tạo thành 1 phòng thi!\n";
+            }
+
             while (soLuongThiSinhCuaB1 >= 30)
             {
 
@@ -324,9 +339,14 @@ namespace TTNN_Win.GUI
                 }
 
             }
+            if(countListThiSinhA2 > 0 )
+                resultMes += "Thêm thí sinh A2 vào phòng thi thành công!\n";
+
+            if(countListThiSinhB1 > 0)
+                resultMes += "Thêm thí sinh B1 vào phòng thi thành công!";
 
             buttonXepPhongThi.Enabled = false;
-            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show(resultMes, "Thông báo", MessageBoxButtons.OK);
         }
     }
 }
