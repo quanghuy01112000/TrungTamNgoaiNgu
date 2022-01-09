@@ -58,6 +58,7 @@ namespace TTNN_Win.GUI
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstPhongThi = bus.getDanhSachPhongThi(lstKhoaThi[cbKhoa.SelectedIndex].MaKhoaThi);
+            cbPhong.Items.Clear();
             foreach (var item in lstPhongThi)
             {
                 cbPhong.Items.Add(item.TenPhongThi);
@@ -84,7 +85,7 @@ namespace TTNN_Win.GUI
         {
 
             
-            if (bus.capNhapThiSinh(lstTSPT))
+            if (bus.capNhapThiSinh(lstThiSinh))
             {
                 MessageBox.Show("Cập nhập điểm thi thành công", "Thông báo", MessageBoxButtons.OK);
             }

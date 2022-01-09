@@ -40,7 +40,7 @@ namespace TTNN_Win.BIZ
             return dao.getListPT(maKhoaThi);
         }
 
-        public bool capNhapThiSinh (List<ThiSinhTheoPhongThi> listThiSinh)
+        public bool capNhapThiSinh (List<DTOThiSinh> listThiSinh)
         {
          
             return dao.CapNhapDiemThi(listThiSinh);

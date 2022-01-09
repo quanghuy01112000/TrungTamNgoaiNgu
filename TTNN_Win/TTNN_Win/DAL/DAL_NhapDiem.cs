@@ -95,10 +95,29 @@ namespace TTNN_Win.DAL
                     tmp2.MaPhongThi = t.MaPhongThi;
                     tmp2.SBD = t.SBD;
                     tmp2.Ten = t.TenThiSinh;
-                    tmp2.DiemDoc = (int)t.DiemDoc;
-                    tmp2.DiemNghe = (int)t.DiemNghe;
-                    tmp2.DiemNoi = (int)t.DiemNoi;
-                    tmp2.DiemViet = (int)t.DiemViet;
+
+                    if (t.DiemDoc == null)
+                        tmp2.DiemDoc = 0;
+                    else
+                        tmp2.DiemDoc = (int)t.DiemDoc;
+
+                    if (t.DiemNghe == null)
+                        tmp2.DiemNghe = 0;
+                    else
+                        tmp2.DiemNghe = (int)t.DiemNghe;
+
+                    if (t.DiemNoi == null)
+                        tmp2.DiemNoi = 0;
+                    else
+                        tmp2.DiemNoi = (int)t.DiemNoi;
+
+                    if (t.DiemViet == null)
+                        tmp2.DiemViet = 0;
+                    else
+                        tmp2.DiemViet = (int)t.DiemViet;
+                    //tmp2.DiemNghe = (int)t.DiemNghe;
+                    //tmp2.DiemNoi = (int)t.DiemNoi;
+                    //tmp2.DiemViet = (int)t.DiemViet;
                     tmp.Add(tmp2);
                 }
             }
@@ -126,7 +145,7 @@ namespace TTNN_Win.DAL
             return tmp;
         }
 
-        public bool CapNhapDiemThi(List<ThiSinhTheoPhongThi> ds)
+        public bool CapNhapDiemThi(List<DTOThiSinh> ds)
         {
             using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
@@ -137,7 +156,7 @@ namespace TTNN_Win.DAL
                 bool isEmpty = !ds.Any();
                 if(!isEmpty)
                 {
-                    foreach (ThiSinhTheoPhongThi ts in ds)
+                    foreach (DTOThiSinh ts in ds)
                     {
                         ThiSinhTheoPhongThi tspt = db.ThiSinhTheoPhongThis.FirstOrDefault(t => t.MaThiSinh == ts.MaThiSinh);
                         tspt.DiemDoc = ts.DiemDoc;
