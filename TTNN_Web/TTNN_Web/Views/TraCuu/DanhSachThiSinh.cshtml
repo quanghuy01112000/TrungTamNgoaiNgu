@@ -1,7 +1,12 @@
-﻿
+﻿@using TTNN_Web.Models;
+@model dynamic
 @{
-    ViewBag.Title = "DanhSachThiSinh";
+    ViewBag.Title = "DanhSachThiSinhPost";
     Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
+
+
+
+
 }
 
 
@@ -29,21 +34,26 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="section-title text-center">
                         <h3>Thông tin tra cứu</h3>
-                        <p>Hãy chọn khóa thi và phòng thi để tra cứu.</p>
+                        <p>Hãy chọn phòng thi để tra cứu.</p>
                     </div><!-- end title -->
 
-                    <form class="big-contact-form" role="searchInfo">
-                        <select name="khoa" class="form-control">
-                            <option disabled="disabled" selected="selected">Chọn khóa thi</option>
-                            <option>Khóa thi 1</option>
-                            <option>Khóa thi 2</option>
-                        </select>
-                        <select name="phong" class="form-control">
-                            <option disabled="disabled" selected="selected">Chọn phòng thi</option>
-                            <option>Khóa thi 1</option>
-                            <option>Khóa thi 2</option>
-                        </select>
+                    @using (Html.BeginForm("DanhSachThiSinh", "TraCuu", FormMethod.Post, new { @class = "big-contact-form", role = "searchInfo" }))
+                    {
+                        @Html.TextBox("phong", null, new { @class = "form-control", placeholder = "Phòng thi" })
                         <button type="submit" class="btn btn-primary">Tra cứu</button>
+                    }
+                    <!--<form action="DanhSachPhongThi" class="big-contact-form" role="searchInfo" method="post">-->
+                    @*<select name="phong" class="form-control">
+            @foreach (var p in Model.dspt)
+            {
+                <option>@p.TenPhongThi</option>
+            }
+        </select>*@
+
+
+
+                    </select>
+                    <button type="submit" class="btn btn-primary">Tra cứu</button>
                     </form>
                 </div><!-- end col -->
             </div>
@@ -73,36 +83,34 @@
                                     <tbody>
 
                                         @{ if (Model != null)
+                                            {
+                                                foreach (var ts in Model.dsts)
+                                                {
+
+                                                    <tr>
+                                                        <td></td>
+                                                        @foreach (var t in Model.dstspt)
                                                         {
-                                             foreach (var ts in Model)
+                                                            if (t.MaThiSinh == ts.MaThiSinh)
                                                             {
-                                              <tr>
-                                                  <th></th>
-                                             <th>@ts.SBD</th>
-                                              <th>@ts.MaThiSinh</th>
-                                               </tr>
+                                                                <td>@t.SBD</td>
+                                                                break;
+                                                            }
+                                                        }
+
+                                                        <td>@ts.TenThiSinh</td>
+                                                        <td>@ts.NgaySinh</td>
+                                                        <td>@ts.GioiTinh</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-primary ">Thông tin</a>
+                                                            <a href="#" class="btn btn-primary ">Kết quả</a>
+                                                            <a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")" class="btn btn-primary ">Chứng nhận</a>
+
+                                                    </tr>
                                                 }
-                                                }
-                                                }
-                                           
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>0001</td>
-                                                                    <td>Nguyễn Quang Huy</td>
-                                                                    <td>01/11/2000</td>
-                                                                    <td>Nam</td>
-                                                                    <td>
-                                                                        <a href="#" class="btn btn-primary ">Thông tin</a>
-                                                                        <a href="#" class="btn btn-primary ">Kết quả</a>
-                                                                        <a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")" class="btn btn-primary ">Chứng nhận</a>
-                                                                        <!--
-                                    <button type="button" class="btn-dark">Thông tin</button> |
-                                    <button type="button" class="btn-dark">Kết quả</button> |
-                                    <button type="button" class="btn-dark">Chứng nhận</button>
-                                    -->
-                                                                    </td>
-                                                                </tr>
-                                                                                </tbody>
+                                            }
+                                        }
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

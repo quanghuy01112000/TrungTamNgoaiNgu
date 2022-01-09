@@ -107,14 +107,30 @@ namespace TTNN_Win.GUI
             dgvTS.DataSource = table.ToList();
 
         }
+	public static bool IsEmpty<T>(List<T> list)
+        {
+            if (list == null)
+            {
+                return true;
+            }
 
+            return !list.Any();
+        }
         private void cbxKhoaThi_SelectedIndexChanged(object sender, EventArgs e)
         {
             maKT = cbxKhoaThi.SelectedIndex + 1;
             loadListPT();
-            maPT = getMaPT(0);
-            reload();
-            getNgayThi();
+            if (IsEmpty(lstPT))
+            {
+                MessageBox.Show("Chưa có phòng thi cho khóa thi này");
+                maKT--;
+            }
+            else
+            {
+                maPT = getMaPT(cbxPhongThi.Text);
+                reload();
+                getNgayThi();
+            }
         }
 
         private int getMaPT(int index)

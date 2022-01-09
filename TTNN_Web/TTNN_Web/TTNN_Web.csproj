@@ -166,6 +166,8 @@
     <Compile Include="Models\ThiSinhTheoPhongThi.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TraCuuModel.cs" />
+    <Compile Include="Models\TraCuuViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
