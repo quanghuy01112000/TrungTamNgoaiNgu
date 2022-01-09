@@ -355,9 +355,10 @@ namespace TTNN_Win.GUI
                     else
                     {
                         KhoaThi khoaThi = dgvDanhSachKT.CurrentRow.DataBoundItem as KhoaThi;
+                        khoaThi.MaKhoaThi = Int32.Parse(row.Cells["MaKhoaThi"].Value.ToString());
                         khoaThi.PhongA2ToiDa = Int32.Parse(txtSlA2.Text);
                         khoaThi.PhongB1ToiDa = Int32.Parse(txtSlB1.Text);
-                        if (khoathiBIZ.suaKhoaThi(khoaThi))
+                        if (khoathiBIZ.suaSoLuongPhongThi(khoaThi))
                         {
                             dgvDanhSachKT.Refresh();
                             dgvDanhSachKT.Update();
