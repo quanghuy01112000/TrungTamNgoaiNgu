@@ -93,6 +93,7 @@ namespace TTNN_Win.GUI
             // 
             // cbxPhongThi
             // 
+            this.cbxPhongThi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPhongThi.FormattingEnabled = true;
             this.cbxPhongThi.Location = new System.Drawing.Point(272, 47);
             this.cbxPhongThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -125,6 +126,7 @@ namespace TTNN_Win.GUI
             // 
             // cbxKhoaThi
             // 
+            this.cbxKhoaThi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxKhoaThi.FormattingEnabled = true;
             this.cbxKhoaThi.Location = new System.Drawing.Point(97, 47);
             this.cbxKhoaThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

@@ -39,7 +39,6 @@ namespace TTNN_Win.GUI
             this.label1 = new System.Windows.Forms.Label();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.dgvTS = new System.Windows.Forms.DataGridView();
-            this.btnLuuDiem = new System.Windows.Forms.Button();
             this.MaThiSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPhongThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +47,7 @@ namespace TTNN_Win.GUI
             this.DiemNoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiemViet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLuuDiem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTS)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,7 @@ namespace TTNN_Win.GUI
             // 
             // cbPhong
             // 
+            this.cbPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPhong.FormattingEnabled = true;
             this.cbPhong.Location = new System.Drawing.Point(377, 20);
             this.cbPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -107,6 +108,7 @@ namespace TTNN_Win.GUI
             // 
             // cbKhoa
             // 
+            this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKhoa.FormattingEnabled = true;
             this.cbKhoa.Location = new System.Drawing.Point(73, 20);
             this.cbKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -132,7 +134,7 @@ namespace TTNN_Win.GUI
             this.DiemDoc,
             this.DiemViet});
             this.dgvTS.Location = new System.Drawing.Point(39, 132);
-            this.dgvTS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTS.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTS.MultiSelect = false;
             this.dgvTS.Name = "dgvTS";
             this.dgvTS.RowHeadersWidth = 51;
@@ -142,17 +144,6 @@ namespace TTNN_Win.GUI
             this.dgvTS.Size = new System.Drawing.Size(840, 336);
             this.dgvTS.TabIndex = 5;
             this.dgvTS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTS_CellClick);
-            // 
-            // btnLuuDiem
-            // 
-            this.btnLuuDiem.Location = new System.Drawing.Point(692, 96);
-            this.btnLuuDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLuuDiem.Name = "btnLuuDiem";
-            this.btnLuuDiem.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuDiem.TabIndex = 6;
-            this.btnLuuDiem.Text = "Lưu điểm";
-            this.btnLuuDiem.UseVisualStyleBackColor = true;
-            this.btnLuuDiem.Click += new System.EventHandler(this.btnLuuDiem_Click);
             // 
             // MaThiSinh
             // 
@@ -204,6 +195,17 @@ namespace TTNN_Win.GUI
             this.DiemViet.HeaderText = "Điểm Viết";
             this.DiemViet.MinimumWidth = 6;
             this.DiemViet.Name = "DiemViet";
+            // 
+            // btnLuuDiem
+            // 
+            this.btnLuuDiem.Location = new System.Drawing.Point(692, 96);
+            this.btnLuuDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLuuDiem.Name = "btnLuuDiem";
+            this.btnLuuDiem.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuDiem.TabIndex = 6;
+            this.btnLuuDiem.Text = "Lưu điểm";
+            this.btnLuuDiem.UseVisualStyleBackColor = true;
+            this.btnLuuDiem.Click += new System.EventHandler(this.btnLuuDiem_Click);
             // 
             // NhapDiem
             // 
