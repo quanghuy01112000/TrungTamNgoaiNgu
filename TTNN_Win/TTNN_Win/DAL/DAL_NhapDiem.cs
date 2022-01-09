@@ -154,10 +154,12 @@ namespace TTNN_Win.DAL
                 //var dsCapNhap = from i in db.ThiSinhTheoPhongThis
                 //                select i;
                 bool isEmpty = !ds.Any();
-                if(!isEmpty)
+                if(!isEmpty )
                 {
                     foreach (DTOThiSinh ts in ds)
                     {
+                        if (!(checkValidate(ts.DiemDoc) && checkValidate(ts.DiemNghe) && checkValidate(ts.DiemNoi) && checkValidate(ts.DiemViet)))
+                            return false;
                         ThiSinhTheoPhongThi tspt = db.ThiSinhTheoPhongThis.FirstOrDefault(t => t.MaThiSinh == ts.MaThiSinh);
                         tspt.DiemDoc = ts.DiemDoc;
                         tspt.DiemNghe = ts.DiemNghe;
@@ -170,6 +172,13 @@ namespace TTNN_Win.DAL
                 return false;
                 
             }
+        }
+
+        public Boolean checkValidate(int a)
+        {
+            if (a < 0 || a > 100)
+                return false;
+            return true;
         }
     }
 }

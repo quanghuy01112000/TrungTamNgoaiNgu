@@ -83,8 +83,8 @@ namespace TTNN_Win.GUI
 
         private void btnLuuDiem_Click(object sender, EventArgs e)
         {
+          
 
-            
             if (bus.capNhapThiSinh(lstThiSinh))
             {
                 MessageBox.Show("Cập nhập điểm thi thành công", "Thông báo", MessageBoxButtons.OK);
