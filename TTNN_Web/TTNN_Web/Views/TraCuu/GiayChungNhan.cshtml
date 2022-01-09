@@ -1,4 +1,6 @@
-﻿@using TTNN_Web.Models;
+﻿@using TTNN_Web.Models
+@model dynamic
+
 
 @{
     ViewBag.Title = "GiayChungNhan";
@@ -32,10 +34,17 @@
                         <p>Hãy nhập số báo danh thí sinh cần tra cứu.</p>
                     </div><!-- end title -->
 
-                    <form class="big-contact-form" role="searchInfo">
-                        <input type="text" class="form-control" placeholder="Số báo danh..">
+                    @using (Html.BeginForm("GiayChungNhan", "TraCuu", FormMethod.Post, new { @class = "big-contact-form", role = "searchInfo" }))
+                    {
+                        @Html.TextBox("SBD", null, new { @class = "form-control", placeholder = "Số báo danh" })
                         <button type="submit" class="btn btn-primary">Tra cứu</button>
-                    </form>
+                    }
+
+
+                    @*<form class="big-contact-form" role="searchInfo">
+                            <input type="text" class="form-control" placeholder="Số báo danh..">
+                            <button type="submit" class="btn btn-primary">Tra cứu</button>
+                        </form>*@
                 </div><!-- end col -->
             </div>
 
@@ -44,12 +53,11 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="small-box">
                         <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
-                        <h4>Trình độ A2</h4>
-                        <small>Số báo danh: 0013</small>
-                        <small>Phòng thi:  01</small>
-                        <small>Ngày thi thi:  01/11/2021</small>
+                        <h4>Trình độ @ViewBag.TrinhDo</h4>
+                        <small>Số Tên Thí sinh: @ViewBag.TenThiSinh</small>
+                        <small>Ngày thi thi:  @ViewBag.NgayThi</small>
                         <small>Kết quả: <strong>Đậu</strong></small>
-                        <p><a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu")" target="_blank">Giấy chứng nhận</a></p>
+                        <p><a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu", new {id = ViewBag.Id },null)" target="_blank">Giấy chứng nhận</a></p>
                     </div><!-- end small-box -->
                 </div>
             </div><!-- end contactv2 -->
