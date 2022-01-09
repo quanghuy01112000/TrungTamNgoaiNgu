@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QL_TT_NGOAINGUModelStoreContainer" CdmEntityContainer="dbEntities">
+    <EntitySetMapping Name="KhoaThis">
+      <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.KhoaThi">
+        <MappingFragment StoreEntitySet="KhoaThi">
+          <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+          <ScalarProperty Name="TenKhoaThi" ColumnName="TenKhoaThi" />
+          <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="PhongB1ToiDa" ColumnName="PhongB1ToiDa" />
+          <ScalarProperty Name="PhongA2ToiDa" ColumnName="PhongA2ToiDa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongThis">
+      <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.PhongThi">
+        <MappingFragment StoreEntitySet="PhongThi">
+          <ScalarProperty Name="MaPhongThi" ColumnName="MaPhongThi" />
+          <ScalarProperty Name="TenPhongThi" ColumnName="TenPhongThi" />
+          <ScalarProperty Name="TrinhDo" ColumnName="TrinhDo" />
+          <ScalarProperty Name="SoLuongThiSinh" ColumnName="SoLuongThiSinh" />
+          <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiSinhs">
+      <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinh">
+        <MappingFragment StoreEntitySet="ThiSinh">
+          <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+          <ScalarProperty Name="TenThiSinh" ColumnName="TenThiSinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="Cmnd" ColumnName="Cmnd" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiSinhCuaKhoaThis">
+      <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinhCuaKhoaThi">
+        <MappingFragment StoreEntitySet="ThiSinhCuaKhoaThi">
+          <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
+          <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+          <ScalarProperty Name="TrinhDo" ColumnName="TrinhDo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiSinhTheoPhongThis">
+      <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.ThiSinhTheoPhongThi">
+        <MappingFragment StoreEntitySet="ThiSinhTheoPhongThi">
+          <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+          <ScalarProperty Name="MaPhongThi" ColumnName="MaPhongThi" />
+          <ScalarProperty Name="SBD" ColumnName="SBD" />
+          <ScalarProperty Name="DiemNghe" ColumnName="DiemNghe" />
+          <ScalarProperty Name="DiemNoi" ColumnName="DiemNoi" />
+          <ScalarProperty Name="DiemDoc" ColumnName="DiemDoc" />
+          <ScalarProperty Name="DiemViet" ColumnName="DiemViet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

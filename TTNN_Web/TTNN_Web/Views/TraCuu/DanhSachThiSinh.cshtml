@@ -1,0 +1,123 @@
+﻿@using TTNN_Web.Models;
+@model dynamic
+@{
+    ViewBag.Title = "DanhSachThiSinhPost";
+    Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
+
+
+
+
+}
+
+
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message page-title text-center">
+                    <h3>Danh Sách Thí Sinh</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="javascript:void(0)">Trung tâm ngoại ngữ</a></li>
+                        <li class="active">Danh sách thí sinh</li>
+                    </ul>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="boxed boxedp4">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title text-center">
+                        <h3>Thông tin tra cứu</h3>
+                        <p>Hãy chọn phòng thi để tra cứu.</p>
+                    </div><!-- end title -->
+
+                    @using (Html.BeginForm("DanhSachThiSinh", "TraCuu", FormMethod.Post, new { @class = "big-contact-form", role = "searchInfo" }))
+                    {
+                        @Html.TextBox("phong", null, new { @class = "form-control", placeholder = "Phòng thi" })
+                        <button type="submit" class="btn btn-primary">Tra cứu</button>
+                    }
+                    <!--<form action="DanhSachPhongThi" class="big-contact-form" role="searchInfo" method="post">-->
+                    @*<select name="phong" class="form-control">
+            @foreach (var p in Model.dspt)
+            {
+                <option>@p.TenPhongThi</option>
+            }
+        </select>*@
+
+
+
+                   
+                </div><!-- end col -->
+            </div>
+
+            <div class="row">
+                <!-- table section -->
+                <div class="col-md-12">
+                    <div class="white_shd full margin_bottom_30">
+                        <div class="full graph_head">
+                            <div class="heading1 margin_0">
+                                <h2>Danh sách thí sinh</h2>
+                            </div>
+                        </div>
+                        <div class="table_section padding_infor_info">
+                            <div class="table-responsive-sm">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Số báo danh</th>
+                                            <th>Tên thí sinh</th>
+                                            <th>Ngày sinh</th>
+                                            <th>Giới tính</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @{ if (Model != null)
+                                            {
+                                                foreach (var ts in Model.dsts)
+                                                {
+
+                                                    <tr>
+                                                        <td></td>
+                                                        @foreach (var t in Model.dstspt)
+                                                        {
+                                                            if (t.MaThiSinh == ts.MaThiSinh)
+                                                            {
+                                                                <td>@t.SBD</td>
+                                                                break;
+                                                            }
+                                                        }
+
+                                                        <td>@ts.TenThiSinh</td>
+                                                        <td>@ts.NgaySinh</td>
+                                                        <td>@ts.GioiTinh</td>
+                                                        <td>
+                                                            <a href="@Url.Action("ThongTinChiTietThiSinh", "TraCuu", new {id = ts.MaThiSinh },null)" class="btn btn-primary ">Thông tin</a>
+                                                            
+                                                            <a href="@Url.Action("ChiTietGiayChungNhan", "TraCuu", new {id = ts.MaThiSinh },null)" class="btn btn-primary ">Chứng nhận</a>
+
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end contactv2 -->
+            <!-- end row -->
+        </div><!-- end container -->
+    </div>
+</section>
+

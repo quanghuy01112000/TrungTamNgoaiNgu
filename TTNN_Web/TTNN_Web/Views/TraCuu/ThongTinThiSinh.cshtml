@@ -1,0 +1,68 @@
+﻿@model  IEnumerable <TTNN_Web.Models.TraCuuViewModel>
+@{
+    ViewBag.Title = "Tra cứu thông tin thí sinh ";
+    Layout = "~/Views/Shared/_LayoutTraCuu.cshtml";
+}
+
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message page-title text-center">
+                    <h3>Thông Tin Thí Sinh</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="javascript:void(0)">Trung tâm ngoại ngữ</a></li>
+                        <li class="active">Thông tin thí sinh</li>
+                    </ul>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="boxed boxedp4">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="section-title text-center">
+                        <h3>Thông tin tra cứu</h3>
+                        <p>Thí sinh phải nhập cả tên và số điện thoại thí sinh để tra cứu.</p>
+                    </div><!-- end title -->
+                    <!-- end title    <form class="big-contact-form" role="searchInfo">  -->
+                    @using (Html.BeginForm("ThongTinThiSinh", "TraCuu", FormMethod.Get))
+                    {
+                        @Html.TextBox("TenThiSinh", "", new { @class = "form-control", @placeholder = "Nhập tên của thí sinh.." })
+
+                        @Html.TextBox("SoDienThoai", "", new { @class = "form-control", @placeholder = "Nhập số điện thoại của thí sinh.." })
+
+                        <button type="submit" class="btn btn-primary">Tra cứu</button>
+                    }
+                    <!-- end title     </form>  -->
+                </div><!-- end col -->
+            </div>
+            @if (Model!=null) { 
+                foreach (var item in Model)
+                {
+                    <div class="row contactv2 text-center">
+                        <div class="col-md-4">
+                            <div class="small-box">
+                                <i class="flaticon-black-graduation-cap-tool-of-university-student-for-head wow fadeIn"></i>
+                                <small>Số báo danh: @Html.DisplayFor(modelItem => item.SBD)</small>
+                                <small>Phòng thi:  @Html.DisplayFor(modelItem => item.TenPhongThi)</small>
+                                <small>Điểm nghe : @Html.DisplayFor(modelItem => item.DiemNghe)</small>
+                                <small>Điểm Nói : @Html.DisplayFor(modelItem => item.DiemNoi)</small>
+                                <small>Điểm Viết : @Html.DisplayFor(modelItem => item.DiemViet)</small>
+                                <small>Điểm Đọc : @Html.DisplayFor(modelItem => item.DiemDoc)</small>
+                            </div><!-- end small-box -->
+                        </div><!-- end col -->
+                    </div><!-- end contactv2 -->
+                    <!-- end row -->
+                }
+            }
+        </div><!-- end container -->
+    </div>
+</section>
+
+

@@ -39,12 +39,43 @@ namespace TTNN_Win.GUI
 
         private void btnKhoaThi_Click(object sender, EventArgs e)
         {
-            openChildForm(new KhoaThi(), sender);
+            openChildForm(new KhoaThiMain(), sender);
+            labelTitle.Text="Khóa thi";
         }
 
         private void btnThiSinh_Click(object sender, EventArgs e)
         {
+            openChildForm(new GUI.QuanLyThiSinh(), sender);
+        }
+
+        private void btnPhongThi_Click(object sender, EventArgs e)
+        {
             openChildForm(new GUI.DSTS(), sender);
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new GUI.NhapDiem(), sender);
+        }
+
+        private void panelTitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+		}
+
+        private void btnTraCuu_Click(object sender, EventArgs e)
+        {
+            openChildForm(new TraCuuMain(), sender);
+            labelTitle.Text = "Tra cứu";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PhongThiMain(), sender);
         }
     }
 }

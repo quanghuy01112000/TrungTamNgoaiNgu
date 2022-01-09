@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,12 +68,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIZ\BIZ_NhapDiem.cs" />
+    <Compile Include="BIZ\BUS_QuanLyThiSinh.cs" />
+    <Compile Include="BIZ\DSTS_BUS.cs" />
     <Compile Include="BIZ\KhoaThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="BIZ\KhoaThiBiz.cs" />
     <Compile Include="BIZ\PhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="BIZ\PhongThiBIZ.cs" />
     <Compile Include="BIZ\QL_TT_NGOAINGU.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +103,13 @@
     <Compile Include="BIZ\ThiSinhTheoPhongThi.cs">
       <DependentUpon>QL_TT_NGOAINGU.tt</DependentUpon>
     </Compile>
+    <Compile Include="BIZ\TraCuuBIZ.cs" />
+    <Compile Include="DAL\DAL_NhapDiem.cs" />
+    <Compile Include="DAL\DAO_QuanLyThiSinh.cs" />
+    <Compile Include="DAL\DSTS_DAO.cs" />
+    <Compile Include="DAL\KhoaThiDAL.cs" />
+    <Compile Include="DAL\PhongThiDAL.cs" />
+    <Compile Include="DAL\TraCuuDAL.cs" />
     <Compile Include="GUI\ChiTIetTS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,17 +122,53 @@
     <Compile Include="GUI\DSTS.designer.cs">
       <DependentUpon>DSTS.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\KhoaThi.cs">
+    <Compile Include="GUI\KhoaThiCon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\KhoaThi.Designer.cs">
-      <DependentUpon>KhoaThi.cs</DependentUpon>
+    <Compile Include="GUI\KhoaThiCon.Designer.cs">
+      <DependentUpon>KhoaThiCon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KhoaThiMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\KhoaThiMain.Designer.cs">
+      <DependentUpon>KhoaThiMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Main.designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NhapDiem.Designer.cs">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PhongThiMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PhongThiMain.Designer.cs">
+      <DependentUpon>PhongThiMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyThiSinh.Designer.cs">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ThemThiSinh.Designer.cs">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TraCuuMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TraCuuMain.Designer.cs">
+      <DependentUpon>TraCuuMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,11 +178,29 @@
     <EmbeddedResource Include="GUI\DSTS.resx">
       <DependentUpon>DSTS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\KhoaThi.resx">
-      <DependentUpon>KhoaThi.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\KhoaThiCon.resx">
+      <DependentUpon>KhoaThiCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\KhoaThiMain.resx">
+      <DependentUpon>KhoaThiMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NhapDiem.resx">
+      <DependentUpon>NhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PhongThiMain.resx">
+      <DependentUpon>PhongThiMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyThiSinh.resx">
+      <DependentUpon>QuanLyThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThemThiSinh.resx">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TraCuuMain.resx">
+      <DependentUpon>TraCuuMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,7 +233,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BIZ\QL_TT_NGOAINGU.Context.tt">

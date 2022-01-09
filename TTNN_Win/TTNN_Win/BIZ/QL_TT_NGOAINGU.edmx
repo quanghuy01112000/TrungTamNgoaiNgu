@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QL_TT_NGOAINGUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QL_TT_NGOAINGUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="KhoaThi">
           <Key>
             <PropertyRef Name="MaKhoaThi" />
@@ -13,6 +13,8 @@
           <Property Name="TenKhoaThi" Type="nvarchar" MaxLength="60" />
           <Property Name="NgayThi" Type="date" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="15" />
+          <Property Name="PhongB1ToiDa" Type="int" />
+          <Property Name="PhongA2ToiDa" Type="int" />
         </EntityType>
         <EntityType Name="PhongThi">
           <Key>
@@ -24,12 +26,6 @@
           <Property Name="SoLuongThiSinh" Type="int" />
           <Property Name="MaKhoaThi" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SoLuongPhongTam">
-          <Property Name="TrinhDo" Type="nvarchar" MaxLength="2" />
-          <Property Name="SoLuongPhong" Type="int" />
-        </EntityType>-->
         <EntityType Name="ThiSinh">
           <Key>
             <PropertyRef Name="MaThiSinh" />
@@ -150,8 +146,7 @@ warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have 
             <End Role="ThiSinhTheoPhongThi" EntitySet="ThiSinhTheoPhongThi" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QL_TT_NGOAINGUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -165,6 +160,8 @@ warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have 
           <Property Name="TrangThai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PhongThis" Relationship="Self.FK__PhongThi__MaKhoa__2E1BDC42" FromRole="KhoaThi" ToRole="PhongThi" />
           <NavigationProperty Name="ThiSinhCuaKhoaThis" Relationship="Self.FK__ThiSinhCu__MaKho__2F10007B" FromRole="KhoaThi" ToRole="ThiSinhCuaKhoaThi" />
+          <Property Name="PhongB1ToiDa" Type="Int32" />
+          <Property Name="PhongA2ToiDa" Type="Int32" />
         </EntityType>
         <EntityType Name="PhongThi">
           <Key>
@@ -313,6 +310,8 @@ warning 6013: The table/view 'QL_TT_NGOAINGU.dbo.SoLuongPhongTam' does not have 
           <EntitySetMapping Name="KhoaThis">
             <EntityTypeMapping TypeName="QL_TT_NGOAINGUModel.KhoaThi">
               <MappingFragment StoreEntitySet="KhoaThi">
+                <ScalarProperty Name="PhongA2ToiDa" ColumnName="PhongA2ToiDa" />
+                <ScalarProperty Name="PhongB1ToiDa" ColumnName="PhongB1ToiDa" />
                 <ScalarProperty Name="MaKhoaThi" ColumnName="MaKhoaThi" />
                 <ScalarProperty Name="TenKhoaThi" ColumnName="TenKhoaThi" />
                 <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
