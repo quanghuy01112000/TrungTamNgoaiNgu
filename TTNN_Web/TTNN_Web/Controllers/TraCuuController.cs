@@ -80,6 +80,7 @@ namespace TTNN_Web.Controllers
                 {
                     if (i > KhoaHienTai) KhoaHienTai = i;
                 }
+                
                 var dspt = from p in db.PhongThis
                            where p.MaKhoaThi == KhoaHienTai
                            select p;
@@ -199,7 +200,9 @@ namespace TTNN_Web.Controllers
                 {
                     if (i > KhoaHienTai) KhoaHienTai = i;
                 }
-
+                var ts = (from i in db.ThiSinhs
+                          where i.MaThiSinh == id
+                          select i).FirstOrDefault();
                 var tspt = (from i in db.ThiSinhTheoPhongThis
                             where i.MaThiSinh == id
                             select i).FirstOrDefault();
@@ -210,8 +213,13 @@ namespace TTNN_Web.Controllers
                          where i.MaKhoaThi == KhoaHienTai
                          select i.NgayThi).FirstOrDefault().ToString();
                 model = new ExpandoObject();
+                model.TenThiSinh = ts.TenThiSinh;
+                model.SDT = ts.SoDienThoai;
+                model.cmnd = ts.Cmnd;
+                model.NgaySinh = ts.NgaySinh.ToString();
                 model.SBD = tspt.SBD;
                 model.PhongThi = p.TenPhongThi;
+                model.TrinhDo = p.TrinhDo;
                 model.NgayThi = k;
                 model.DiemNghe = tspt.DiemNghe;
                 model.DiemNoi = tspt.DiemNoi;
@@ -225,12 +233,5 @@ namespace TTNN_Web.Controllers
 
 
 
-        //=========================================================================
-
-
-
-
-
-        //=========================================================================
     }
 }
