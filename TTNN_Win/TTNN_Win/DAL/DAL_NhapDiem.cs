@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTNN_Win.BIZ;
+using TTNN_Win.DTO;
 
 namespace TTNN_Win.DAL
 {
@@ -35,6 +36,24 @@ namespace TTNN_Win.DAL
             }
             return tmp;
         }
+        
+        public List<String> getDSTenTS(int maPhongThi)
+        {
+            List<String> tmp = new List<String>();
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var pt = from tk in db.ThiSinhTheoPhongThis
+                         join ts in db.ThiSinhs on tk.MaThiSinh equals ts.MaThiSinh
+                         where tk.MaPhongThi == maPhongThi
+                         select ts.TenThiSinh;
+
+                foreach (String p in pt)
+                {
+                    tmp.Add(p);
+                }
+                return tmp;
+            }
+        }
 
         public List<PhongThi> getListPT(int maKhoaThi)
         {
@@ -59,6 +78,53 @@ namespace TTNN_Win.DAL
             
         }
 
+        public List<DTOThiSinh> getListTSPTFull(int maPhongThiFull)
+        {
+            List<DTOThiSinh> tmp = new List<DTOThiSinh>();
+            using (QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
+            {
+                var ts = from i in db.ThiSinhTheoPhongThis
+                         join k in db.ThiSinhs on i.MaThiSinh equals k.MaThiSinh
+                         where i.MaPhongThi == maPhongThiFull
+                         select new { i.MaThiSinh, i.MaPhongThi, i.SBD, k.TenThiSinh, i.DiemDoc, i.DiemNghe, i.DiemNoi, i.DiemViet };
+                
+                foreach (var t in ts)
+                {
+                    DTOThiSinh tmp2 = new DTOThiSinh();
+                    tmp2.MaThiSinh = t.MaThiSinh;
+                    tmp2.MaPhongThi = t.MaPhongThi;
+                    tmp2.SBD = t.SBD;
+                    tmp2.Ten = t.TenThiSinh;
+
+                    if (t.DiemDoc == null)
+                        tmp2.DiemDoc = 0;
+                    else
+                        tmp2.DiemDoc = (int)t.DiemDoc;
+
+                    if (t.DiemNghe == null)
+                        tmp2.DiemNghe = 0;
+                    else
+                        tmp2.DiemNghe = (int)t.DiemNghe;
+
+                    if (t.DiemNoi == null)
+                        tmp2.DiemNoi = 0;
+                    else
+                        tmp2.DiemNoi = (int)t.DiemNoi;
+
+                    if (t.DiemViet == null)
+                        tmp2.DiemViet = 0;
+                    else
+                        tmp2.DiemViet = (int)t.DiemViet;
+                    //tmp2.DiemNghe = (int)t.DiemNghe;
+                    //tmp2.DiemNoi = (int)t.DiemNoi;
+                    //tmp2.DiemViet = (int)t.DiemViet;
+                    tmp.Add(tmp2);
+                }
+            }
+            return tmp;
+
+        }
+
         public List<KhoaThi> getListKT()
         {
             List<KhoaThi> tmp = new List<KhoaThi>();
@@ -79,7 +145,7 @@ namespace TTNN_Win.DAL
             return tmp;
         }
 
-        public bool CapNhapDiemThi(List<ThiSinhTheoPhongThi> ds)
+        public bool CapNhapDiemThi(List<DTOThiSinh> ds)
         {
             using(QL_TT_NGOAINGUEntities db = new QL_TT_NGOAINGUEntities())
             {
@@ -88,10 +154,12 @@ namespace TTNN_Win.DAL
                 //var dsCapNhap = from i in db.ThiSinhTheoPhongThis
                 //                select i;
                 bool isEmpty = !ds.Any();
-                if(!isEmpty)
+                if(!isEmpty )
                 {
-                    foreach (ThiSinhTheoPhongThi ts in ds)
+                    foreach (DTOThiSinh ts in ds)
                     {
+                        if (!(checkValidate(ts.DiemDoc) && checkValidate(ts.DiemNghe) && checkValidate(ts.DiemNoi) && checkValidate(ts.DiemViet)))
+                            return false;
                         ThiSinhTheoPhongThi tspt = db.ThiSinhTheoPhongThis.FirstOrDefault(t => t.MaThiSinh == ts.MaThiSinh);
                         tspt.DiemDoc = ts.DiemDoc;
                         tspt.DiemNghe = ts.DiemNghe;
@@ -104,6 +172,13 @@ namespace TTNN_Win.DAL
                 return false;
                 
             }
+        }
+
+        public Boolean checkValidate(int a)
+        {
+            if (a < 0 || a > 100)
+                return false;
+            return true;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TTNN_Win.DAL;
+using TTNN_Win.DTO;
 
 namespace TTNN_Win.BIZ
 {
@@ -12,6 +13,8 @@ namespace TTNN_Win.BIZ
         public static List<PhongThi> dsPT = new List<PhongThi>();
         public static List<ThiSinhTheoPhongThi> dsTSPT = new List<ThiSinhTheoPhongThi>();
         public static List<KhoaThi> dsKT = new List<KhoaThi>();
+        public static List<DTOThiSinh> dsTS = new List<DTOThiSinh>();
+
         DAL_NhapDiem dao = new DAL_NhapDiem();
 
         //public void getDanhSachTSTheoPhong(int MaPhongThi)
@@ -37,12 +40,20 @@ namespace TTNN_Win.BIZ
             return dao.getListPT(maKhoaThi);
         }
 
-        public bool capNhapThiSinh (List<ThiSinhTheoPhongThi> listThiSinh)
+        public bool capNhapThiSinh (List<DTOThiSinh> listThiSinh)
         {
          
             return dao.CapNhapDiemThi(listThiSinh);
         }
 
-        
+        public List<String> getDSTenTS(int maPhongThi)
+        {
+            return dao.getDSTenTS(maPhongThi);
+        }
+
+        public List<DTOThiSinh> getListAllInfoTS(int maPhongThi)
+        {
+            return dao.getListTSPTFull(maPhongThi);
+        }
     }
 }

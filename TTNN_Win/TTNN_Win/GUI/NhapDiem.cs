@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TTNN_Win.BIZ;
 using TTNN_Win.DAL;
+using TTNN_Win.DTO;
 
 namespace TTNN_Win.GUI
 {
@@ -19,6 +20,8 @@ namespace TTNN_Win.GUI
         List<ThiSinhTheoPhongThi> lstTSPT = new List<ThiSinhTheoPhongThi>();
         List<KhoaThi> lstKhoaThi = new List<KhoaThi>();
         List<PhongThi> lstPhongThi = new List<PhongThi>();
+        List<String> lstTenThiSinh = new List<string>();
+        List<DTOThiSinh> lstThiSinh = new List<DTOThiSinh>();
         //int SelectedIndex = 0;
 
         public NhapDiem()
@@ -31,11 +34,11 @@ namespace TTNN_Win.GUI
             dgvTS.AutoGenerateColumns = false;
             
             
-            dgvTS.DataSource = BIZ_NhapDiem.dsTSPT;
+            dgvTS.DataSource = lstThiSinh;
             dgvTS.Columns["MaThiSinh"].DataPropertyName = "MaThiSinh";
             dgvTS.Columns["MaPhongThi"].DataPropertyName = "MaPhongThi";
             dgvTS.Columns["SBD"].DataPropertyName = "SBD";
-            dgvTS.Columns["TenThiSinh"].Visible = false;
+            dgvTS.Columns["TenThiSinh"].DataPropertyName = "Ten";
             dgvTS.Columns["DiemNghe"].DataPropertyName = "DiemNghe";
             dgvTS.Columns["DiemNoi"].DataPropertyName = "DiemNoi";
             dgvTS.Columns["DiemDoc"].DataPropertyName = "DiemDoc";
@@ -55,6 +58,7 @@ namespace TTNN_Win.GUI
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstPhongThi = bus.getDanhSachPhongThi(lstKhoaThi[cbKhoa.SelectedIndex].MaKhoaThi);
+            cbPhong.Items.Clear();
             foreach (var item in lstPhongThi)
             {
                 cbPhong.Items.Add(item.TenPhongThi);
@@ -64,21 +68,24 @@ namespace TTNN_Win.GUI
         private void cbPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
             //bus.getDanhSachTSTheoPhong(BIZ_NhapDiem.dsPT[cbPhong.SelectedIndex].MaPhongThi);
-            lstTSPT = bus.getThiSinh(lstPhongThi[cbPhong.SelectedIndex].MaPhongThi);
+            //lstTSPT = bus.getThiSinh(lstPhongThi[cbPhong.SelectedIndex].MaPhongThi);
+            lstThiSinh = bus.getListAllInfoTS(lstPhongThi[cbPhong.SelectedIndex].MaPhongThi);
             dgvTS.DataSource = null;
-            dgvTS.DataSource = lstTSPT;
+            dgvTS.DataSource = lstThiSinh;
             cbPhong.Items.Clear();
             foreach (var p in lstPhongThi)
             {
                 cbPhong.Items.Add(p.TenPhongThi);
             }
+
+
         }
 
         private void btnLuuDiem_Click(object sender, EventArgs e)
         {
+          
 
-            
-            if (bus.capNhapThiSinh(lstTSPT))
+            if (bus.capNhapThiSinh(lstThiSinh))
             {
                 MessageBox.Show("Cập nhập điểm thi thành công", "Thông báo", MessageBoxButtons.OK);
             }

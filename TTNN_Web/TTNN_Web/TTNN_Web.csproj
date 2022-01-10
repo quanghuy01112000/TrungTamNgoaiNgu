@@ -378,7 +378,7 @@
     <Content Include="Views\Shared\_LayoutTraCuu.cshtml" />
     <Content Include="Views\TraCuu\KetQuaThiSinh.cshtml" />
     <Content Include="Views\TraCuu\ThongTinChiTietThiSinh.cshtml" />
-    <Content Include="Views\DangKy\AddThiSinh.cshtml" />
+    <Content Include="Views\DangKy\AddThiSinhError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,6 +57,7 @@ namespace TTNN_Win.DAL
             return tmp;
         }
 
+
         public List<PhongThi> getListPT()
         {
             List<PhongThi> tmp = new List<PhongThi>();
@@ -96,5 +97,9 @@ namespace TTNN_Win.DAL
             }
             return tmp;
         }
+
+        
+
+
     }
 }
