@@ -75,7 +75,13 @@ namespace TTNN_Win.DAL
             {
                 ThiSinh thiSinh = db.ThiSinhs.Find(maThiSinh);
                 ThiSinhCuaKhoaThi thiSinhCuaKhoaThi = db.ThiSinhCuaKhoaThis.SingleOrDefault(m => m.MaThiSinh == maThiSinh);
-
+                if (thiSinhCuaKhoaThi == null)
+                {
+                    db.ThiSinhs.Remove(thiSinh);
+                    db.SaveChanges();
+                    return true;
+                }
+                    
                 if (thiSinh.ThiSinhTheoPhongThis.Count() > 0 || thiSinhCuaKhoaThi.KhoaThi.TrangThai.Equals("đã kết thúc"))
                     return false;
                 else
